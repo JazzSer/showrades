@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════
+   BRAND DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  /* Brand palette */
+  --sun:       oklch(84% .17 82);
+  --sun-dk:    oklch(71% .19 78);
+  --sun-lt:    oklch(96% .07 88);
+  --mint:      oklch(79% .14 158);
+  --mint-dk:   oklch(62% .15 158);
+  --mint-lt:   oklch(95% .06 158);
+  --sky:       oklch(70% .13 232);
+  --sky-dk:    oklch(54% .15 232);
+  --sky-lt:    oklch(93% .05 232);
+  --coral:     oklch(68% .18 28);
+  --coral-dk:  oklch(54% .20 26);
+  --coral-lt:  oklch(93% .07 28);
+  --plum:      oklch(73% .14 292);
+  --plum-dk:   oklch(57% .16 290);
+  --plum-lt:   oklch(93% .06 292);
+
+  /* Neutrals */
+  --bg:        oklch(98.5% .018 88);
+  --surface:   oklch(100% 0 0);
+  --surf2:     oklch(97.5% .012 88);
+  --border:    oklch(91% .018 88);
+  --border-dk: oklch(83% .018 88);
+  --txt:       oklch(19% .012 80);
+  --txt2:      oklch(46% .012 80);
+  --txt3:      oklch(64% .008 80);
+
+  /* Shadows */
+  --sh1: 0 2px 8px oklch(20% 0 0/.07);
+  --sh2: 0 4px 20px oklch(20% 0 0/.10);
+  --sh3: 0 8px 32px oklch(20% 0 0/.13);
+
+  /* Easing */
+  --ease-spring: cubic-bezier(.34, 1.56, .64, 1);
+  --ease-smooth: cubic-bezier(.4, 0, .2, 1);
+}
+
+/* ═══════════════════════════════════════════
+   TAILWIND V4 THEME MAPPING
+═══════════════════════════════════════════ */
+@theme inline {
+  /* Colors */
+  --color-sun:       var(--sun);
+  --color-sun-dk:    var(--sun-dk);
+  --color-sun-lt:    var(--sun-lt);
+  --color-mint:      var(--mint);
+  --color-mint-dk:   var(--mint-dk);
+  --color-mint-lt:   var(--mint-lt);
+  --color-sky:       var(--sky);
+  --color-sky-dk:    var(--sky-dk);
+  --color-sky-lt:    var(--sky-lt);
+  --color-coral:     var(--coral);
+  --color-coral-dk:  var(--coral-dk);
+  --color-coral-lt:  var(--coral-lt);
+  --color-plum:      var(--plum);
+  --color-plum-dk:   var(--plum-dk);
+  --color-plum-lt:   var(--plum-lt);
+  --color-bg:        var(--bg);
+  --color-surface:   var(--surface);
+  --color-surf2:     var(--surf2);
+  --color-border-base: var(--border);
+  --color-border-dk: var(--border-dk);
+  --color-txt:       var(--txt);
+  --color-txt2:      var(--txt2);
+  --color-txt3:      var(--txt3);
+
+  /* Typography — Next.js font variables injected on <html> */
+  --font-display: var(--loaded-font-display, 'Fredoka', sans-serif);
+  --font-body:    var(--loaded-font-body,    'Nunito',  sans-serif);
+
+  /* Border radii */
+  --radius-1:    8px;
+  --radius-2:    14px;
+  --radius-3:    22px;
+  --radius-4:    32px;
+  --radius-pill: 9999px;
+}
+
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--txt);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+═══════════════════════════════════════════ */
+@keyframes mimo-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  30%       { transform: translateY(-22px) scale(1.06, .94); }
+  60%       { transform: translateY(-9px) scale(.97, 1.03); }
+  80%       { transform: translateY(-3px); }
+}
+
+@keyframes pop-in {
+  0%   { transform: scale(.3) rotate(-10deg); opacity: 0; }
+  65%  { transform: scale(1.1) rotate(2deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0); }
+  20%      { transform: rotate(-14deg); }
+  40%      { transform: rotate(14deg); }
+  60%      { transform: rotate(-9deg); }
+  80%      { transform: rotate(7deg); }
+}
+
+@keyframes card-flip {
+  0%   { transform: perspective(500px) rotateY(0); }
+  50%  { transform: perspective(500px) rotateY(90deg); }
+  100% { transform: perspective(500px) rotateY(0); }
+}
+
+.animate-bounce-spring { animation: mimo-bounce 520ms var(--ease-spring); }
+.animate-pop-in        { animation: pop-in 400ms var(--ease-spring) both; }
+.animate-wiggle        { animation: wiggle 500ms ease both; }
+.animate-card-flip     { animation: card-flip 500ms var(--ease-smooth); }

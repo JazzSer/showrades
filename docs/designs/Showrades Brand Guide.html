@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Showrades · Brand Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN TOKENS
+═══════════════════════════════════════════ */
+:root {
+  --sun:       oklch(84% .17 82);
+  --sun-dk:    oklch(71% .19 78);
+  --sun-lt:    oklch(96% .07 88);
+  --mint:      oklch(79% .14 158);
+  --mint-dk:   oklch(62% .15 158);
+  --mint-lt:   oklch(95% .06 158);
+  --sky:       oklch(70% .13 232);
+  --sky-dk:    oklch(54% .15 232);
+  --sky-lt:    oklch(93% .05 232);
+  --coral:     oklch(68% .18 28);
+  --coral-dk:  oklch(54% .20 26);
+  --coral-lt:  oklch(93% .07 28);
+  --plum:      oklch(73% .14 292);
+  --plum-dk:   oklch(57% .16 290);
+  --plum-lt:   oklch(93% .06 292);
+  --bg:        oklch(98.5% .018 88);
+  --surface:   oklch(100% 0 0);
+  --surf2:     oklch(97.5% .012 88);
+  --border:    oklch(91% .018 88);
+  --border-dk: oklch(83% .018 88);
+  --txt:       oklch(19% .012 80);
+  --txt2:      oklch(46% .012 80);
+  --txt3:      oklch(64% .008 80);
+  --fd: 'Fredoka', sans-serif;
+  --fn: 'Nunito', sans-serif;
+  --r1: 8px; --r2: 14px; --r3: 22px; --r4: 32px; --rp: 9999px;
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:20px;
+  --s6:24px; --s8:32px; --s10:40px; --s12:48px; --s16:64px;
+  --sh1: 0 2px 8px oklch(20% 0 0/.07);
+  --sh2: 0 4px 20px oklch(20% 0 0/.10);
+  --sh3: 0 8px 32px oklch(20% 0 0/.13);
+  --spring: cubic-bezier(.34,1.56,.64,1);
+  --smooth: cubic-bezier(.4,0,.2,1);
+}
+
+/* ═══════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fn);color:var(--txt);background:var(--bg);-webkit-font-smoothing:antialiased}
+
+.wrap{max-width:1100px;margin:0 auto;padding:var(--s16) var(--s8)}
+.sec{margin-bottom:80px}
+.sec-tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s3)}
+.sec-h{font-family:var(--fd);font-size:36px;font-weight:700;line-height:1.1;margin-bottom:var(--s2)}
+.sec-p{font-size:17px;color:var(--txt2);max-width:58ch;margin-bottom:var(--s8)}
+.card{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r4);padding:var(--s8);box-shadow:var(--sh1)}
+.div{height:1.5px;background:var(--border);margin:64px 0}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s6)}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5)}
+.row{display:flex;flex-wrap:wrap;gap:var(--s5);align-items:center}
+.tc{text-align:center}
+
+/* ═══ COVER ═══ */
+.cover{
+  background:var(--sun-lt);
+  background-image:radial-gradient(circle,oklch(84% .17 82 /.3) 1.5px,transparent 1.5px);
+  background-size:28px 28px;
+  border-radius:var(--r4);padding:80px 64px;
+  display:grid;grid-template-columns:1fr 200px;align-items:center;gap:var(--s8);
+  margin-bottom:80px;overflow:hidden;
+}
+.cover-tag{display:inline-flex;background:var(--sun);color:var(--txt);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:var(--rp);margin-bottom:var(--s5)}
+.cover-h{font-family:var(--fd);font-size:88px;font-weight:700;line-height:1;letter-spacing:-1px;margin-bottom:var(--s4)}
+.cover-sub{font-size:20px;color:var(--txt2);margin-bottom:var(--s8)}
+.cover-pills{display:flex;gap:var(--s3);flex-wrap:wrap}
+.cpill{font-size:12px;font-weight:600;color:var(--txt2);background:oklch(100% 0 0/.5);padding:5px 14px;border-radius:var(--rp)}
+
+/* ═══ MASCOT GRID ═══ */
+.mascot-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s5)}
+.m-tile{background:var(--surf2);border:1.5px solid var(--border);border-radius:var(--r3);padding:var(--s6);text-align:center}
+.m-tile svg{display:block;margin:0 auto var(--s4)}
+.m-name{font-family:var(--fd);font-size:18px;font-weight:600;margin-bottom:4px}
+.m-desc{font-size:12px;color:var(--txt3)}
+
+/* ═══ COLOR SWATCHES ═══ */
+.sw-row{display:flex;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s6)}
+.sw{flex:1;min-width:80px}
+.sw-block{height:80px;border-radius:var(--r2);margin-bottom:8px;border:1px solid oklch(0% 0 0/.05)}
+.sw-name{font-size:13px;font-weight:700}
+.sw-val{font-size:11px;color:var(--txt3);font-family:monospace}
+.tn-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:var(--s3)}
+.tn{flex:1}.tn-block{height:40px;border-radius:var(--r1);margin-bottom:3px;border:1px solid oklch(0% 0 0/.05)}
+.tn-val{font-size:10px;color:var(--txt3);font-family:monospace}
+
+/* ═══ TYPE TABLE ═══ */
+.ty-row{display:flex;align-items:baseline;gap:var(--s6);padding:var(--s4) 0;border-bottom:1px solid var(--border)}
+.ty-row:last-child{border-bottom:none}
+.ty-meta{width:110px;flex-shrink:0;font-family:monospace;font-size:11px;color:var(--txt3)}
+.ty-samp{flex:1}
+.ty-use{width:175px;flex-shrink:0;font-size:12px;color:var(--txt2)}
+
+/* ═══ TOKEN ROWS ═══ */
+.tok-row{display:flex;align-items:center;gap:var(--s4);padding:10px 0;border-bottom:1px solid var(--border)}
+.tok-row:last-child{border-bottom:none}
+.tok-n{width:80px;font-family:monospace;font-size:12px;color:var(--txt2)}
+.tok-v{width:50px;font-size:12px;color:var(--txt3)}
+.tok-vis{flex:1}
+.sp-bar{height:14px;border-radius:4px;background:var(--sky)}
+.r-box{width:44px;height:44px;background:var(--sun)}
+
+/* ═══ MOTION ═══ */
+.mc{background:var(--surf2);border:1.5px solid var(--border);border-radius:var(--r3);padding:var(--s6);text-align:center;cursor:pointer;user-select:none;transition:background 200ms}
+.mc:hover{background:var(--surface)}
+.mc-name{font-family:var(--fd);font-size:16px;font-weight:600;margin-top:var(--s3);display:block}
+.mc-hint{font-size:11px;color:var(--txt3);margin-top:2px;display:block}
+
+@keyframes mimo-bounce{0%,100%{transform:translateY(0) scale(1)}30%{transform:translateY(-22px) scale(1.06,.94)}60%{transform:translateY(-9px) scale(.97,1.03)}80%{transform:translateY(-3px)}}
+@keyframes pop-in{0%{transform:scale(.3) rotate(-10deg);opacity:0}65%{transform:scale(1.1) rotate(2deg);opacity:1}100%{transform:scale(1) rotate(0)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}20%{transform:rotate(-14deg)}40%{transform:rotate(14deg)}60%{transform:rotate(-9deg)}80%{transform:rotate(7deg)}}
+@keyframes card-flip{0%{transform:perspective(500px) rotateY(0)}50%{transform:perspective(500px) rotateY(90deg)}100%{transform:perspective(500px) rotateY(0)}}
+.a-bounce{animation:mimo-bounce 520ms var(--spring)}
+.a-pop{animation:pop-in 400ms var(--spring) both}
+.a-wiggle{animation:wiggle 500ms ease both}
+.a-flip{animation:card-flip 500ms var(--smooth)}
+
+/* ═══ BUTTONS ═══ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s2);font-family:var(--fn);font-weight:700;font-size:16px;border:none;cursor:pointer;border-radius:var(--rp);padding:var(--s4) var(--s8);line-height:1;white-space:nowrap;text-decoration:none;transition:transform 200ms var(--spring),box-shadow 200ms}
+.btn:active{transform:translateY(3px)!important}
+.btn-sun  {background:var(--sun);  color:var(--txt); box-shadow:0 5px 0 var(--sun-dk)}
+.btn-mint {background:var(--mint); color:#fff;       box-shadow:0 5px 0 var(--mint-dk)}
+.btn-coral{background:var(--coral);color:#fff;       box-shadow:0 5px 0 var(--coral-dk)}
+.btn-sky  {background:var(--sky);  color:#fff;       box-shadow:0 5px 0 var(--sky-dk)}
+.btn-out  {background:var(--surface);color:var(--txt);box-shadow:0 5px 0 var(--border-dk);border:2px solid var(--border-dk)}
+.btn-ghost{background:transparent;color:var(--txt2)}
+.btn:not(.btn-ghost):hover{transform:translateY(-2px)}
+.btn-sun:hover  {box-shadow:0 7px 0 var(--sun-dk)}
+.btn-mint:hover {box-shadow:0 7px 0 var(--mint-dk)}
+.btn-coral:hover{box-shadow:0 7px 0 var(--coral-dk)}
+.btn-sky:hover  {box-shadow:0 7px 0 var(--sky-dk)}
+.btn-out:hover  {box-shadow:0 7px 0 var(--border-dk)}
+.btn-ghost:hover{background:var(--surf2);color:var(--txt)}
+.btn-sm{font-size:13px;padding:var(--s2) var(--s5)}
+.btn-lg{font-size:22px;padding:var(--s5) var(--s10)}
+
+/* ═══ GAME CARD ═══ */
+.game-card{border-radius:32px;padding:var(--s12) var(--s10);text-align:center;box-shadow:var(--sh3),0 8px 0 var(--sun-dk);min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--sun)}
+.gm{background:var(--mint) !important;box-shadow:var(--sh3),0 8px 0 var(--mint-dk) !important}
+.gc{background:var(--coral)!important;box-shadow:var(--sh3),0 8px 0 var(--coral-dk)!important}
+.gp{background:var(--plum) !important;box-shadow:var(--sh3),0 8px 0 var(--plum-dk) !important}
+.gc-cat{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:oklch(100% 0 0/.28);padding:3px 12px;border-radius:var(--rp);margin-bottom:var(--s6);display:inline-block;color:inherit}
+.gc-word{font-family:var(--fd);font-size:52px;font-weight:700;line-height:1.05}
+.gm .gc-word,.gc .gc-word,.gp .gc-word{color:#fff}
+.gc-hint{font-size:13px;margin-top:var(--s4);opacity:.65}
+.gm .gc-hint,.gc .gc-hint,.gp .gc-hint{color:#fff}
+
+/* ═══ CHIPS ═══ */
+.chip{display:inline-flex;align-items:center;gap:6px;padding:7px 16px;border-radius:var(--rp);font-family:var(--fn);font-size:13px;font-weight:700;border:none;cursor:pointer;transition:transform 200ms var(--spring),filter 100ms}
+.chip:hover{transform:scale(1.06);filter:brightness(1.05)}
+.chip:active{transform:scale(.97)}
+.ch-sun  {background:var(--sun-lt);  color:var(--sun-dk)}
+.ch-mint {background:var(--mint-lt); color:var(--mint-dk)}
+.ch-sky  {background:var(--sky-lt);  color:var(--sky-dk)}
+.ch-coral{background:var(--coral-lt);color:var(--coral-dk)}
+.ch-plum {background:var(--plum-lt); color:var(--plum-dk)}
+.on.ch-sun  {background:var(--sun);  color:var(--txt)}
+.on.ch-mint {background:var(--mint); color:#fff}
+.on.ch-sky  {background:var(--sky);  color:#fff}
+.on.ch-coral{background:var(--coral);color:#fff}
+.on.ch-plum {background:var(--plum); color:#fff}
+
+/* ═══ TIMER ═══ */
+.timer{width:130px;height:130px;position:relative;display:flex;align-items:center;justify-content:center}
+.timer svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.timer circle{transition:stroke-dashoffset 1s linear}
+.timer-n{font-family:var(--fd);font-size:42px;font-weight:600;position:relative;z-index:1}
+
+/* ═══ TEAM CARDS ═══ */
+.team{display:flex;align-items:center;gap:var(--s5);background:var(--surface);border:2px solid var(--border);border-radius:var(--r4);padding:var(--s5) var(--s8);box-shadow:var(--sh1);transition:transform 200ms var(--spring),box-shadow 200ms}
+.team.on{border-color:var(--sun);box-shadow:var(--sh2),0 0 0 3px var(--sun-lt);transform:scale(1.01)}
+.t-av{width:48px;height:48px;border-radius:var(--rp);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.t-name{font-family:var(--fd);font-size:20px;font-weight:600}
+.t-sub{font-size:11px;color:var(--txt3);margin-top:2px}
+.t-pts{font-family:var(--fd);font-size:40px;font-weight:700;margin-left:auto}
+.t-pts span{font-size:13px;color:var(--txt3)}
+
+@media(max-width:760px){
+  .cover{grid-template-columns:1fr}.cover-h{font-size:52px}.mimo-cover{display:none}
+  .g2,.g3,.g4{grid-template-columns:1fr 1fr}.mascot-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ══════════════════════════ COVER ══ -->
+<div class="cover">
+  <div>
+    <span class="cover-tag">Brand Guide · v1.0 · June 2026</span>
+    <h1 class="cover-h">Showrades</h1>
+    <p class="cover-sub">The guessing game your whole family will love.</p>
+    <div class="cover-pills">
+      <span class="cpill">Family · All Ages</span>
+      <span class="cpill">Charades &amp; Learning</span>
+      <span class="cpill">Pass-and-Play</span>
+      <span class="cpill">Teams · Scoring</span>
+    </div>
+  </div>
+  <div class="mimo-cover" style="text-align:center">
+    <svg width="180" height="216" viewBox="0 0 90 110" fill="none">
+      <ellipse cx="45" cy="108" rx="28" ry="5" fill="#3ab887" opacity=".22"/>
+      <path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/>
+      <ellipse cx="45" cy="64" rx="21" ry="26" fill="#c2f0e0" opacity=".5"/>
+      <ellipse cx="25" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(-18 25 11)"/>
+      <ellipse cx="65" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(18 65 11)"/>
+      <circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/>
+      <circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/>
+      <path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+      <rect x="39" y="62" width="6" height="6" rx="1.5" fill="white"/><rect x="45" y="62" width="6" height="6" rx="1.5" fill="white"/>
+      <path d="M11 52Q3 37 11 28Q19 25 23 33Q19 42 14 51Z" fill="#4ecfa0"/>
+      <path d="M79 52Q87 37 79 28Q71 25 67 33Q71 42 76 51Z" fill="#4ecfa0"/>
+      <ellipse cx="33" cy="98" rx="13" ry="7" fill="#3ab887"/>
+      <ellipse cx="57" cy="98" rx="13" ry="7" fill="#3ab887"/>
+    </svg>
+    <p style="font-family:var(--fd);font-size:16px;font-weight:600;color:var(--txt2);margin-top:8px">Mimo</p>
+    <p style="font-size:11px;color:var(--txt3)">Brand Mascot</p>
+  </div>
+</div>
+
+<!-- ════════════════════ PERSONALITY ══ -->
+<div class="sec">
+  <p class="sec-tag">01 — Brand</p>
+  <h2 class="sec-h">Brand Personality</h2>
+  <p class="sec-p">Showrades lives at the intersection of silly and smart — every interaction should make someone laugh or say "ooh, I knew that one!" It bridges ages without talking down to either end.</p>
+  <div class="g4">
+    <div class="card tc"><div style="font-size:36px;margin-bottom:var(--s3)">🎭</div><div style="font-family:var(--fd);font-size:20px;font-weight:600;margin-bottom:var(--s2)">Playful</div><div style="font-size:13px;color:var(--txt2)">Every tap should feel like part of the game, not the app.</div></div>
+    <div class="card tc"><div style="font-size:36px;margin-bottom:var(--s3)">⚡</div><div style="font-family:var(--fd);font-size:20px;font-weight:600;margin-bottom:var(--s2)">Energetic</div><div style="font-size:13px;color:var(--txt2)">Snappy feedback. Motion that buzzes with excitement.</div></div>
+    <div class="card tc"><div style="font-size:36px;margin-bottom:var(--s3)">🌍</div><div style="font-family:var(--fd);font-size:20px;font-weight:600;margin-bottom:var(--s2)">Inclusive</div><div style="font-size:13px;color:var(--txt2)">Designed for a 4-year-old and their grandparent at the same table.</div></div>
+    <div class="card tc"><div style="font-size:36px;margin-bottom:var(--s3)">✦</div><div style="font-family:var(--fd);font-size:20px;font-weight:600;margin-bottom:var(--s2)">Minimal</div><div style="font-size:13px;color:var(--txt2)">One clear action per screen. Colour adds joy, not noise.</div></div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ═══════════════════════════ LOGO ══ -->
+<div class="sec">
+  <p class="sec-tag">02 — Logo</p>
+  <h2 class="sec-h">Wordmark &amp; Icon</h2>
+  <p class="sec-p">Fredoka Bold with Mimo as the brand companion. The full lockup is preferred wherever space allows; the icon stands alone at small sizes.</p>
+  <div class="g2" style="margin-bottom:var(--s6)">
+    <div class="card tc" style="background:var(--bg);padding:48px">
+      <div style="display:inline-flex;align-items:center;gap:14px">
+        <svg width="52" height="62" viewBox="0 0 90 110" fill="none"><path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/><ellipse cx="25" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(-18 25 11)"/><ellipse cx="65" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(18 65 11)"/><circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/><circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/><path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="39" y="62" width="6" height="6" rx="1.5" fill="white"/><rect x="45" y="62" width="6" height="6" rx="1.5" fill="white"/></svg>
+        <span style="font-family:var(--fd);font-size:44px;font-weight:700;line-height:1;letter-spacing:-.5px;color:var(--txt)">Showrades</span>
+      </div>
+      <p style="font-size:11px;color:var(--txt3);margin-top:16px;text-transform:uppercase;letter-spacing:.08em">Primary — Light</p>
+    </div>
+    <div class="card tc" style="background:#1a1a2e;padding:48px">
+      <div style="display:inline-flex;align-items:center;gap:14px">
+        <svg width="52" height="62" viewBox="0 0 90 110" fill="none"><path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/><ellipse cx="25" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(-18 25 11)"/><ellipse cx="65" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(18 65 11)"/><circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/><circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/><path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/><rect x="39" y="62" width="6" height="6" rx="1.5" fill="white"/><rect x="45" y="62" width="6" height="6" rx="1.5" fill="white"/></svg>
+        <span style="font-family:var(--fd);font-size:44px;font-weight:700;line-height:1;letter-spacing:-.5px;color:white">Showrades</span>
+      </div>
+      <p style="font-size:11px;color:oklch(60% 0 0);margin-top:16px;text-transform:uppercase;letter-spacing:.08em">Primary — Dark</p>
+    </div>
+  </div>
+  <div class="g4">
+    <div class="card tc">
+      <div style="width:88px;height:88px;background:var(--sun);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4)"><svg width="56" height="66" viewBox="0 0 90 110" fill="none"><path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/><ellipse cx="25" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(-18 25 11)"/><ellipse cx="65" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(18 65 11)"/><circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/><circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/><path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      <p style="font-size:12px;color:var(--txt2)">App Icon — Sun</p>
+    </div>
+    <div class="card tc">
+      <div style="width:88px;height:88px;background:#1a1a2e;border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4)"><svg width="56" height="66" viewBox="0 0 90 110" fill="none"><path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/><ellipse cx="25" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(-18 25 11)"/><ellipse cx="65" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(18 65 11)"/><circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/><circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/><path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      <p style="font-size:12px;color:var(--txt2)">App Icon — Dark</p>
+    </div>
+    <div class="card tc">
+      <div style="width:88px;height:88px;background:var(--mint);border-radius:20px;display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4)"><svg width="56" height="66" viewBox="0 0 90 110" fill="none"><path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="white" opacity=".9"/><ellipse cx="25" cy="11" rx="7" ry="12" fill="white" opacity=".9" transform="rotate(-18 25 11)"/><ellipse cx="65" cy="11" rx="7" ry="12" fill="white" opacity=".9" transform="rotate(18 65 11)"/><circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/><circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/><path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      <p style="font-size:12px;color:var(--txt2)">App Icon — Mint</p>
+    </div>
+    <div class="card tc">
+      <div style="width:88px;height:88px;background:var(--surf2);border-radius:20px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;margin:0 auto var(--s4)"><svg width="56" height="66" viewBox="0 0 90 110" fill="none"><path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#444"/><ellipse cx="25" cy="11" rx="7" ry="12" fill="#444" transform="rotate(-18 25 11)"/><ellipse cx="65" cy="11" rx="7" ry="12" fill="#444" transform="rotate(18 65 11)"/><circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#444"/><circle cx="36" cy="38" r="2.5" fill="white"/><circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#444"/><circle cx="64" cy="38" r="2.5" fill="white"/><path d="M33 62Q45 74 57 62" stroke="#444" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div>
+      <p style="font-size:12px;color:var(--txt2)">App Icon — Mono</p>
+    </div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ══════════════════════════ MASCOT ══ -->
+<div class="sec">
+  <p class="sec-tag">03 — Mascot</p>
+  <h2 class="sec-h">Mimo the Monster</h2>
+  <p class="sec-p">Mimo channels the player's energy through four key states — each mapped to a game moment. Mimo's body colour shifts with mood, keeping the brand palette alive in-game.</p>
+  <div class="mascot-grid">
+    <!-- Happy -->
+    <div class="m-tile">
+      <svg width="100" height="120" viewBox="0 0 90 110" fill="none">
+        <ellipse cx="45" cy="108" rx="26" ry="5" fill="#3ab887" opacity=".2"/>
+        <path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/>
+        <ellipse cx="45" cy="64" rx="21" ry="26" fill="#c2f0e0" opacity=".5"/>
+        <ellipse cx="25" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(-18 25 11)"/>
+        <ellipse cx="65" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(18 65 11)"/>
+        <circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/>
+        <circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/>
+        <path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="39" y="62" width="6" height="6" rx="1.5" fill="white"/><rect x="45" y="62" width="6" height="6" rx="1.5" fill="white"/>
+        <path d="M11 52Q3 37 11 28Q19 25 23 33Q19 42 14 51Z" fill="#4ecfa0"/>
+        <path d="M79 52Q87 37 79 28Q71 25 67 33Q71 42 76 51Z" fill="#4ecfa0"/>
+        <ellipse cx="33" cy="98" rx="13" ry="7" fill="#3ab887"/>
+        <ellipse cx="57" cy="98" rx="13" ry="7" fill="#3ab887"/>
+      </svg>
+      <div class="m-name">Happy</div>
+      <div class="m-desc">Default · Home screen</div>
+    </div>
+    <!-- Excited -->
+    <div class="m-tile">
+      <svg width="100" height="120" viewBox="0 0 90 118" fill="none">
+        <ellipse cx="45" cy="116" rx="26" ry="4" fill="#c8960a" opacity=".2"/>
+        <g transform="translate(0,-5)">
+          <path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#f7c948"/>
+          <ellipse cx="45" cy="64" rx="21" ry="26" fill="#fef5cc" opacity=".5"/>
+          <ellipse cx="25" cy="11" rx="7" ry="12" fill="#f7c948" transform="rotate(-18 25 11)"/>
+          <ellipse cx="65" cy="11" rx="7" ry="12" fill="#f7c948" transform="rotate(18 65 11)"/>
+          <circle cx="31" cy="41" r="13" fill="white"/><circle cx="31" cy="41" r="8" fill="#1a1a2e"/><circle cx="35" cy="37" r="3" fill="white"/>
+          <circle cx="59" cy="41" r="13" fill="white"/><circle cx="59" cy="41" r="8" fill="#1a1a2e"/><circle cx="63" cy="37" r="3" fill="white"/>
+          <path d="M30 62Q45 80 60 62" fill="#1a1a2e"/>
+          <ellipse cx="45" cy="72" rx="9" ry="5" fill="#e05c6b"/>
+          <path d="M9 44Q1 28 9 18Q17 12 22 22Q18 32 12 43Z" fill="#f7c948"/>
+          <path d="M81 44Q89 28 81 18Q73 12 68 22Q72 32 78 43Z" fill="#f7c948"/>
+        </g>
+        <ellipse cx="33" cy="106" rx="13" ry="7" fill="#c8960a"/>
+        <ellipse cx="57" cy="106" rx="13" ry="7" fill="#c8960a"/>
+      </svg>
+      <div class="m-name">Excited</div>
+      <div class="m-desc">Correct answer · Win screen</div>
+    </div>
+    <!-- Thinking -->
+    <div class="m-tile">
+      <svg width="100" height="120" viewBox="0 0 90 110" fill="none">
+        <ellipse cx="45" cy="108" rx="26" ry="5" fill="#2d7dbd" opacity=".2"/>
+        <path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#5eb0e5"/>
+        <ellipse cx="45" cy="64" rx="21" ry="26" fill="#bde5fc" opacity=".5"/>
+        <ellipse cx="25" cy="11" rx="7" ry="12" fill="#5eb0e5" transform="rotate(-18 25 11)"/>
+        <ellipse cx="65" cy="11" rx="7" ry="12" fill="#5eb0e5" transform="rotate(18 65 11)"/>
+        <circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/>
+        <circle cx="59" cy="43" r="12" fill="white"/>
+        <path d="M51 43Q59 37 67 43" stroke="#1a1a2e" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <path d="M36 67Q41 62 45 67Q49 72 54 67" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="68" cy="26" r="4" fill="white" opacity=".85"/>
+        <circle cx="75" cy="18" r="6" fill="white" opacity=".75"/>
+        <circle cx="81" cy="9" r="8" fill="white" opacity=".7"/>
+        <text x="81" y="13" text-anchor="middle" font-size="9" fill="#2d7dbd" font-family="sans-serif" font-weight="800">?</text>
+        <path d="M11 52Q3 37 11 28Q19 25 23 33Q19 42 14 51Z" fill="#5eb0e5"/>
+        <path d="M79 52Q87 37 79 28Q71 25 67 33Q71 42 76 51Z" fill="#5eb0e5"/>
+        <ellipse cx="33" cy="98" rx="13" ry="7" fill="#2d7dbd"/>
+        <ellipse cx="57" cy="98" rx="13" ry="7" fill="#2d7dbd"/>
+      </svg>
+      <div class="m-name">Thinking</div>
+      <div class="m-desc">Timer running · Guessing</div>
+    </div>
+    <!-- Sad -->
+    <div class="m-tile">
+      <svg width="100" height="120" viewBox="0 0 90 110" fill="none">
+        <ellipse cx="45" cy="108" rx="26" ry="5" fill="#b83a28" opacity=".2"/>
+        <path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#e8765b"/>
+        <ellipse cx="45" cy="64" rx="21" ry="26" fill="#fcd4c8" opacity=".5"/>
+        <ellipse cx="25" cy="17" rx="7" ry="12" fill="#e8765b" transform="rotate(-35 25 17)"/>
+        <ellipse cx="65" cy="17" rx="7" ry="12" fill="#e8765b" transform="rotate(35 65 17)"/>
+        <circle cx="31" cy="44" r="12" fill="white"/><circle cx="31" cy="47" r="7" fill="#1a1a2e"/><circle cx="34" cy="44" r="2.5" fill="white"/>
+        <path d="M21 36Q27 41 35 35" stroke="#1a1a2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <circle cx="59" cy="44" r="12" fill="white"/><circle cx="59" cy="47" r="7" fill="#1a1a2e"/><circle cx="62" cy="44" r="2.5" fill="white"/>
+        <path d="M53 35Q61 41 67 36" stroke="#1a1a2e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <path d="M35 74Q45 65 55 74" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M26 56Q24 63 26 67Q30 69 30 63Z" fill="#5eb0e5" opacity=".85"/>
+        <path d="M13 68Q5 56 11 44Q19 38 24 46Q20 56 16 67Z" fill="#e8765b"/>
+        <path d="M77 68Q85 56 79 44Q71 38 66 46Q70 56 74 67Z" fill="#e8765b"/>
+        <ellipse cx="33" cy="98" rx="13" ry="7" fill="#b83a28"/>
+        <ellipse cx="57" cy="98" rx="13" ry="7" fill="#b83a28"/>
+      </svg>
+      <div class="m-name">Sad</div>
+      <div class="m-desc">Time out · Wrong answer</div>
+    </div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ════════════════════════ COLORS ══ -->
+<div class="sec">
+  <p class="sec-tag">04 — Color</p>
+  <h2 class="sec-h">Color System</h2>
+  <p class="sec-p">Five perceptually-uniform brand colors built in oklch, so all five read as equally vibrant. Each anchors a category group and a game state. Sun is the primary action color.</p>
+  <div class="card">
+    <div class="sw-row">
+      <div class="sw"><div class="sw-block" style="background:var(--sun)"></div><div class="sw-name">Sun</div><div class="sw-val">oklch(84% .17 82)</div><div class="sw-val" style="margin-top:3px;color:var(--txt2)">Primary · Food</div></div>
+      <div class="sw"><div class="sw-block" style="background:var(--mint)"></div><div class="sw-name">Mint</div><div class="sw-val">oklch(79% .14 158)</div><div class="sw-val" style="margin-top:3px;color:var(--txt2)">Mascot · Animals</div></div>
+      <div class="sw"><div class="sw-block" style="background:var(--sky)"></div><div class="sw-name">Sky</div><div class="sw-val">oklch(70% .13 232)</div><div class="sw-val" style="margin-top:3px;color:var(--txt2)">Occupations</div></div>
+      <div class="sw"><div class="sw-block" style="background:var(--coral)"></div><div class="sw-name">Coral</div><div class="sw-val">oklch(68% .18 28)</div><div class="sw-val" style="margin-top:3px;color:var(--txt2)">Fruits · Wrong</div></div>
+      <div class="sw"><div class="sw-block" style="background:var(--plum)"></div><div class="sw-name">Plum</div><div class="sw-val">oklch(73% .14 292)</div><div class="sw-val" style="margin-top:3px;color:var(--txt2)">Vegetables</div></div>
+    </div>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s3)">Three tiers per color</p>
+    <div class="tn-row" style="margin-bottom:var(--s5)">
+      <div class="tn"><div class="tn-block" style="background:var(--sun-lt)"></div><div class="tn-val">--sun-lt</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--sun)"></div><div class="tn-val">--sun</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--sun-dk)"></div><div class="tn-val">--sun-dk</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--mint-lt)"></div><div class="tn-val">--mint-lt</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--mint)"></div><div class="tn-val">--mint</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--mint-dk)"></div><div class="tn-val">--mint-dk</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--sky-lt)"></div><div class="tn-val">--sky-lt</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--sky)"></div><div class="tn-val">--sky</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--sky-dk)"></div><div class="tn-val">--sky-dk</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--coral-lt)"></div><div class="tn-val">--coral-lt</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--coral)"></div><div class="tn-val">--coral</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--coral-dk)"></div><div class="tn-val">--coral-dk</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--plum-lt)"></div><div class="tn-val">--plum-lt</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--plum)"></div><div class="tn-val">--plum</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--plum-dk)"></div><div class="tn-val">--plum-dk</div></div>
+    </div>
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s3)">Warm-tinted Neutrals</p>
+    <div class="tn-row" style="margin-bottom:var(--s6)">
+      <div class="tn"><div class="tn-block" style="background:var(--bg);border:1px solid var(--border)"></div><div class="tn-val">--bg</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--surface);border:1px solid var(--border)"></div><div class="tn-val">--surface</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--surf2);border:1px solid var(--border)"></div><div class="tn-val">--surf2</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--border)"></div><div class="tn-val">--border</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--border-dk)"></div><div class="tn-val">--border-dk</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--txt3)"></div><div class="tn-val">--txt3</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--txt2)"></div><div class="tn-val">--txt2</div></div>
+      <div class="tn"><div class="tn-block" style="background:var(--txt)"></div><div class="tn-val">--txt</div></div>
+    </div>
+    <div style="background:var(--sun-lt);border-radius:var(--r2);padding:var(--s5)">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s3)">Category → Color map</p>
+      <div style="display:flex;gap:var(--s3);flex-wrap:wrap">
+        <button class="chip ch-mint on">🐾 Animals</button>
+        <button class="chip ch-sun on">🍎 Food</button>
+        <button class="chip ch-sky on">🧑‍⚕️ Occupations</button>
+        <button class="chip ch-coral on">🍊 Fruits</button>
+        <button class="chip ch-plum on">🥦 Vegetables</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ═══════════════════ TYPOGRAPHY ══ -->
+<div class="sec">
+  <p class="sec-tag">05 — Typography</p>
+  <h2 class="sec-h">Type System</h2>
+  <p class="sec-p">Fredoka for display personality — its rounded terminals feel immediately friendly. Nunito for body text — highly legible and sharing Fredoka's rounded DNA.</p>
+  <div class="g2" style="margin-bottom:var(--s6)">
+    <div class="card">
+      <div style="font-family:var(--fd);font-size:22px;font-weight:700;margin-bottom:var(--s2)">Fredoka</div>
+      <div style="font-size:12px;color:var(--txt2);margin-bottom:var(--s4)">Display · Headings · Logo · Scores</div>
+      <div style="font-family:var(--fd);font-size:52px;font-weight:700;line-height:1;margin-bottom:var(--s4)">AaBb<br>12!?</div>
+      <div style="font-family:var(--fd);font-size:16px;color:var(--txt2)">The quick brown fox jumps over the lazy dog</div>
+    </div>
+    <div class="card">
+      <div style="font-family:var(--fn);font-size:22px;font-weight:700;margin-bottom:var(--s2)">Nunito</div>
+      <div style="font-size:12px;color:var(--txt2);margin-bottom:var(--s4)">Body · Labels · Instructions · Chips</div>
+      <div style="font-family:var(--fn);font-size:52px;font-weight:900;line-height:1;margin-bottom:var(--s4)">AaBb<br>12!?</div>
+      <div style="font-family:var(--fn);font-size:16px;color:var(--txt2)">The quick brown fox jumps over the lazy dog</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ty-row"><div class="ty-meta">88px fd/700</div><div class="ty-samp" style="font-family:var(--fd);font-size:88px;font-weight:700;line-height:1">Showrades</div><div class="ty-use">Cover, splash screen</div></div>
+    <div class="ty-row"><div class="ty-meta">52px fd/700</div><div class="ty-samp" style="font-family:var(--fd);font-size:52px;font-weight:700;line-height:1">Elephant!</div><div class="ty-use">Game card word</div></div>
+    <div class="ty-row"><div class="ty-meta">38px fd/600</div><div class="ty-samp" style="font-family:var(--fd);font-size:38px;font-weight:600">Score: 12 pts</div><div class="ty-use">Score display</div></div>
+    <div class="ty-row"><div class="ty-meta">30px fd/600</div><div class="ty-samp" style="font-family:var(--fd);font-size:30px;font-weight:600">Pick a Category</div><div class="ty-use">Screen heading</div></div>
+    <div class="ty-row"><div class="ty-meta">22px fn/700</div><div class="ty-samp" style="font-family:var(--fn);font-size:22px;font-weight:700">Pass to Team B!</div><div class="ty-use">Alerts, modals</div></div>
+    <div class="ty-row"><div class="ty-meta">17px fn/400</div><div class="ty-samp" style="font-family:var(--fn);font-size:17px">Act out the word — no sounds allowed!</div><div class="ty-use">Body, rules</div></div>
+    <div class="ty-row"><div class="ty-meta">13px fn/700</div><div class="ty-samp" style="font-family:var(--fn);font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.1em">Animals · Easy Mode</div><div class="ty-use">Labels, tags, badges</div></div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ════════════════ SHAPE & SPACE ══ -->
+<div class="sec">
+  <p class="sec-tag">06 — Shape &amp; Space</p>
+  <h2 class="sec-h">Radii &amp; Spacing</h2>
+  <p class="sec-p">Everything is soft. Pill-shaped buttons and deeply-rounded cards reinforce the friendly character. All spacing on a strict 4px grid.</p>
+  <div class="g2">
+    <div class="card">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s4)">Border Radii</p>
+      <div class="tok-row"><div class="tok-n">--r1</div><div class="tok-v">8px</div><div class="tok-vis"><div class="r-box" style="border-radius:8px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--r2</div><div class="tok-v">14px</div><div class="tok-vis"><div class="r-box" style="border-radius:14px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--r3</div><div class="tok-v">22px</div><div class="tok-vis"><div class="r-box" style="border-radius:22px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--r4</div><div class="tok-v">32px</div><div class="tok-vis"><div class="r-box" style="border-radius:32px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--rp</div><div class="tok-v">9999px</div><div class="tok-vis"><div class="r-box" style="border-radius:9999px;width:80px;height:34px"></div></div></div>
+    </div>
+    <div class="card">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s4)">Spacing Scale — 4px base</p>
+      <div class="tok-row"><div class="tok-n">--s1</div><div class="tok-v">4px</div><div class="tok-vis"><div class="sp-bar" style="width:4px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--s2</div><div class="tok-v">8px</div><div class="tok-vis"><div class="sp-bar" style="width:8px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--s4</div><div class="tok-v">16px</div><div class="tok-vis"><div class="sp-bar" style="width:16px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--s6</div><div class="tok-v">24px</div><div class="tok-vis"><div class="sp-bar" style="width:24px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--s8</div><div class="tok-v">32px</div><div class="tok-vis"><div class="sp-bar" style="width:32px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--s10</div><div class="tok-v">40px</div><div class="tok-vis"><div class="sp-bar" style="width:40px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--s12</div><div class="tok-v">48px</div><div class="tok-vis"><div class="sp-bar" style="width:48px"></div></div></div>
+      <div class="tok-row"><div class="tok-n">--s16</div><div class="tok-v">64px</div><div class="tok-vis"><div class="sp-bar" style="width:64px"></div></div></div>
+    </div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ══════════════════════ MOTION ══ -->
+<div class="sec">
+  <p class="sec-tag">07 — Motion</p>
+  <h2 class="sec-h">Animation Principles</h2>
+  <p class="sec-p">Motion should feel alive and childlike — springy, never mechanical. The spring easing overshoots slightly to mimic a physical bounce. Click each card to preview.</p>
+  <div class="card" style="margin-bottom:var(--s6)">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)">
+      <div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s3)">Easing Curves</p>
+        <div class="tok-row"><div class="tok-n">--spring</div><div style="font-size:11px;color:var(--txt2);font-family:monospace">cubic-bezier(.34,1.56,.64,1)</div></div>
+        <div class="tok-row"><div class="tok-n">--smooth</div><div style="font-size:11px;color:var(--txt2);font-family:monospace">cubic-bezier(.4,0,.2,1)</div></div>
+      </div>
+      <div>
+        <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s3)">Duration Scale</p>
+        <div class="tok-row"><div class="tok-n">100ms</div><div style="font-size:11px;color:var(--txt2)">Presses &amp; micro-interactions</div></div>
+        <div class="tok-row"><div class="tok-n">200ms</div><div style="font-size:11px;color:var(--txt2)">Hovers &amp; state changes</div></div>
+        <div class="tok-row"><div class="tok-n">360ms</div><div style="font-size:11px;color:var(--txt2)">Screen transitions</div></div>
+        <div class="tok-row"><div class="tok-n">520ms</div><div style="font-size:11px;color:var(--txt2)">Celebration &amp; Mimo bounce</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="g4">
+    <div class="mc" id="mc-bounce" onclick="trigAnim(this)">
+      <svg id="at-bounce" width="80" height="96" viewBox="0 0 90 110" fill="none">
+        <path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/>
+        <ellipse cx="25" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(-18 25 11)"/>
+        <ellipse cx="65" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(18 65 11)"/>
+        <circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/>
+        <circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/>
+        <path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <rect x="39" y="62" width="6" height="6" rx="1.5" fill="white"/><rect x="45" y="62" width="6" height="6" rx="1.5" fill="white"/>
+      </svg>
+      <span class="mc-name">Bounce</span><span class="mc-hint">Idle greetings &amp; rewards</span>
+    </div>
+    <div class="mc" id="mc-pop" onclick="trigAnim(this)">
+      <div id="at-pop" style="width:80px;height:80px;background:var(--mint);border-radius:var(--r3);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:36px;font-weight:700;color:white">✓</div>
+      <span class="mc-name">Pop In</span><span class="mc-hint">Correct answer &amp; badges</span>
+    </div>
+    <div class="mc" id="mc-wiggle" onclick="trigAnim(this)">
+      <div id="at-wiggle" style="width:80px;height:80px;background:var(--coral);border-radius:var(--r3);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:36px;font-weight:700;color:white">✗</div>
+      <span class="mc-name">Wiggle</span><span class="mc-hint">Wrong answer &amp; warnings</span>
+    </div>
+    <div class="mc" id="mc-flip" onclick="trigAnim(this)">
+      <div id="at-flip" style="width:80px;height:80px;background:var(--sky);border-radius:var(--r3);display:flex;align-items:center;justify-content:center;font-family:var(--fd);font-size:20px;font-weight:700;color:white">Card</div>
+      <span class="mc-name">Card Flip</span><span class="mc-hint">New word reveal</span>
+    </div>
+  </div>
+</div>
+<div class="div"></div>
+
+<!-- ══════════════════ COMPONENTS ══ -->
+<div class="sec">
+  <p class="sec-tag">08 — Components</p>
+  <h2 class="sec-h">UI Component Library</h2>
+  <p class="sec-p">All interactive elements share pill-shaped borders and a 3D press-shadow. Hover lifts; active presses down. Every component is touch-friendly (min 44px hit target).</p>
+
+  <!-- Buttons -->
+  <div class="card" style="margin-bottom:var(--s6)">
+    <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s5)">Buttons</p>
+    <div class="row" style="margin-bottom:var(--s5)">
+      <button class="btn btn-sun">Start Game</button>
+      <button class="btn btn-out">Settings</button>
+      <button class="btn btn-mint">Correct ✓</button>
+      <button class="btn btn-coral">Skip ✗</button>
+      <button class="btn btn-sky">Next Round</button>
+      <button class="btn btn-ghost">Cancel</button>
+    </div>
+    <div class="row">
+      <button class="btn btn-sun btn-sm">Small</button>
+      <button class="btn btn-sun">Default</button>
+      <button class="btn btn-sun btn-lg">Large</button>
+    </div>
+  </div>
+
+  <!-- Game Cards -->
+  <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s4)">Game Cards</p>
+  <div class="g3" style="margin-bottom:var(--s6)">
+    <div class="game-card"><div class="gc-cat">🐾 Animals</div><div class="gc-word">Elephant</div><div class="gc-hint">Act it out!</div></div>
+    <div class="game-card gc"><div class="gc-cat">🍊 Fruits</div><div class="gc-word">Pineapple</div><div class="gc-hint">No sounds</div></div>
+    <div class="game-card gp"><div class="gc-cat">🧑‍⚕️ Occupations</div><div class="gc-word">Firefighter</div><div class="gc-hint">Easy mode</div></div>
+  </div>
+
+  <!-- Chips + Timer -->
+  <div class="g2" style="margin-bottom:var(--s6)">
+    <div class="card">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s4)">Category Chips</p>
+      <div style="display:flex;gap:var(--s3);flex-wrap:wrap;margin-bottom:var(--s3)">
+        <button class="chip ch-mint on">🐾 Animals</button>
+        <button class="chip ch-sun">🍎 Food</button>
+        <button class="chip ch-sky">🧑‍⚕️ Jobs</button>
+        <button class="chip ch-coral">🍊 Fruits</button>
+        <button class="chip ch-plum">🥦 Veggies</button>
+      </div>
+      <p style="font-size:11px;color:var(--txt3)">Filled = selected · Tap to toggle</p>
+    </div>
+    <div class="card">
+      <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s4)">Timer Ring</p>
+      <div style="display:flex;gap:var(--s10);align-items:center;flex-wrap:wrap">
+        <div class="tc">
+          <div class="timer">
+            <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="57" fill="none" stroke="var(--border)" stroke-width="7"/><circle id="t-ring" cx="65" cy="65" r="57" fill="none" stroke="var(--mint)" stroke-width="7" stroke-dasharray="358.1" stroke-dashoffset="0" stroke-linecap="round" style="transform-origin:65px 65px;transform:rotate(-90deg)"/></svg>
+            <span class="timer-n" id="t-num">60</span>
+          </div>
+          <p style="font-size:11px;color:var(--txt3);margin-top:4px">Live countdown</p>
+        </div>
+        <div class="tc">
+          <div class="timer">
+            <svg width="130" height="130" viewBox="0 0 130 130"><circle cx="65" cy="65" r="57" fill="none" stroke="var(--border)" stroke-width="7"/><circle cx="65" cy="65" r="57" fill="none" stroke="var(--coral)" stroke-width="7" stroke-dasharray="358.1" stroke-dashoffset="298.4" stroke-linecap="round" style="transform-origin:65px 65px;transform:rotate(-90deg)"/></svg>
+            <span class="timer-n" style="color:var(--coral)">10</span>
+          </div>
+          <p style="font-size:11px;color:var(--txt3);margin-top:4px">⚠ Urgent ≤10s</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scoreboard -->
+  <p style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--txt3);margin-bottom:var(--s4)">Team Scoreboard</p>
+  <div style="display:flex;flex-direction:column;gap:var(--s4);max-width:520px">
+    <div class="team on"><div class="t-av" style="background:var(--sun-lt)">🦁</div><div><div class="t-name">Team Lions</div><div class="t-sub">Their turn now</div></div><div class="t-pts">7 <span>pts</span></div></div>
+    <div class="team"><div class="t-av" style="background:var(--sky-lt)">🐬</div><div><div class="t-name">Team Dolphins</div><div class="t-sub">Waiting</div></div><div class="t-pts">5 <span>pts</span></div></div>
+    <div class="team"><div class="t-av" style="background:var(--coral-lt)">🦊</div><div><div class="t-name">Team Foxes</div><div class="t-sub">Waiting</div></div><div class="t-pts">3 <span>pts</span></div></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="div"></div>
+<div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:var(--s12);flex-wrap:wrap;gap:var(--s4)">
+  <div style="display:inline-flex;align-items:center;gap:12px">
+    <svg width="30" height="36" viewBox="0 0 90 110" fill="none"><path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/><circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+    <span style="font-family:var(--fd);font-size:20px;font-weight:700;color:var(--txt)">Showrades</span>
+  </div>
+  <p style="font-size:12px;color:var(--txt3)">Brand Guide v1.0 · June 2026 · Family · All Ages</p>
+</div>
+
+</div>
+<script>
+// Motion demo triggers
+const animMap = {
+  'mc-bounce':{ el:'#at-bounce', cls:'a-bounce' },
+  'mc-pop':   { el:'#at-pop',    cls:'a-pop'    },
+  'mc-wiggle':{ el:'#at-wiggle', cls:'a-wiggle' },
+  'mc-flip':  { el:'#at-flip',   cls:'a-flip'   },
+};
+function trigAnim(card) {
+  const { el, cls } = animMap[card.id];
+  const node = document.querySelector(el);
+  node.classList.remove(cls);
+  void node.offsetWidth;
+  node.classList.add(cls);
+  node.addEventListener('animationend', () => node.classList.remove(cls), { once: true });
+}
+
+// Live countdown timer
+let tv = 60;
+const ring = document.getElementById('t-ring');
+const num  = document.getElementById('t-num');
+const circ = 358.1;
+setInterval(() => {
+  if (tv <= 0) tv = 60;
+  tv--;
+  num.textContent = tv;
+  ring.style.strokeDashoffset = circ * (1 - tv / 60);
+  const urgent = tv <= 10;
+  ring.style.stroke = urgent ? 'var(--coral)' : 'var(--mint)';
+  num.style.color   = urgent ? 'var(--coral)' : 'var(--txt)';
+}, 1000);
+
+// Chip toggle demo
+document.querySelectorAll('.chip:not(.on)').forEach(c => {
+  c.addEventListener('click', () => c.classList.toggle('on'));
+});
+</script>
+</body>
+</html>

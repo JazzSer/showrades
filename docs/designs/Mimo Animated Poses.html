@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Showrades · Mimo Animated Poses</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sun:oklch(84% .17 82); --sun-dk:oklch(71% .19 78); --sun-lt:oklch(96% .07 88);
+  --mint:oklch(79% .14 158); --mint-dk:oklch(62% .15 158); --mint-lt:oklch(95% .06 158);
+  --sky:oklch(70% .13 232); --sky-dk:oklch(54% .15 232); --sky-lt:oklch(93% .05 232);
+  --coral:oklch(68% .18 28); --coral-dk:oklch(54% .20 26); --coral-lt:oklch(93% .07 28);
+  --plum:oklch(73% .14 292); --plum-dk:oklch(57% .16 290); --plum-lt:oklch(93% .06 292);
+  --bg:oklch(98.5% .018 88); --surface:oklch(100% 0 0); --surf2:oklch(97.5% .012 88);
+  --border:oklch(91% .018 88); --border-dk:oklch(83% .018 88);
+  --txt:oklch(19% .012 80); --txt2:oklch(46% .012 80); --txt3:oklch(64% .008 80);
+  --fd:'Fredoka',sans-serif; --fn:'Nunito',sans-serif;
+  --r2:14px; --r3:22px; --r4:32px; --rp:9999px;
+  --sh1:0 2px 8px oklch(20% 0 0/.07); --sh2:0 4px 20px oklch(20% 0 0/.10); --sh3:0 8px 32px oklch(20% 0 0/.13);
+  --spring:cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--fn);color:var(--txt);background:var(--bg);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1140px;margin:0 auto;padding:64px 32px 96px}
+.sec{margin-bottom:80px}
+.sec-tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--txt3);margin-bottom:12px}
+.sec-h{font-family:var(--fd);font-size:34px;font-weight:700;line-height:1.1;margin-bottom:8px}
+.sec-p{font-size:17px;color:var(--txt2);max-width:62ch;margin-bottom:32px}
+.div{height:1.5px;background:var(--border);margin:64px 0}
+
+/* cover */
+.cover{
+  background:var(--mint-lt);
+  background-image:radial-gradient(circle,oklch(79% .14 158/.32) 1.5px,transparent 1.5px);
+  background-size:28px 28px;
+  border-radius:var(--r4);padding:64px;margin-bottom:72px;
+  display:grid;grid-template-columns:1fr auto;align-items:center;gap:48px;overflow:hidden;
+}
+.cover-tag{display:inline-flex;background:var(--mint);color:#fff;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:var(--rp);margin-bottom:20px}
+.cover-h{font-family:var(--fd);font-size:64px;font-weight:700;line-height:1;letter-spacing:-1px;margin-bottom:14px}
+.cover-sub{font-size:19px;color:var(--txt2);max-width:46ch}
+.cover-mimos{display:flex;align-items:flex-end;gap:2px}
+
+/* mood gallery */
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:18px}
+.mood{background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r3);padding:24px 16px 20px;text-align:center;box-shadow:var(--sh1);display:flex;flex-direction:column;align-items:center}
+.mood-stage{height:172px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:16px}
+.mood-name{font-family:var(--fd);font-size:19px;font-weight:600}
+.mood-moment{font-size:12px;color:var(--txt2);margin-top:3px;font-weight:600;min-height:32px}
+.mood-attr{margin-top:12px;font-family:ui-monospace,monospace;font-size:11px;color:var(--mint-dk);background:var(--mint-lt);padding:5px 10px;border-radius:var(--rp);font-weight:700}
+
+/* in-context phones */
+.contexts{display:grid;grid-template-columns:repeat(5,1fr);gap:20px}
+.ctx-col{display:flex;flex-direction:column;align-items:center;gap:14px}
+.ctx-label{display:flex;align-items:center;gap:8px;font-family:var(--fd);font-size:15px;font-weight:600}
+.ctx-num{width:22px;height:22px;border-radius:var(--rp);background:var(--txt);color:var(--bg);font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:var(--fn)}
+.phone{width:188px;height:392px;background:#0e0e16;border-radius:34px;padding:7px;box-shadow:var(--sh2);flex-shrink:0;position:relative}
+.screen{width:100%;height:100%;border-radius:27px;overflow:hidden;position:relative;background:var(--bg);display:flex;flex-direction:column;align-items:center;padding:26px 16px 18px}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:74px;height:17px;background:#0e0e16;border-bottom-left-radius:10px;border-bottom-right-radius:10px;z-index:5}
+.scr-mint{background:var(--mint-lt)} .scr-sky{background:var(--sky-lt)} .scr-sun{background:var(--sun-lt)} .scr-coral{background:var(--coral-lt)}
+.scr-top{font-family:var(--fd);font-size:15px;font-weight:600;text-align:center}
+.scr-sub{font-size:11px;color:var(--txt2);text-align:center;margin-top:2px;font-weight:600}
+.scr-mid{flex:1;display:flex;align-items:center;justify-content:center}
+.scr-btn{width:100%;text-align:center;font-family:var(--fn);font-weight:700;font-size:13px;color:#fff;padding:11px;border-radius:var(--rp);line-height:1}
+.b-mint{background:var(--mint);box-shadow:0 3px 0 var(--mint-dk)}
+.b-sky{background:var(--sky);box-shadow:0 3px 0 var(--sky-dk)}
+.b-sun{background:var(--sun);color:var(--txt);box-shadow:0 3px 0 var(--sun-dk)}
+.b-coral{background:var(--coral);box-shadow:0 3px 0 var(--coral-dk)}
+/* mini timer ring */
+.mini-timer{position:relative;width:44px;height:44px;display:flex;align-items:center;justify-content:center;margin:0 auto}
+.mini-timer svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.mini-timer span{font-family:var(--fd);font-size:16px;font-weight:600;color:var(--sky-dk)}
+.scr-pill{font-size:10px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:var(--rp);background:oklch(100% 0 0/.6)}
+
+/* usage */
+.usage{background:#15151f;border-radius:var(--r3);padding:28px 30px;box-shadow:var(--sh2);overflow-x:auto}
+.usage pre{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13.5px;line-height:1.85;color:#e8e8ef;white-space:pre}
+.usage .c{color:#6b6b85} .usage .t{color:#7fe0bb} .usage .a{color:#f7c948} .usage .s{color:#e8a0a0} .usage .k{color:#9db9f0}
+.note-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.note{background:var(--surf2);border:1.5px solid var(--border);border-radius:var(--r2);padding:18px 20px}
+.note-h{font-family:var(--fd);font-size:15px;font-weight:600;margin-bottom:6px;display:flex;align-items:center;gap:8px}
+.note-p{font-size:13px;color:var(--txt2);line-height:1.5}
+.dot{width:9px;height:9px;border-radius:var(--rp)}
+
+/* attribute table */
+.tbl{width:100%;border-collapse:collapse;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r2);overflow:hidden}
+.tbl th{text-align:left;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--txt3);font-weight:700;padding:14px 20px;background:var(--surf2);border-bottom:1.5px solid var(--border)}
+.tbl td{padding:13px 20px;font-size:14px;border-bottom:1px solid var(--border);vertical-align:top}
+.tbl tr:last-child td{border-bottom:none}
+.tbl code{font-family:ui-monospace,monospace;font-size:12.5px;color:var(--mint-dk);background:var(--mint-lt);padding:2px 7px;border-radius:6px;font-weight:700}
+.tbl td:nth-child(2){color:var(--txt2)}
+
+/* reduced motion demo */
+.rm-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.rm-card{border:1.5px solid var(--border);border-radius:var(--r3);padding:28px;text-align:center;background:var(--surface);box-shadow:var(--sh1)}
+.rm-card.frozen{background:var(--surf2)}
+.rm-stage{height:150px;display:flex;align-items:flex-end;justify-content:center;margin-bottom:14px}
+.rm-h{font-family:var(--fd);font-size:17px;font-weight:600}
+.rm-p{font-size:13px;color:var(--txt2);margin-top:4px}
+
+@media(max-width:1000px){
+  .gallery,.contexts{grid-template-columns:repeat(2,1fr)}
+  .cover{grid-template-columns:1fr}.cover-h{font-size:48px}
+  .note-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- COVER -->
+  <div class="cover">
+    <div>
+      <span class="cover-tag">Brand Guide · Mascot Motion · v1.1</span>
+      <h1 class="cover-h">Mimo,<br>in motion.</h1>
+      <p class="cover-sub">The four brand poses, extended into a reusable animated set — one drop-in component, five game moments, fully reduced-motion safe.</p>
+    </div>
+    <div class="cover-mimos">
+      <mimo-mascot mood="idle" size="120"></mimo-mascot>
+      <mimo-mascot mood="cheer" size="150"></mimo-mascot>
+      <mimo-mascot mood="wave" size="120"></mimo-mascot>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="sec">
+    <p class="sec-tag">01 — The Set</p>
+    <h2 class="sec-h">Five moods, mapped to moments</h2>
+    <p class="sec-p">Each mood pairs a brand pose with a looping animation tuned to where it appears in the pass-and-play loop. Mimo's body colour carries the mood — and the brand palette — straight through the game.</p>
+    <div class="gallery">
+      <div class="mood">
+        <div class="mood-stage"><mimo-mascot mood="idle" size="150"></mimo-mascot></div>
+        <div class="mood-name">Idle</div>
+        <div class="mood-moment">Home screen — a calm breathing bounce &amp; blink</div>
+        <div class="mood-attr">mood="idle"</div>
+      </div>
+      <div class="mood">
+        <div class="mood-stage"><mimo-mascot mood="thinking" size="150"></mimo-mascot></div>
+        <div class="mood-name">Thinking</div>
+        <div class="mood-moment">Timer running — sways, looks up, "?" bubbles</div>
+        <div class="mood-attr">mood="thinking"</div>
+      </div>
+      <div class="mood">
+        <div class="mood-stage"><mimo-mascot mood="cheer" size="150"></mimo-mascot></div>
+        <div class="mood-name">Cheer</div>
+        <div class="mood-moment">Correct answer — jumps with a sparkle burst</div>
+        <div class="mood-attr">mood="cheer"</div>
+      </div>
+      <div class="mood">
+        <div class="mood-stage"><mimo-mascot mood="dizzy" size="150"></mimo-mascot></div>
+        <div class="mood-name">Dizzy</div>
+        <div class="mood-moment">Timeout or wrong — woozy wobble, orbiting stars</div>
+        <div class="mood-attr">mood="dizzy"</div>
+      </div>
+      <div class="mood">
+        <div class="mood-stage"><mimo-mascot mood="wave" size="150"></mimo-mascot></div>
+        <div class="mood-name">Wave</div>
+        <div class="mood-moment">Pass-and-play handoff — a friendly wave</div>
+        <div class="mood-attr">mood="wave"</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- IN CONTEXT -->
+  <div class="sec">
+    <p class="sec-tag">02 — In Context</p>
+    <h2 class="sec-h">Where each one lives</h2>
+    <p class="sec-p">The same component, dropped straight into the real screens of the game loop. No extra wiring — just the element with a mood.</p>
+    <div class="contexts">
+
+      <div class="ctx-col">
+        <div class="ctx-label"><span class="ctx-num">1</span> Home</div>
+        <div class="phone"><div class="screen scr-mint"><div class="notch"></div>
+          <div class="scr-top">Showrades</div>
+          <div class="scr-sub">Act it out. Guess it loud.</div>
+          <div class="scr-mid"><mimo-mascot mood="idle" size="150"></mimo-mascot></div>
+          <div class="scr-btn b-mint">Start Game</div>
+        </div></div>
+      </div>
+
+      <div class="ctx-col">
+        <div class="ctx-label"><span class="ctx-num">2</span> Guessing</div>
+        <div class="phone"><div class="screen scr-sky"><div class="notch"></div>
+          <div class="mini-timer">
+            <svg width="44" height="44" viewBox="0 0 44 44"><circle cx="22" cy="22" r="18" fill="none" stroke="oklch(100% 0 0/.5)" stroke-width="4"/><circle cx="22" cy="22" r="18" fill="none" stroke="var(--sky)" stroke-width="4" stroke-linecap="round" stroke-dasharray="113" stroke-dashoffset="45"/></svg>
+            <span>24</span>
+          </div>
+          <div class="scr-mid"><mimo-mascot mood="thinking" size="148"></mimo-mascot></div>
+          <div class="scr-pill" style="color:var(--sky-dk);margin:0 auto 10px">🐾 Animals</div>
+          <div class="scr-btn b-sky">Got it!</div>
+        </div></div>
+      </div>
+
+      <div class="ctx-col">
+        <div class="ctx-label"><span class="ctx-num">3</span> Correct</div>
+        <div class="phone"><div class="screen scr-sun"><div class="notch"></div>
+          <div class="scr-top">Nice one!</div>
+          <div class="scr-sub">+1 for Team Lions</div>
+          <div class="scr-mid"><mimo-mascot mood="cheer" size="150"></mimo-mascot></div>
+          <div class="scr-btn b-sun">Next Word</div>
+        </div></div>
+      </div>
+
+      <div class="ctx-col">
+        <div class="ctx-label"><span class="ctx-num">4</span> Time's up</div>
+        <div class="phone"><div class="screen scr-coral"><div class="notch"></div>
+          <div class="scr-top">Time's up!</div>
+          <div class="scr-sub">The word was <b>Elephant</b></div>
+          <div class="scr-mid"><mimo-mascot mood="dizzy" size="150"></mimo-mascot></div>
+          <div class="scr-btn b-coral">Keep Going</div>
+        </div></div>
+      </div>
+
+      <div class="ctx-col">
+        <div class="ctx-label"><span class="ctx-num">5</span> Pass</div>
+        <div class="phone"><div class="screen scr-mint"><div class="notch"></div>
+          <div class="scr-top">Pass to Team B!</div>
+          <div class="scr-sub">Hand the phone over</div>
+          <div class="scr-mid"><mimo-mascot mood="wave" size="150"></mimo-mascot></div>
+          <div class="scr-btn b-mint">I'm ready</div>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- USAGE -->
+  <div class="sec">
+    <p class="sec-tag">03 — Drop-in</p>
+    <h2 class="sec-h">One file. One tag.</h2>
+    <p class="sec-p">Mimo ships as a single self-contained web component. Add the script once, then place the element anywhere — markup, React, anything that renders HTML. Styles and IDs are sealed inside its shadow root, so nothing on the host page can collide.</p>
+    <div class="usage">
+<pre><span class="c">&lt;!-- 1 · include once --&gt;</span>
+<span class="t">&lt;script</span> <span class="a">src</span>=<span class="s">"mimo/mimo-mascot.js"</span><span class="t">&gt;&lt;/script&gt;</span>
+
+<span class="c">&lt;!-- 2 · drop in wherever a moment calls for Mimo --&gt;</span>
+<span class="t">&lt;mimo-mascot</span> <span class="a">mood</span>=<span class="s">"idle"</span><span class="t">&gt;&lt;/mimo-mascot&gt;</span>      <span class="c">&lt;!-- home --&gt;</span>
+<span class="t">&lt;mimo-mascot</span> <span class="a">mood</span>=<span class="s">"thinking"</span><span class="t">&gt;&lt;/mimo-mascot&gt;</span>  <span class="c">&lt;!-- timer --&gt;</span>
+<span class="t">&lt;mimo-mascot</span> <span class="a">mood</span>=<span class="s">"cheer"</span> <span class="a">size</span>=<span class="s">"220"</span><span class="t">&gt;&lt;/mimo-mascot&gt;</span>
+<span class="t">&lt;mimo-mascot</span> <span class="a">mood</span>=<span class="s">"dizzy"</span><span class="t">&gt;&lt;/mimo-mascot&gt;</span>
+<span class="t">&lt;mimo-mascot</span> <span class="a">mood</span>=<span class="s">"wave"</span><span class="t">&gt;&lt;/mimo-mascot&gt;</span>
+
+<span class="c">&lt;!-- 3 · drive it from game state --&gt;</span>
+<span class="k">const</span> mimo = document.querySelector(<span class="s">'mimo-mascot'</span>);
+onCorrect(() =&gt; mimo.<span class="a">setAttribute</span>(<span class="s">'mood'</span>, <span class="s">'cheer'</span>));
+onTimeout(() =&gt; mimo.<span class="a">setAttribute</span>(<span class="s">'mood'</span>, <span class="s">'dizzy'</span>));</pre>
+    </div>
+
+    <div class="note-row">
+      <div class="note">
+        <div class="note-h"><span class="dot" style="background:var(--mint)"></span> Zero dependencies</div>
+        <div class="note-p">Pure CSS + inline SVG inside a shadow root. No framework, no build step, no runtime — works in any HTML page.</div>
+      </div>
+      <div class="note">
+        <div class="note-h"><span class="dot" style="background:var(--sky)"></span> Friendly aliases</div>
+        <div class="note-p"><code style="font-size:11px">correct</code>, <code style="font-size:11px">wrong</code>, <code style="font-size:11px">timeout</code>, <code style="font-size:11px">happy</code>, <code style="font-size:11px">pass</code> all resolve to the right mood — name it however your code reads best.</div>
+      </div>
+      <div class="note">
+        <div class="note-h"><span class="dot" style="background:var(--coral)"></span> Reduced-motion safe</div>
+        <div class="note-p">Honors <code style="font-size:11px">prefers-reduced-motion</code> automatically, freezing each mood on a clear, expressive pose.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- API -->
+  <div class="sec">
+    <p class="sec-tag">04 — Reference</p>
+    <h2 class="sec-h">Attributes</h2>
+    <p class="sec-p">Everything is controlled with plain HTML attributes — set them statically or change them at runtime.</p>
+    <table class="tbl">
+      <thead><tr><th style="width:120px">Attribute</th><th style="width:48%">Description</th><th>Values</th></tr></thead>
+      <tbody>
+        <tr><td><code>mood</code></td><td>Which pose + animation to show. Drives both expression and body colour.</td><td><code>idle</code> <code>thinking</code> <code>cheer</code> <code>dizzy</code> <code>wave</code></td></tr>
+        <tr><td><code>size</code></td><td>Rendered height in pixels. Width scales automatically.</td><td>any number — default <code>180</code></td></tr>
+        <tr><td><code>still</code></td><td>Boolean. Freezes the mascot on its end-state with no looping motion.</td><td>present / absent</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="div"></div>
+
+  <!-- REDUCED MOTION -->
+  <div class="sec">
+    <p class="sec-tag">05 — Accessibility</p>
+    <h2 class="sec-h">Still, but never lifeless</h2>
+    <p class="sec-p">When a player has reduced motion turned on — or when you set <code style="font-family:ui-monospace,monospace;font-size:14px;color:var(--mint-dk);background:var(--mint-lt);padding:2px 7px;border-radius:6px">still</code> yourself — every animation switches off and Mimo rests on the most readable frame of each mood. The mood still reads instantly; it simply holds its pose.</p>
+    <div class="rm-grid">
+      <div class="rm-card">
+        <div class="rm-stage"><mimo-mascot mood="cheer" size="130"></mimo-mascot></div>
+        <div class="rm-h">Animated</div>
+        <div class="rm-p">Jumps and sparkles on every correct answer.</div>
+      </div>
+      <div class="rm-card frozen">
+        <div class="rm-stage"><mimo-mascot mood="cheer" size="130" still></mimo-mascot></div>
+        <div class="rm-h">Reduced motion / <code style="font-family:ui-monospace,monospace;font-size:11px">still</code></div>
+        <div class="rm-p">Holds the cheer pose — arms up, sparkles in place.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<script src="mimo/mimo-mascot.js"></script>
+</body>
+</html>
