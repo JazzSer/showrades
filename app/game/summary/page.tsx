@@ -22,7 +22,7 @@ export default function SummaryPage() {
   const tie = sorted.length > 1 && sorted[1].score === leader.score;
 
   return (
-    <div className="min-h-full bg-bg flex flex-col">
+    <div className="min-h-dvh bg-bg flex flex-col">
       <main className="flex-1 w-full max-w-md mx-auto flex flex-col items-center text-center px-6 py-8">
         <p className="text-[12px] font-bold tracking-[.08em] uppercase text-mint-dk mt-2">
           Round {state.round} complete

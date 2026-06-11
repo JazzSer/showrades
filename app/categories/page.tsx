@@ -40,7 +40,7 @@ export default function CategoriesPage() {
   const { settings } = state;
 
   return (
-    <div className="min-h-full bg-bg flex flex-col">
+    <div className="min-h-dvh bg-bg flex flex-col">
       <main className="flex-1 w-full max-w-md mx-auto flex flex-col px-5 py-4">
         <div className="flex items-center justify-between mb-2">
           <Link

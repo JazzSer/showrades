@@ -30,7 +30,7 @@ export function TeamCard({
   return (
     <div
       className={
-        "flex items-center gap-5 bg-surface rounded-[32px] px-8 py-5 " +
+        "flex items-center gap-3 bg-surface rounded-[32px] px-5 py-4 " +
         "transition-[transform,box-shadow] duration-200 " +
         `[box-shadow:var(--sh1)] border-2 ` +
         (active
@@ -41,19 +41,19 @@ export function TeamCard({
     >
       {/* Avatar */}
       <div
-        className={`w-12 h-12 rounded-full flex items-center justify-center text-[22px] shrink-0 ${avatarBg[color]}`}
+        className={`w-11 h-11 rounded-full flex items-center justify-center text-[20px] shrink-0 ${avatarBg[color]}`}
       >
         {emoji}
       </div>
 
       {/* Info */}
       <div className="flex-1 min-w-0">
-        <div className="font-display text-[20px] font-semibold text-txt truncate">{name}</div>
+        <div className="font-display text-[17px] font-semibold text-txt truncate">{name}</div>
         {status && <div className="text-[11px] text-txt3 mt-0.5">{status}</div>}
       </div>
 
       {/* Score */}
-      <div className="font-display text-[40px] font-bold text-txt ml-auto leading-none">
+      <div className="font-display text-[32px] font-bold text-txt ml-auto leading-none shrink-0">
         {score} <span className="text-[13px] font-body text-txt3">pts</span>
       </div>
     </div>

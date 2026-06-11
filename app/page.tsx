@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <div
-      className="min-h-full flex flex-col"
+      className="min-h-dvh flex flex-col"
       style={{
         background: "var(--sun-lt)",
         backgroundImage:
