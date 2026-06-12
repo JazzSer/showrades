@@ -28,12 +28,12 @@
 | Spaceman | https://www.pexels.com/photo/astronaut-standing-beside-american-flag-on-the-moon-39896/ | Pexels License |
 | Frankenstein | https://www.pexels.com/photo/portrait-of-man-in-frankenstein-costume-18985037/ | Pexels License |
 
-## Notes / Lower-Confidence Matches
+## Notes / Lower-Confidence Matches (Updated 2026-06-12)
 
-- **Vampire**: source page title is generic ("A Boy Wearing a Costume") — title doesn't explicitly confirm vampire theme in search results; verify visually before use.
-- **Ninja**: best available match is a woman in a katana/samurai-style cosplay pose rather than a classic all-black ninja outfit — verify it fits the "Ninja" concept visually.
-- **Monster**: used the "Frankenstein's monster" costume photo as a stand-in for "Monster" since it's a friendly-ish green monster costume; may overlap visually with the separate Frankenstein entry — consider swapping for a different costume if distinctness is needed.
-- **Robot**: result is a toy/figure photo (not a person in costume), which fits the "real object" allowance but is less dynamic.
-- **Alien**: result is a mask close-up rather than a full costume photo.
-- **Cowboy**: result is a real person wearing a cowboy hat (not full costume) — acceptable per brief but worth a second look.
-- **Giant**: result is a statue ("Giant Guardian Statue"), satisfies the "real photo of a real object" criterion but is abstract/generic rather than an obviously human giant figure.
+- **Vampire**: RESOLVED — replaced the generic "A Boy Wearing a Costume" photo with "Woman in Vampire Costume" (https://www.pexels.com/photo/woman-in-vampire-costume-18674162/), whose title explicitly confirms the vampire theme.
+- **Ninja**: UNRESOLVED — re-search did not surface a clearly better classic all-black ninja costume photo on Pexels/Pixabay; kept the existing katana/samurai cosplay photo (https://pixabay.com/photos/woman-katana-ninja-girl-pose-6020714/). Still worth a future look if a better match appears.
+- **Monster**: RESOLVED — replaced the "Frankenstein's monster" costume photo (which overlapped with the separate Frankenstein entry) with "Person in Monster Costume" (https://www.pexels.com/photo/person-in-monster-costume-18305607/), a distinct generic monster costume.
+- **Robot**: UNRESOLVED — re-search did not find a person-in-robot-costume photo on Pexels (only toy/figure photos and dance-themed collection pages); kept the existing "Robot Toy" photo (https://www.pexels.com/photo/full-shot-of-robot-toy-8566474/).
+- **Alien**: UNRESOLVED — re-search did not find a fuller alien costume/scene photo (only mask close-ups and collection pages); kept the existing alien mask photo (https://www.pexels.com/photo/gray-alien-mask-with-big-black-eyes-18779589/).
+- **Cowboy**: RESOLVED — replaced the "person wearing a cowboy hat" photo with "A Person Wearing a Costume with a Cowboy Hat Standing on a Field" (https://www.pexels.com/photo/a-person-wearing-a-costume-with-a-cowboy-hat-standing-on-a-field-18244117/), which shows a fuller costume rather than just a hat.
+- **Giant**: RESOLVED — replaced the generic "Giant Guardian Statue" photo with "Man in Costume with Huge Mask on Head" (https://www.pexels.com/photo/man-in-costume-with-huge-mask-on-head-14415185/), a person on stilts/oversized costume that more directly conveys "a huge person."
