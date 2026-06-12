@@ -13,9 +13,9 @@
 | Throw | https://www.pexels.com/photo/black-boy-throwing-ball-to-father-5240426/ | Pexels License |
 | Catch | https://www.pexels.com/photo/careful-black-boy-catching-ball-5240424/ | Pexels License |
 | Walk | https://www.pexels.com/photo/boy-walking-dog-on-a-leash-9429158/ | Pexels License |
-| Sweep | https://www.pexels.com/photo/a-man-sweeping-the-kitchen-floor-8287257/ | Pexels License |
+| Sweep | https://www.pexels.com/photo/charming-child-sweeping-concrete-pavement-with-broomstick-4458033/ | Pexels License |
 | Stir | https://www.pexels.com/photo/a-young-boy-stirring-a-pot-8511867/ | Pexels License |
-| Sneeze | https://www.pexels.com/photo/woman-wiping-her-nose-with-tissue-3961224/ | Pexels License |
+| Sneeze | https://www.pexels.com/photo/shallow-focus-photo-of-a-girl-sneezing-4000624/ | Pexels License |
 | Whispering | https://www.pexels.com/photo/children-whispering-in-ones-ear-12659334/ | Pexels License |
 | Hug | https://www.pexels.com/photo/two-kids-hugging-each-other-6941996/ | Pexels License |
 | Dig | https://www.pexels.com/photo/crop-kid-playing-with-sand-shovel-5623731/ | Pexels License |
@@ -32,7 +32,8 @@
 
 - All `imageUrl` fields are `null` because no direct image-file URLs (e.g. `images.pexels.com/...jpg`) appeared in the WebSearch results — only photo page URLs. A follow-up step (fetching each page or using the Pexels API) is needed to get direct CDN image URLs.
 - All sources are Pexels (Pexels License: free for commercial & personal use, no attribution required, though attribution is provided where the photographer's name was visible).
-- "Fly" is represented by "Little Boy in Wheat Field" (child with arms outstretched, freedom/flying pose) per the research doc's note that this word means a child pretending to fly with arms out, not an insect.
-- "Row" and "Sweep"/"Stir" use adult subjects since no clear kid-specific photo of these actions surfaced in search results; all remain real, kid-friendly, recognizable photographs.
-- "Sneeze" uses an adult (woman wiping nose with tissue) — no confident kid-specific sneezing photo was found in search results; flagged for potential re-curation.
-- "Eat" and "Sleep"/"Hug" etc. all have child subjects matching the action well.
+- "Fly" is represented by "Little Boy in Wheat Field" (child with arms outstretched, freedom/flying pose) per the research doc's note that this word means a child pretending to fly with arms out, not an insect. Re-checked: an alternate "Portrait of Smiling Boy With Arms Outstretched" exists but is less thematically tied to the open-field "flying" pose, so the current photo remains the better fit — no change.
+- "Sweep" was updated to "Charming Child Sweeping Concrete Pavement with Broomstick" (Yan Krukau) — a clear child-subject photo replacing the previous adult man sweeping a kitchen floor.
+- "Sneeze" was updated to "Shallow Focus Photo of a Girl Sneezing" (Gustavo Fring) — a child subject replacing the previous adult woman wiping her nose with tissue.
+- "Stir" was re-verified: "A Young Boy Stirring a Pot" is confirmed as a child subject and remains the top/best match — no change needed.
+- "Row" remains an adult subject ("an elderly woman rowing a boat" / "a man rowing a boat 8389374"). Search turned up only adult rowing photos or a father-with-child photo that doesn't depict rowing itself; no suitable kid-rowing photo was found, so it stays unchanged and flagged for future re-curation.

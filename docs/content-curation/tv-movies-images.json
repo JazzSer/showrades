@@ -72,7 +72,8 @@
       "sourcePage": "https://www.pexels.com/photo/gray-alien-mask-with-big-black-eyes-18779589/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
+      "attribution": null,
+      "_note": "No clearly better full-costume alien photo found via re-search; kept existing mask photo."
     },
     {
       "word": "Robot",
@@ -80,7 +81,8 @@
       "sourcePage": "https://www.pexels.com/photo/full-shot-of-robot-toy-8566474/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
+      "attribution": null,
+      "_note": "No clearly better photo (person-in-robot-costume) found via re-search; kept existing toy photo."
     },
     {
       "word": "Dragon",
@@ -101,7 +103,7 @@
     {
       "word": "Cowboy",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/young-man-in-cowboy-hat-17353628/",
+      "sourcePage": "https://www.pexels.com/photo/a-person-wearing-a-costume-with-a-cowboy-hat-standing-on-a-field-18244117/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -133,10 +135,10 @@
     {
       "word": "Monster",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/green-frankenstein-monster-woman-costume-portrait-28924181/",
+      "sourcePage": "https://www.pexels.com/photo/person-in-monster-costume-18305607/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Jonathan Valdes"
+      "attribution": null
     },
     {
       "word": "Mummy",
@@ -149,7 +151,7 @@
     {
       "word": "Giant",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/giant-guardian-statue-in-serene-outdoor-setting-33201232/",
+      "sourcePage": "https://www.pexels.com/photo/man-in-costume-with-huge-mask-on-head-14415185/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -157,7 +159,7 @@
     {
       "word": "Vampire",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/a-boy-wearing-a-costume-6800587/",
+      "sourcePage": "https://www.pexels.com/photo/woman-in-vampire-costume-18674162/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -184,7 +186,8 @@
       "sourcePage": "https://pixabay.com/photos/woman-katana-ninja-girl-pose-6020714/",
       "source": "Pixabay",
       "license": "Pixabay Content License (free to use, no attribution required)",
-      "attribution": null
+      "attribution": null,
+      "_note": "No clearly better all-black ninja costume photo found via re-search; kept existing katana cosplay photo."
     },
     {
       "word": "Spaceman",

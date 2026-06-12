@@ -10,9 +10,9 @@ photographer credit is included where shown in search results).
 | Snowman | https://www.pexels.com/photo/snowman-on-snow-covered-ground-3702485/ | Pexels License |
 | Volcano | https://www.pexels.com/photo/dramatic-lava-eruption-at-kilauea-volcano-33295503/ (James Lee) | Pexels License |
 | Rainbow | https://www.pexels.com/photo/a-beautiful-rainbow-under-blue-sky-near-green-trees-14408453/ | Pexels License |
-| Tree | https://www.pexels.com/search/single%20tree/ (collection - pick specific photo) | Pexels License |
+| Tree | https://www.pexels.com/photo/single-tree-on-meadow-with-forest-behind-19733592/ (Tom Fisk) | Pexels License |
 | Cactus | https://www.pexels.com/photo/green-cactus-plant-close-up-photography-2917355/ | Pexels License |
-| Wind | https://www.pexels.com/search/leaves%20blowing%20in%20the%20wind/ (collection - shows wind's effect on leaves) | Pexels License |
+| Wind | https://www.pexels.com/photo/wind-blowing-on-grass-field-14160226/ (Robert So - shows wind's effect on grass) | Pexels License |
 | Waterfall | https://www.pexels.com/photo/time-lapse-photography-of-flowing-waterfall-2406395/ | Pexels License |
 | Acorn | https://www.pexels.com/photo/close-up-of-autumn-oak-leaves-with-acorns-28575441/ | Pexels License |
 | Moon | https://www.pexels.com/photo/photo-of-moon-47367/ | Pexels License |
@@ -27,7 +27,7 @@ photographer credit is included where shown in search results).
 | Leaf | https://www.pexels.com/photo/single-yellow-gold-autumn-leaf-10919836/ | Pexels License |
 | Cloud | https://www.pexels.com/photo/white-fluffy-clouds-against-a-blue-sky-15875761/ | Pexels License |
 | Sun | https://www.pexels.com/photo/sun-rays-shining-through-clouds-in-blue-sky-4394159/ | Pexels License |
-| Seed | https://www.pexels.com/search/seed%20germination/ (collection - pick specific photo) | Pexels License |
+| Seed | https://www.pexels.com/photo/small-sprout-growing-in-soil-in-nature-7768447/ (Atlantic Ambience) | Pexels License |
 | Glacier | https://www.pexels.com/photo/perito-moreno-glacier-in-argentina-26988236/ | Pexels License |
 | Mud | https://www.pexels.com/photo/man-washing-feet-in-water-with-mud-6907094/ | Pexels License |
 
@@ -37,13 +37,12 @@ photographer credit is included where shown in search results).
   (e.g. `images.pexels.com/...jpg`) literally appeared in WebSearch results - only
   Pexels photo page URLs (`/photo/...`) and search/collection pages were returned.
   To get a direct image URL, open the source page and use the page's download link.
-- **Tree** and **Seed** point to Pexels search/collection pages rather than a single
-  photo, because the search results for these terms returned only collection/search
-  URLs without a specific `/photo/...` page. A specific photo should be picked
-  manually from these collections before finalizing.
-- **Wind** is represented via a "leaves blowing in the wind" collection page (per
-  the brief's suggestion to show wind's effect), but likewise needs a specific
-  photo selected from the collection.
+- **Tree** uses a specific photo of a single tree on a meadow with forest behind
+  (Tom Fisk), showing trunk and foliage.
+- **Seed** uses a specific photo of a small sprout growing in soil (Atlantic
+  Ambience), representing seed germination.
+- **Wind** uses a specific photo of wind blowing on a grass field (Robert So),
+  showing wind's visible effect on grass.
 - **Star** uses a night-sky-with-stars photo (per the brief's guidance for
   abstract/hard-to-photograph words).
 - **Sun** uses a photo of sun rays shining through clouds in a blue sky.
