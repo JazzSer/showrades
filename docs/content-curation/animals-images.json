@@ -5,15 +5,15 @@
     {
       "word": "Penguin",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/a-close-up-shot-of-a-penguin-9657071/",
+      "sourcePage": "https://www.pexels.com/photo/a-gentoo-penguin-standing-on-ice-5952211/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Niklas Jeromin"
+      "attribution": null
     },
     {
       "word": "Kangaroo",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/kangaroo-leaping-in-rockhampton-grasslands-30069929/",
+      "sourcePage": "https://www.pexels.com/photo/kangaroo-in-nature-25881827/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -37,7 +37,7 @@
     {
       "word": "Butterfly",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-monarch-butterfly-on-top-of-flower-1046287/",
+      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-butterfly-2569145/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -48,15 +48,15 @@
       "sourcePage": "https://www.pexels.com/photo/red-crab-2235924/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
+      "attribution": "rompalli harish"
     },
     {
       "word": "Snake",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/green-snake-on-tree-branch-63461",
+      "sourcePage": "https://www.pexels.com/photo/white-and-black-snake-on-close-up-photography-80474/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Valeria Boltneva"
+      "attribution": null
     },
     {
       "word": "Gorilla",
@@ -69,7 +69,7 @@
     {
       "word": "Giraffe",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photography-of-giraffe-1382156/",
+      "sourcePage": "https://www.pexels.com/photo/white-and-brown-giraffe-168497/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -101,15 +101,15 @@
     {
       "word": "Turtle",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-of-a-green-sea-turtle-17994238/",
+      "sourcePage": "https://www.pexels.com/photo/photo-of-sea-turtle-2765872/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Stephen Leonardi"
+      "attribution": "Jeremy Bishop"
     },
     {
       "word": "Flamingo",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-pink-flamingo-3864706/",
+      "sourcePage": "https://www.pexels.com/photo/pink-flamingo-in-close-up-photography-1793463/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -117,7 +117,7 @@
     {
       "word": "Bee",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-bee-on-a-flower-13797783/",
+      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-bee-in-flower-2198671/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -141,23 +141,23 @@
     {
       "word": "Sloth",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/sloth-hanging-on-a-tree-25929086/",
+      "sourcePage": "https://www.pexels.com/photo/close-up-of-sloth-7200626/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
+      "attribution": "Steven Paton"
     },
     {
       "word": "Beaver",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/photo-of-a-beaver-6920878/",
+      "sourcePage": "https://www.pexels.com/photo/a-beaver-in-the-wild-4027293/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Andrew Patrick"
+      "attribution": "Scott Younkin"
     },
     {
       "word": "Chameleon",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-shot-of-a-green-chameleon-on-a-rock-7892461/",
+      "sourcePage": "https://www.pexels.com/photo/green-and-purple-chameleon-751684/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -165,7 +165,7 @@
     {
       "word": "Rabbit",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/white-rabbit-on-green-grass-4001296/",
+      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-rabbit-2576780/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -173,7 +173,7 @@
     {
       "word": "Chicken",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/brown-hen-standing-in-a-chicken-coop-16733493/",
+      "sourcePage": "https://www.pexels.com/photo/close-up-of-a-derbyshire-redcap-chicken-19062539/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -189,18 +189,18 @@
     {
       "word": "Bear",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/beautiful-brown-bear-on-the-ground-6780335/",
+      "sourcePage": "https://www.pexels.com/photo/brown-bear-close-up-view-river-water-530797",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Petr Ganaj"
+      "attribution": "Co Sch"
     },
     {
       "word": "Shark",
       "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/a-great-white-shark-swimming-in-the-ocean-15539380/",
+      "sourcePage": "https://www.pexels.com/photo/photo-of-shark-underwater-4666748/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Jeremy Bishop"
+      "attribution": null
     }
   ]
 }
