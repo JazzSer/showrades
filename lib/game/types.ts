@@ -17,7 +17,9 @@ export interface WordCard {
 
 export type GameMode = "word" | "picture";
 
-export type GameStyle = "default" | "headsup";
+export type TurnMode = "round" | "card";
+
+export type GoalMode = "points" | "endless";
 
 export interface Team {
   id: string;
@@ -28,11 +30,13 @@ export interface Team {
   roundGain: number;
 }
 
-export type RoundTimerLength = 30 | 60 | 90;
+export type RoundTimerLength = 0 | 30 | 60 | 90;
 
 export interface GameSettings {
   mode: GameMode;
-  style: GameStyle;
+  turnMode: TurnMode;
+  goalMode: GoalMode;
+  winTarget: number;
   categories: CategoryKey[];
   roundLength: RoundTimerLength;
 }
@@ -54,10 +58,13 @@ export interface GameState {
   deck: WordCard[];
   deckIndex: number;
   timeLeft: number;
+  cardsPlayed: number;
   screen: GameScreen;
 }
 
 export const WIN_TARGET = 15;
+export const MIN_WIN_TARGET = 5;
+export const MAX_WIN_TARGET = 50;
 
 export const AVATARS = ["🦁", "🐬", "🦊", "🐼", "🦄", "🐯", "🐸", "🐵", "🦉", "🐰", "🐨", "🐲"];
 

@@ -14,9 +14,13 @@ import {
   CategoryKey,
   GameSettings,
   GameState,
+  GoalMode,
+  MAX_WIN_TARGET,
+  MIN_WIN_TARGET,
   RoundTimerLength,
   Team,
   TEAM_COLORS,
+  TurnMode,
   WIN_TARGET,
   WordCard,
 } from "@/lib/game/types";
@@ -41,7 +45,9 @@ function defaultState(): GameState {
   return {
     settings: {
       mode: "word",
-      style: "default",
+      turnMode: "round",
+      goalMode: "points",
+      winTarget: WIN_TARGET,
       categories: ["animals", "food", "fruits"],
       roundLength: 60,
     },
@@ -54,6 +60,7 @@ function defaultState(): GameState {
     deck: [],
     deckIndex: 0,
     timeLeft: 60,
+    cardsPlayed: 0,
     screen: "home",
   };
 }
@@ -61,7 +68,30 @@ function defaultState(): GameState {
 function loadState(): GameState | null {
   try {
     const raw = localStorage.getItem(SAVE_KEY);
-    return raw ? (JSON.parse(raw) as GameState) : null;
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as Partial<GameState> & {
+      settings?: Partial<GameSettings> & { style?: string };
+    };
+    const defaults = defaultState();
+    if (!parsed.settings) return { ...defaults, ...parsed } as GameState;
+
+    // Drop the deprecated "style" field (default | headsup) from older saves —
+    // turn framing is now controlled by turnMode ("round" | "card").
+    const { style: _style, ...restSettings } = parsed.settings;
+    void _style;
+
+    return {
+      ...defaults,
+      ...parsed,
+      settings: {
+        ...defaults.settings,
+        ...restSettings,
+        turnMode: restSettings.turnMode ?? "round",
+        goalMode: restSettings.goalMode ?? "points",
+        winTarget: restSettings.winTarget ?? WIN_TARGET,
+      },
+      cardsPlayed: parsed.cardsPlayed ?? 0,
+    } as GameState;
   } catch {
     return null;
   }
@@ -70,7 +100,9 @@ function loadState(): GameState | null {
 interface GameContextValue {
   state: GameState;
   setMode: (mode: GameState["settings"]["mode"]) => void;
-  setStyle: (style: GameState["settings"]["style"]) => void;
+  setTurnMode: (turnMode: TurnMode) => void;
+  setGoalMode: (goalMode: GoalMode) => void;
+  setWinTarget: (winTarget: number) => void;
   toggleCategory: (category: CategoryKey) => void;
   setRoundLength: (length: RoundTimerLength) => void;
   addTeam: () => void;
@@ -82,6 +114,7 @@ interface GameContextValue {
   onCorrect: () => void;
   onPass: () => void;
   endTurn: () => void;
+  endGameEarly: () => void;
   nextRound: () => void;
   resetGame: () => void;
 }
@@ -111,8 +144,17 @@ export function GameProvider({ children }: { children: ReactNode }) {
     setState((s) => ({ ...s, settings: { ...s.settings, mode } }));
   }, []);
 
-  const setStyle = useCallback((style: GameSettings["style"]) => {
-    setState((s) => ({ ...s, settings: { ...s.settings, style } }));
+  const setTurnMode = useCallback((turnMode: TurnMode) => {
+    setState((s) => ({ ...s, settings: { ...s.settings, turnMode } }));
+  }, []);
+
+  const setGoalMode = useCallback((goalMode: GoalMode) => {
+    setState((s) => ({ ...s, settings: { ...s.settings, goalMode } }));
+  }, []);
+
+  const setWinTarget = useCallback((winTarget: number) => {
+    const clamped = Math.max(MIN_WIN_TARGET, Math.min(MAX_WIN_TARGET, winTarget));
+    setState((s) => ({ ...s, settings: { ...s.settings, winTarget: clamped } }));
   }, []);
 
   const toggleCategory = useCallback((category: CategoryKey) => {
@@ -188,6 +230,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       deck: buildDeck(s.settings.categories),
       deckIndex: 0,
       timeLeft: s.settings.roundLength,
+      cardsPlayed: 0,
       screen: "pass",
     }));
   }, []);
@@ -195,10 +238,17 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const currentCard = useCallback((): WordCard | null => {
     let deck = state.deck;
     let deckIndex = state.deckIndex;
+    const exhausted = deckIndex >= deck.length;
+
     if (deck.length === 0) {
       deck = buildDeck(state.settings.categories);
       deckIndex = 0;
-    } else if (deckIndex >= deck.length) {
+    } else if (exhausted) {
+      if (state.settings.goalMode === "endless") {
+        // In endless mode the deck is finite — once it runs out, stop dealing
+        // cards so the game can end via endTurn()'s deckExhausted check.
+        return null;
+      }
       deck = buildDeck(state.settings.categories);
       deckIndex = 0;
     }
@@ -206,7 +256,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
       setState((s) => ({ ...s, deck, deckIndex }));
     }
     return deck[deckIndex] ?? null;
-  }, [state.deck, state.deckIndex, state.settings.categories]);
+  }, [state.deck, state.deckIndex, state.settings.categories, state.settings.goalMode]);
 
   const onCorrect = useCallback(() => {
     setState((s) => ({
@@ -215,21 +265,33 @@ export function GameProvider({ children }: { children: ReactNode }) {
         i === s.currentTeamIndex ? { ...t, score: t.score + 1, roundGain: t.roundGain + 1 } : t
       ),
       deckIndex: s.deckIndex + 1,
+      cardsPlayed: s.cardsPlayed + 1,
     }));
   }, []);
 
   const onPass = useCallback(() => {
-    setState((s) => ({ ...s, deckIndex: s.deckIndex + 1 }));
+    setState((s) => ({ ...s, deckIndex: s.deckIndex + 1, cardsPlayed: s.cardsPlayed + 1 }));
   }, []);
 
   const endTurn = useCallback(() => {
     setState((s) => {
+      const reachedTarget =
+        s.settings.goalMode === "points" &&
+        Math.max(...s.teams.map((t) => t.score)) >= s.settings.winTarget;
+      const deckExhausted = s.settings.goalMode === "endless" && s.deckIndex >= s.deck.length;
+
       if (s.currentTeamIndex < s.teams.length - 1) {
+        if (reachedTarget || deckExhausted) {
+          return { ...s, screen: "gameover" };
+        }
         return { ...s, currentTeamIndex: s.currentTeamIndex + 1, screen: "pass" };
       }
-      const max = Math.max(...s.teams.map((t) => t.score));
-      return { ...s, screen: max >= WIN_TARGET ? "gameover" : "roundend" };
+      return { ...s, screen: reachedTarget || deckExhausted ? "gameover" : "roundend" };
     });
+  }, []);
+
+  const endGameEarly = useCallback(() => {
+    setState((s) => ({ ...s, screen: "gameover" }));
   }, []);
 
   const nextRound = useCallback(() => {
@@ -249,7 +311,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
   const value: GameContextValue = {
     state,
     setMode,
-    setStyle,
+    setTurnMode,
+    setGoalMode,
+    setWinTarget,
     toggleCategory,
     setRoundLength,
     addTeam,
@@ -261,6 +325,7 @@ export function GameProvider({ children }: { children: ReactNode }) {
     onCorrect,
     onPass,
     endTurn,
+    endGameEarly,
     nextRound,
     resetGame,
   };

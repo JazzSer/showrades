@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Showrades · Categories</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="showrades.css">
+</head>
+<body>
+<div class="screen" data-screen-label="Category Select">
+  <div class="safetop"></div>
+  <div class="scr-body">
+    <div class="topbar">
+      <a class="iconbtn" href="02-set-up.html" title="Back" aria-label="Back">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <div class="scr-title">Categories</div>
+      <div class="spacer44"></div>
+    </div>
+    <div class="cat-grid">
+      <div class="catcard on-mint"  data-cat data-cards="8" data-color="mint"><span class="tick">✓</span><span class="emo">🐾</span><span class="cn">Animals</span><span class="cc">8 cards</span></div>
+      <div class="catcard on-sun"   data-cat data-cards="7" data-color="sun"><span class="tick">✓</span><span class="emo">🍎</span><span class="cn">Food</span><span class="cc">7 cards</span></div>
+      <div class="catcard on-coral" data-cat data-cards="6" data-color="coral"><span class="tick">✓</span><span class="emo">🚗</span><span class="cn">Vehicles</span><span class="cc">6 cards</span></div>
+      <div class="catcard on-plum"  data-cat data-cards="6" data-color="plum"><span class="tick">✓</span><span class="emo">🪑</span><span class="cn">Objects</span><span class="cc">6 cards</span></div>
+      <div class="catcard"          data-cat data-cards="5" data-color="sky"><span class="tick">✓</span><span class="emo">🌳</span><span class="cn">Nature</span><span class="cc">5 cards</span></div>
+      <div class="catcard"          data-cat data-cards="7" data-color="mint"><span class="tick">✓</span><span class="emo">⚽</span><span class="cn">Sports</span><span class="cc">7 cards</span></div>
+    </div>
+    <div class="cardcount">
+      <span><b data-catcount>4</b> categories selected</span>
+      <span><b data-deck>27</b> cards in deck</span>
+    </div>
+    <p class="field-lab">Round Timer <span class="opt">· optional</span></p>
+    <div class="seg" data-seg="timer">
+      <button>Off</button>
+      <button class="on s-sun">30s</button>
+      <button>60s</button>
+      <button>90s</button>
+    </div>
+    <a class="btn btn-sun btn-block btn-lg" href="04-handoff.html" style="margin-top:auto">Start Round →</a>
+  </div>
+</div>
+
+<script>
+  const $$ = (s) => [...document.querySelectorAll(s)];
+  const colorMap = {mint:'on-mint',sun:'on-sun',coral:'on-coral',plum:'on-plum',sky:'on-sky'};
+
+  function recount(){
+    const on = $$('[data-cat]').filter(c => /on-/.test(c.className));
+    document.querySelector('[data-catcount]').textContent = on.length;
+    document.querySelector('[data-deck]').textContent =
+      on.reduce((s,c) => s + (+c.dataset.cards), 0);
+  }
+  $$('[data-cat]').forEach(card => card.addEventListener('click', () => {
+    const cls = colorMap[card.dataset.color];
+    card.classList.toggle(cls);
+    recount();
+  }));
+
+  $$('.seg').forEach(seg => seg.addEventListener('click', e => {
+    const b = e.target.closest('button'); if(!b) return;
+    seg.querySelectorAll('button').forEach(x => x.classList.remove('on','s-sun'));
+    b.classList.add('on','s-sun');
+  }));
+</script>
+</body>
+</html>

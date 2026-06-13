@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Showrades · Screens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="showrades.css">
+<style>
+  body{padding:max(28px,env(safe-area-inset-top)) clamp(18px,5vw,40px) 48px}
+  .idx-head{max-width:980px;margin:0 auto 26px}
+  .idx-tag{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--txt3)}
+  .idx-h{font-family:var(--fd);font-size:clamp(30px,6vw,40px);font-weight:700;margin-top:6px}
+  .idx-sub{font-size:15px;color:var(--txt2);margin-top:8px;font-weight:700;max-width:62ch;line-height:1.5}
+  .idx-grid{max-width:980px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:16px}
+  .idx-card{display:flex;flex-direction:column;background:var(--surface);border:1.5px solid var(--border);border-radius:var(--r3);box-shadow:var(--sh1);overflow:hidden;transition:transform .2s var(--spring),box-shadow .2s}
+  .idx-card:hover{transform:translateY(-3px);box-shadow:var(--sh2)}
+  .idx-thumb{height:96px;display:flex;align-items:center;justify-content:center;font-size:40px;position:relative}
+  .idx-thumb .n{position:absolute;top:8px;left:10px;font-family:var(--fd);font-size:13px;font-weight:700;color:var(--txt);background:oklch(100% 0 0/.7);border-radius:var(--rp);padding:2px 9px}
+  .idx-meta{padding:11px 13px 13px}
+  .idx-name{font-family:var(--fd);font-size:15px;font-weight:600;line-height:1.15}
+  .idx-desc{font-size:11.5px;color:var(--txt3);font-weight:700;margin-top:3px;line-height:1.35}
+  .t-sun{background:var(--sun-lt)}.t-sky{background:var(--sky-lt)}.t-plum{background:var(--plum-lt)}
+  .t-mint{background:var(--mint-lt)}.t-surf{background:var(--surf2)}
+</style>
+</head>
+<body>
+<div class="idx-head">
+  <p class="idx-tag">Showrades · Mobile screens</p>
+  <h1 class="idx-h">Game Screens</h1>
+  <p class="idx-sub">Every screen of the pass-and-play loop, as its own responsive mobile page. Tap any card to open it full-screen — the primary buttons walk you through the whole flow.</p>
+</div>
+<div class="idx-grid">
+  <a class="idx-card" href="01-home.html"><div class="idx-thumb t-sun"><span class="n">1</span>🏠</div><div class="idx-meta"><div class="idx-name">Home</div><div class="idx-desc">Launch screen</div></div></a>
+  <a class="idx-card" href="02-set-up.html"><div class="idx-thumb t-surf"><span class="n">2</span>⚙️</div><div class="idx-meta"><div class="idx-name">Set Up</div><div class="idx-desc">Mode · teams · turn style · win goal</div></div></a>
+  <a class="idx-card" href="03-categories.html"><div class="idx-thumb t-surf"><span class="n">3</span>🗂️</div><div class="idx-meta"><div class="idx-name">Categories</div><div class="idx-desc">Pick the deck + timer</div></div></a>
+  <a class="idx-card" href="04-handoff.html"><div class="idx-thumb t-plum"><span class="n">4</span>🤝</div><div class="idx-meta"><div class="idx-name">Pass the Phone</div><div class="idx-desc">Hand-off between turns</div></div></a>
+  <a class="idx-card" href="05-word-card.html"><div class="idx-thumb t-sun"><span class="n">5</span>🔤</div><div class="idx-meta"><div class="idx-name">Word Card</div><div class="idx-desc">Active game · ages 8+</div></div></a>
+  <a class="idx-card" href="06-picture-card.html"><div class="idx-thumb t-sky"><span class="n">6</span>🖼️</div><div class="idx-meta"><div class="idx-name">Picture Card</div><div class="idx-desc">Active game · ages ≤7</div></div></a>
+  <a class="idx-card" href="07-end-confirm.html"><div class="idx-thumb t-sun"><span class="n">7</span>🛑</div><div class="idx-meta"><div class="idx-name">End Game?</div><div class="idx-desc">Confirm + final scores</div></div></a>
+  <a class="idx-card" href="08-round-score.html"><div class="idx-thumb t-mint"><span class="n">8</span>📊</div><div class="idx-meta"><div class="idx-name">Round Score</div><div class="idx-desc">Between-round standings</div></div></a>
+  <a class="idx-card" href="09-winner.html"><div class="idx-thumb t-mint"><span class="n">9</span>🏆</div><div class="idx-meta"><div class="idx-name">Winner</div><div class="idx-desc">Game over · crown a team</div></div></a>
+  <a class="idx-card" href="10-how-to-play.html"><div class="idx-thumb t-sky"><span class="n">10</span>📖</div><div class="idx-meta"><div class="idx-name">How to Play</div><div class="idx-desc">Rules · 4 steps + modes</div></div></a>
+</div>
+</body>
+</html>

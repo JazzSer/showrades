@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
-type Variant = "sun" | "mint" | "coral" | "sky" | "outline" | "ghost";
+type Variant = "sun" | "mint" | "coral" | "sky" | "plum" | "outline" | "ghost";
 type Size = "sm" | "md" | "lg";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,6 +31,10 @@ const variants: Record<Variant, string> = {
     "bg-sky text-white " +
     "[box-shadow:0_5px_0_var(--sky-dk)] " +
     "hover:-translate-y-0.5 hover:[box-shadow:0_7px_0_var(--sky-dk)]",
+  plum:
+    "bg-plum text-white " +
+    "[box-shadow:0_5px_0_var(--plum-dk)] " +
+    "hover:-translate-y-0.5 hover:[box-shadow:0_7px_0_var(--plum-dk)]",
   outline:
     "bg-surface text-txt border-2 border-[var(--border-dk)] " +
     "[box-shadow:0_5px_0_var(--border-dk)] " +

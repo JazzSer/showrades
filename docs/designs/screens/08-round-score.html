@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Showrades · Round Score</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="showrades.css">
+</head>
+<body>
+<div class="screen score" data-screen-label="Round Score">
+  <div class="safetop"></div>
+  <div class="scr-body">
+    <p class="win-tag">Round 2 complete</p>
+    <h1 class="win-h">The Lions lead!</h1>
+    <div class="score-mimo">
+      <svg class="anim-float" width="108" height="132" viewBox="0 0 90 110" fill="none" role="img" aria-label="Mimo">
+        <ellipse cx="45" cy="108" rx="26" ry="5" fill="#3ab887" opacity=".2"/>
+        <path d="M45 7C22 7 11 24 9 48S17 99 45 100 79 71 81 48 68 7 45 7Z" fill="#4ecfa0"/>
+        <ellipse cx="45" cy="64" rx="21" ry="26" fill="#c2f0e0" opacity=".5"/>
+        <ellipse cx="25" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(-18 25 11)"/>
+        <ellipse cx="65" cy="11" rx="7" ry="12" fill="#4ecfa0" transform="rotate(18 65 11)"/>
+        <circle cx="31" cy="43" r="12" fill="white"/><circle cx="33" cy="41" r="7" fill="#1a1a2e"/><circle cx="36" cy="38" r="2.5" fill="white"/>
+        <circle cx="59" cy="43" r="12" fill="white"/><circle cx="61" cy="41" r="7" fill="#1a1a2e"/><circle cx="64" cy="38" r="2.5" fill="white"/>
+        <path d="M33 62Q45 74 57 62" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M11 52Q3 37 11 28Q19 25 23 33Q19 42 14 51Z" fill="#4ecfa0"/>
+        <path d="M79 52Q87 37 79 28Q71 25 67 33Q71 42 76 51Z" fill="#4ecfa0"/>
+        <ellipse cx="33" cy="98" rx="13" ry="7" fill="#3ab887"/>
+        <ellipse cx="57" cy="98" rx="13" ry="7" fill="#3ab887"/>
+      </svg>
+    </div>
+    <div class="board">
+      <div class="team-row lead">
+        <span class="tr-rank">1</span>
+        <div class="tr-av" style="background:var(--sun-lt)">🦁</div>
+        <div><div class="tr-name">The Lions</div><div class="tr-sub">Team A</div></div>
+        <div class="tr-pts">12 <span>pts</span></div>
+      </div>
+      <div class="team-row">
+        <span class="tr-rank">2</span>
+        <div class="tr-av" style="background:var(--sky-lt)">🐬</div>
+        <div><div class="tr-name">The Dolphins</div><div class="tr-sub">Team B</div></div>
+        <div class="tr-pts">9 <span>pts</span></div>
+      </div>
+    </div>
+    <p class="target-line">First to <b>15 pts</b> · Lions need <b>3 more</b></p>
+    <div class="score-actions">
+      <a class="btn btn-sky btn-block btn-lg" href="04-handoff.html">Next Round →</a>
+      <a class="btn btn-out btn-block" href="09-winner.html">End Game</a>
+    </div>
+  </div>
+</div>
+</body>
+</html>

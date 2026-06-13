@@ -32,7 +32,7 @@ const accentText: Record<CategoryColor, string> = {
   plum: "text-plum-dk",
 };
 
-const ROUND_LENGTHS: RoundTimerLength[] = [30, 60, 90];
+const ROUND_LENGTHS: RoundTimerLength[] = [0, 30, 60, 90];
 
 export default function CategoriesPage() {
   const router = useRouter();
@@ -108,7 +108,7 @@ export default function CategoriesPage() {
                   : "bg-transparent text-txt2")
               }
             >
-              {len}s
+              {len === 0 ? "Off" : `${len}s`}
             </button>
           ))}
         </div>

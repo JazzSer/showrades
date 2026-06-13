@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Showrades · Set Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="showrades.css">
+</head>
+<body>
+<div class="screen setup" data-screen-label="Set Up">
+  <div class="safetop"></div>
+  <div class="topbar" style="padding:6px clamp(16px,5vw,24px) 8px">
+    <a class="iconbtn" href="01-home.html" title="Back" aria-label="Back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="scr-title">Set Up</div>
+    <div class="spacer44"></div>
+  </div>
+  <div class="scr-body" style="padding-top:2px">
+    <p class="field-lab" style="margin-top:6px">Game Mode</p>
+    <div class="mode-grid">
+      <div class="modecard on" data-mode><span class="tick">✓</span><span class="emo">🖼️</span><span class="mn">Picture</span><span class="ma">Under 7</span></div>
+      <div class="modecard" data-mode><span class="tick">✓</span><span class="emo">🔤</span><span class="mn">Word</span><span class="ma">8 &amp; up</span></div>
+    </div>
+
+    <p class="field-lab">Teams <span class="opt">· 2–5</span></p>
+    <div class="team-input">
+      <div class="av" style="background:var(--sun-lt)">🦁</div>
+      <div style="flex:1"><div class="tlab">Team A</div><input class="tval" value="The Lions" readonly></div>
+      <button class="edit" aria-label="Edit team A"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="team-input">
+      <div class="av" style="background:var(--sky-lt)">🐬</div>
+      <div style="flex:1"><div class="tlab">Team B</div><input class="tval" value="The Dolphins" readonly></div>
+      <button class="edit" aria-label="Edit team B"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <button class="addteam">+ Add a team</button>
+
+    <p class="field-lab">Turn Style</p>
+    <div class="seg" data-seg="turn">
+      <button class="on s-sun">By round</button>
+      <button>By card</button>
+    </div>
+
+    <p class="field-lab">Win Goal</p>
+    <div class="seg" data-seg="goal">
+      <button class="on s-sun" data-goal="points">Points target</button>
+      <button data-goal="endless">Endless</button>
+    </div>
+
+    <!-- Points target panel -->
+    <div data-panel="points">
+      <p class="field-lab">First team to reach</p>
+      <div class="stepper">
+        <button class="sbtn" data-step="-1" aria-label="Fewer points">−</button>
+        <div class="sval"><span class="num" data-target>15</span><span class="unit">correct to win</span></div>
+        <button class="sbtn" data-step="1" aria-label="More points">+</button>
+      </div>
+      <div class="preset-row">
+        <button class="chip" data-preset="10">10</button>
+        <button class="chip on" data-preset="15">15</button>
+        <button class="chip" data-preset="20">20</button>
+        <button class="chip" data-preset="25">25</button>
+      </div>
+      <div class="note">
+        <span class="ni"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg></span>
+        <span>About <b>20–30 min</b> for 15 points. The game ends the moment a team hits the target.</span>
+      </div>
+    </div>
+
+    <!-- Endless panel -->
+    <div data-panel="endless" class="hide">
+      <div class="endless-card">
+        <div class="ec-emo">♾️</div>
+        <div class="ec-t">Play the whole deck</div>
+        <div class="ec-d">No target — keep going until every card in your chosen categories has been played. Highest score wins.</div>
+      </div>
+      <div class="note">
+        <span class="ni"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg></span>
+        <span>Stop sooner with <b>End game</b> any time during play — current scores decide the winner.</span>
+      </div>
+    </div>
+  </div>
+  <div class="scr-foot">
+    <a class="btn btn-sun btn-lg" href="03-categories.html">Pick Categories →</a>
+  </div>
+</div>
+
+<script>
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+  // generic segmented controls
+  $$('.seg').forEach(seg => {
+    seg.addEventListener('click', e => {
+      const btn = e.target.closest('button'); if(!btn) return;
+      seg.querySelectorAll('button').forEach(b => b.classList.remove('on','s-sun'));
+      btn.classList.add('on','s-sun');
+      if(seg.dataset.seg === 'goal'){
+        const endless = btn.dataset.goal === 'endless';
+        $('[data-panel="points"]').classList.toggle('hide', endless);
+        $('[data-panel="endless"]').classList.toggle('hide', !endless);
+      }
+    });
+  });
+
+  // mode cards (single-select)
+  $$('[data-mode]').forEach(card => card.addEventListener('click', () => {
+    $$('[data-mode]').forEach(c => c.classList.remove('on'));
+    card.classList.add('on');
+  }));
+
+  // win-goal stepper + presets
+  const targetEl = $('[data-target]');
+  const setTarget = n => {
+    n = Math.max(5, Math.min(50, n));
+    targetEl.textContent = n;
+    $$('.chip').forEach(c => c.classList.toggle('on', +c.dataset.preset === n));
+  };
+  $$('[data-step]').forEach(b => b.addEventListener('click', () => setTarget(+targetEl.textContent + +b.dataset.step)));
+  $$('.chip').forEach(c => c.addEventListener('click', () => setTarget(+c.dataset.preset)));
+</script>
+</body>
+</html>
