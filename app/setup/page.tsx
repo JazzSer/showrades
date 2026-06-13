@@ -149,7 +149,7 @@ export default function SetupPage() {
           Turn Style
         </p>
         <div className="flex gap-1.5 bg-surf2 border border-[var(--border)] rounded-full p-1">
-          {(["round", "card"] as const).map((mode) => (
+          {(["card", "round"] as const).map((mode) => (
             <button
               key={mode}
               onClick={() => setTurnMode(mode)}
@@ -169,7 +169,7 @@ export default function SetupPage() {
           Win Goal
         </p>
         <div className="flex gap-1.5 bg-surf2 border border-[var(--border)] rounded-full p-1">
-          {(["points", "endless"] as const).map((mode) => (
+          {(["endless", "points"] as const).map((mode) => (
             <button
               key={mode}
               onClick={() => setGoalMode(mode)}
