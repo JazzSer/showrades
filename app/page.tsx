@@ -1,26 +1,17 @@
 "use client";
 
-import { useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/brand/Logo";
 import { MimoMascot } from "@/components/brand/MimoMascot";
-import { WIN_TARGET } from "@/lib/game/types";
-
-const RULES = [
-  "Split into 2–6 teams. Each round, every team takes one turn with the phone.",
-  "The actor sees a word and acts it out — no talking, no sounds. Teammates guess!",
-  "Tap Got it for a point and the next word, or Skip to pass. Beat the clock.",
-  `First team to ${WIN_TARGET} points wins the game. Pass and play!`,
-];
 
 export default function Home() {
   const router = useRouter();
-  const [showRules, setShowRules] = useState(false);
 
   return (
     <div
-      className="min-h-full flex flex-col"
+      className="min-h-dvh flex flex-col"
       style={{
         background: "var(--sun-lt)",
         backgroundImage:
@@ -28,8 +19,23 @@ export default function Home() {
         backgroundSize: "26px 26px",
       }}
     >
-      <main className="flex-1 w-full max-w-md mx-auto flex flex-col items-center text-center px-6 py-10">
-        <div className="mt-2">
+      <main className="flex-1 w-full max-w-md mx-auto flex flex-col items-center text-center px-6 py-4">
+        <div className="w-full flex justify-end">
+          <Link
+            href="/how-to-play"
+            title="How to play"
+            aria-label="How to play"
+            className="w-11 h-11 rounded-full bg-surface border border-[var(--border)] flex items-center justify-center text-txt2 [box-shadow:var(--sh1)]"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3" strokeLinecap="round" />
+              <line x1="12" y1="17" x2="12" y2="17" strokeLinecap="round" strokeWidth="2.6" />
+            </svg>
+          </Link>
+        </div>
+
+        <div className="mt-3">
           <Logo size="lg" />
         </div>
         <p className="text-[15px] font-bold text-txt2 mt-1">
@@ -52,27 +58,11 @@ export default function Home() {
           <Button
             variant="outline"
             className="w-full"
-            onClick={() => setShowRules((v) => !v)}
+            onClick={() => router.push("/how-to-play")}
           >
             How to Play
           </Button>
         </div>
-
-        {showRules && (
-          <div className="w-full mt-4 bg-surface border border-[var(--border)] rounded-[22px] p-5 text-left [box-shadow:var(--sh1)]">
-            <h2 className="font-display text-[18px] font-semibold mb-3">How to play</h2>
-            <ol className="flex flex-col gap-3">
-              {RULES.map((rule, i) => (
-                <li key={i} className="flex gap-3 items-start">
-                  <span className="shrink-0 w-6 h-6 rounded-full bg-sun-lt text-sun-dk font-display font-bold text-[13px] flex items-center justify-center">
-                    {i + 1}
-                  </span>
-                  <p className="text-[14px] text-txt2 leading-snug">{rule}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        )}
 
         <p className="text-[12px] font-bold text-txt3 mt-4">
           No reading required · Plays offline · Free

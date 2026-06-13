@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Showrades · End Game?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="showrades.css">
+</head>
+<body>
+<div class="screen game" data-screen-label="End Game Confirm">
+  <div class="safetop"></div>
+  <div class="scr-body">
+    <div class="gtop">
+      <div class="team-pill">
+        <div class="av">🦁</div>
+        <div><div class="tn">The Lions</div><div class="ts">YOUR TURN</div></div>
+      </div>
+      <div class="gtop-r">
+        <div class="modetag">🔤 Word</div>
+        <a class="endbtn" href="07-end-confirm.html" title="End game early">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><rect x="5" y="5" width="14" height="14" rx="2.5"/></svg>End
+        </a>
+      </div>
+    </div>
+    <div class="goalbar">
+      <div class="track"><div class="fill" style="width:47%;background:var(--mint)"></div></div>
+      <span class="gtxt">7 / 15</span>
+    </div>
+    <div class="timer">
+      <svg viewBox="0 0 130 130">
+        <circle cx="65" cy="65" r="57" fill="none" stroke="oklch(100% 0 0/.4)" stroke-width="8"/>
+        <circle cx="65" cy="65" r="57" fill="none" stroke="#fff" stroke-width="8" stroke-dasharray="358.1" stroke-dashoffset="100" stroke-linecap="round" style="transform-origin:65px 65px;transform:rotate(-90deg)"/>
+      </svg>
+      <span class="timer-n">22</span>
+    </div>
+    <div class="wordcard" style="filter:saturate(.6)">
+      <span class="wc-cat">🐾 Animals</span>
+      <div class="wc-word">Elephant</div>
+    </div>
+    <div class="game-actions">
+      <a class="btn btn-coral" href="06-picture-card.html">✗ Pass</a>
+      <a class="btn btn-mint" href="06-picture-card.html">✓ Got It</a>
+    </div>
+  </div>
+
+  <!-- confirm sheet -->
+  <div class="scrim">
+    <div class="sheet">
+      <div class="grab"></div>
+      <h3>End the game now?</h3>
+      <p>The round will stop and we'll show the final scores as they stand.</p>
+      <div class="mini-board">
+        <div class="mini-row">
+          <div class="mav" style="background:var(--sun-lt)">🦁</div>
+          <div class="mn">The Lions</div>
+          <div class="mp">7 <span>pts</span></div>
+        </div>
+        <div class="mini-row">
+          <div class="mav" style="background:var(--sky-lt)">🐬</div>
+          <div class="mn">The Dolphins</div>
+          <div class="mp">5 <span>pts</span></div>
+        </div>
+      </div>
+      <div class="sheet-actions">
+        <a class="btn btn-coral btn-block btn-lg" href="09-winner.html">End &amp; Show Scores</a>
+        <a class="btn btn-ghost btn-block" href="05-word-card.html">Keep Playing</a>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

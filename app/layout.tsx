@@ -31,8 +31,8 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${fredoka.variable} ${nunito.variable} h-full`}>
-      <body className="min-h-full flex flex-col antialiased">
+    <html lang="en" className={`${fredoka.variable} ${nunito.variable}`}>
+      <body className="min-h-dvh flex flex-col antialiased">
         <GameProvider>{children}</GameProvider>
       </body>
     </html>
