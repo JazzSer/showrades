@@ -1,0 +1,206 @@
+{
+  "category": "vehicles",
+  "generatedAt": "2026-06-12T00:00:00Z",
+  "items": [
+    {
+      "word": "Bicycle",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/grayscale-photo-of-bicycle-on-the-road-6673976/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Airplane",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/photo-of-airplane-2517931/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Train",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/train-with-smoke-507410/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Submarine",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/a-submarine-in-water-12490424/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Helicopter",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/a-helicopter-in-flight-5848239/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Fire Engine",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/fire-engine-on-street-16735581/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Rocket",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/space-rocket-launching-73871/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Sailboat",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/sailboat-on-body-of-water-during-sunset-185799/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "School Bus",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/school-bus-on-the-road-14044466/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Tractor",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/yellow-farm-tractor-2575135/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Police Car",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/a-police-car-on-the-road-7785084/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Bulldozer",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/a-bulldozer-on-brown-field-13923406/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Rowboat",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/white-and-brown-rowboat-on-shore-during-sunset-4078079/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Ambulance",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/chicago-ambulance-driving-15571631/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Garbage Truck",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/yellow-garbage-truck-on-kyoto-street-in-daylight-33799588/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Hot Air Balloon",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/red-hot-air-balloon-on-sky-325812/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Skateboard",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/two-people-on-skateboards-5845327/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Motorcycle",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/photo-of-man-riding-motorcycle-1430931/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Cruise Ship",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/aerial-view-of-a-cruise-ship-13066888/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Forklift",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/person-using-forklift-1267338/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Canoe",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/green-canoe-on-lake-3678422/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Space Shuttle",
+      "imageUrl": null,
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Space_shuttles_Atlantis_(STS-125)_and_Endeavour_(STS-400)_on_launch_pads.jpg",
+      "source": "Wikimedia Commons",
+      "license": "Public domain (NASA work)",
+      "attribution": "NASA"
+    },
+    {
+      "word": "Tow Truck",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/a-car-on-a-tow-truck-17429097/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": "Jonathan Reynaga"
+    },
+    {
+      "word": "Jet Ski",
+      "imageUrl": null,
+      "sourcePage": "https://www.pexels.com/photo/man-riding-jet-ski-17781968/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use)",
+      "attribution": null
+    },
+    {
+      "word": "Airship",
+      "imageUrl": null,
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Goodyear_Aerospace_GZ-20A_Blimp,_Goodyear_AN0069171.jpg",
+      "source": "Wikimedia Commons",
+      "license": "CC BY-SA (Wikimedia Commons)",
+      "attribution": "Ted Quackenbush"
+    }
+  ]
+}
