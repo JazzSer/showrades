@@ -20,8 +20,22 @@ export default function GamePage() {
   const router = useRouter();
   const { state, currentCard, onCorrect, onPass, endTurn, endGameEarly } = useGame();
   const timerOn = state.settings.roundLength > 0;
+  const [timeUp, setTimeUp] = useState(false);
   const countdown = useCountdown(state.settings.roundLength || 1, {
-    onExpire: () => endTurn(),
+    onExpire: () => {
+      if (state.settings.turnMode === "card") {
+        // Treat a card-mode timeout like a "Pass": advance the deck and
+        // give brief visible feedback before swapping who holds the phone.
+        onPass();
+        setTimeUp(true);
+        setTimeout(() => {
+          setTimeUp(false);
+          endTurn();
+        }, 1200);
+      } else {
+        endTurn();
+      }
+    },
   });
   const [playing, setPlaying] = useState(false);
   const [showEndSheet, setShowEndSheet] = useState(false);
@@ -40,10 +54,12 @@ export default function GamePage() {
     const sorted = [...state.teams].sort((a, b) => b.score - a.score);
     const leader = sorted[0];
     const allZero = state.teams.every((t) => t.score === 0);
-    const subtitle =
-      state.round === 1 && state.currentTeamIndex === 0 && allZero
-        ? `Round ${state.round} · Up next`
-        : `${leader.name} lead with ${leader.score}`;
+    const isCardMode = state.settings.turnMode === "card";
+    const subtitle = allZero
+      ? isCardMode
+        ? "Get ready!"
+        : `Round ${state.round} · Up next`
+      : `${leader.name} lead with ${leader.score}`;
 
     const handleReady = () => {
       if (timerOn) {
@@ -79,8 +95,9 @@ export default function GamePage() {
             <MimoMascot state="thinking" size={130} className="animate-bounce-spring" />
           </div>
           <p className="text-[15px] font-bold text-txt2 leading-snug max-w-[26ch]">
-            Give the phone to a {team.name.replace(/^(The|Team)\s+/i, "")} to act out. Everyone
-            else — no peeking!
+            {isCardMode
+              ? `Your turn to act, ${team.name}! Pass the phone — everyone else guesses.`
+              : `Give the phone to a ${team.name.replace(/^(The|Team)\s+/i, "")} to act out. Everyone else — no peeking!`}
           </p>
           <Button variant="plum" size="lg" className="w-full mt-4" onClick={handleReady}>
             We&apos;re Ready →
@@ -99,7 +116,7 @@ export default function GamePage() {
   const handleResolve = (action: () => void) => {
     action();
     if (state.settings.turnMode === "card") {
-      countdown.reset(state.settings.roundLength || 1);
+      if (timerOn) countdown.reset(state.settings.roundLength);
       endTurn();
     }
   };
@@ -174,7 +191,13 @@ export default function GamePage() {
 
         {/* Card */}
         <div className="flex-1 flex items-center justify-center my-4 min-h-[220px]">
-          {card ? (
+          {timeUp ? (
+            <div className="w-full min-h-[220px] bg-coral rounded-[32px] [box-shadow:var(--sh2)] flex flex-col items-center justify-center text-center px-6 py-8 gap-1 animate-bounce-spring">
+              <span className="text-[40px]">⏰</span>
+              <p className="font-display text-[26px] font-bold text-white">Time&apos;s up!</p>
+              <p className="text-[13px] text-white/85 font-bold">Passing the phone…</p>
+            </div>
+          ) : card ? (
             isPic ? (
               <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-sky-lt to-surface rounded-[22px]">
                 <div className="flex flex-col items-center justify-center gap-2.5 text-center">
@@ -206,7 +229,7 @@ export default function GamePage() {
           )}
         </div>
 
-        {card ? (
+        {timeUp ? null : card ? (
           <>
             {/* End-turn button: by-round with timer off */}
             {state.settings.turnMode === "round" && !timerOn && (

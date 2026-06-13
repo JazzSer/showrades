@@ -259,14 +259,25 @@ export function GameProvider({ children }: { children: ReactNode }) {
   }, [state.deck, state.deckIndex, state.settings.categories, state.settings.goalMode]);
 
   const onCorrect = useCallback(() => {
-    setState((s) => ({
-      ...s,
-      teams: s.teams.map((t, i) =>
-        i === s.currentTeamIndex ? { ...t, score: t.score + 1, roundGain: t.roundGain + 1 } : t
-      ),
-      deckIndex: s.deckIndex + 1,
-      cardsPlayed: s.cardsPlayed + 1,
-    }));
+    setState((s) => {
+      // In "card" mode the player holding the phone shows the clue and the
+      // OTHER player guesses — so the guesser (next team in rotation) earns
+      // the point. In "round" mode the acting team accumulates points for
+      // their whole round, so the current team scores.
+      const scoringIndex =
+        s.settings.turnMode === "card"
+          ? (s.currentTeamIndex + 1) % s.teams.length
+          : s.currentTeamIndex;
+
+      return {
+        ...s,
+        teams: s.teams.map((t, i) =>
+          i === scoringIndex ? { ...t, score: t.score + 1, roundGain: t.roundGain + 1 } : t
+        ),
+        deckIndex: s.deckIndex + 1,
+        cardsPlayed: s.cardsPlayed + 1,
+      };
+    });
   }, []);
 
   const onPass = useCallback(() => {
@@ -280,13 +291,24 @@ export function GameProvider({ children }: { children: ReactNode }) {
         Math.max(...s.teams.map((t) => t.score)) >= s.settings.winTarget;
       const deckExhausted = s.settings.goalMode === "endless" && s.deckIndex >= s.deck.length;
 
+      if (reachedTarget || deckExhausted) {
+        return { ...s, screen: "gameover" };
+      }
+
+      if (s.settings.turnMode === "card") {
+        // Card mode never shows a round summary — just keep rotating who
+        // holds the phone until a win/deck-exhaustion ends the game.
+        return {
+          ...s,
+          currentTeamIndex: (s.currentTeamIndex + 1) % s.teams.length,
+          screen: "pass",
+        };
+      }
+
       if (s.currentTeamIndex < s.teams.length - 1) {
-        if (reachedTarget || deckExhausted) {
-          return { ...s, screen: "gameover" };
-        }
         return { ...s, currentTeamIndex: s.currentTeamIndex + 1, screen: "pass" };
       }
-      return { ...s, screen: reachedTarget || deckExhausted ? "gameover" : "roundend" };
+      return { ...s, screen: "roundend" };
     });
   }, []);
 
