@@ -127,6 +127,9 @@ export function GameProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const saved = loadState();
+    // Hydration-safe load: SSR/initial render uses defaultState, then we
+    // sync from localStorage once mounted on the client.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     if (saved) setState(saved);
     loaded.current = true;
   }, []);
