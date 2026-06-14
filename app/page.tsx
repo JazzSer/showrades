@@ -55,13 +55,6 @@ export default function Home() {
           >
             Start Game
           </Button>
-          <Button
-            variant="outline"
-            className="w-full"
-            onClick={() => router.push("/how-to-play")}
-          >
-            How to Play
-          </Button>
         </div>
 
         <p className="text-[12px] font-bold text-txt3 mt-4">

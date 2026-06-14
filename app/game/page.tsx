@@ -7,6 +7,7 @@ import { useCountdown } from "@/hooks/useCountdown";
 import { Button, Timer } from "@/components/ui";
 import { MimoMascot } from "@/components/brand/MimoMascot";
 import { CATEGORIES } from "@/lib/data/categories";
+import type { CategoryColor } from "@/lib/game/types";
 
 const AVATAR_BG: Record<string, string> = {
   sun: "bg-sun-lt",
@@ -14,6 +15,31 @@ const AVATAR_BG: Record<string, string> = {
   sky: "bg-sky-lt",
   coral: "bg-coral-lt",
   plum: "bg-plum-lt",
+};
+
+// Pass-screen background + dot-pattern colour, matched to each team's colour.
+const PASS_BG: Record<CategoryColor, { bg: string; dot: string }> = {
+  sun: { bg: "var(--sun-lt)", dot: "oklch(84% .17 82 / .26)" },
+  mint: { bg: "var(--mint-lt)", dot: "oklch(79% .14 158 / .26)" },
+  sky: { bg: "var(--sky-lt)", dot: "oklch(70% .13 232 / .26)" },
+  coral: { bg: "var(--coral-lt)", dot: "oklch(68% .18 28 / .26)" },
+  plum: { bg: "var(--plum-lt)", dot: "oklch(73% .14 292 / .26)" },
+};
+
+const SUBTITLE_TEXT: Record<CategoryColor, string> = {
+  sun: "text-sun-dk",
+  mint: "text-mint-dk",
+  sky: "text-sky-dk",
+  coral: "text-coral-dk",
+  plum: "text-plum-dk",
+};
+
+const PLAY_BG: Record<CategoryColor, string> = {
+  sun: "bg-sun",
+  mint: "bg-mint",
+  sky: "bg-sky",
+  coral: "bg-coral",
+  plum: "bg-plum",
 };
 
 export default function GamePage() {
@@ -81,14 +107,13 @@ export default function GamePage() {
       <div
         className="min-h-dvh flex flex-col"
         style={{
-          background: "var(--plum-lt)",
-          backgroundImage:
-            "radial-gradient(circle, oklch(73% .14 292 / .26) 1.6px, transparent 1.6px)",
+          background: PASS_BG[team.color].bg,
+          backgroundImage: `radial-gradient(circle, ${PASS_BG[team.color].dot} 1.6px, transparent 1.6px)`,
           backgroundSize: "26px 26px",
         }}
       >
         <main className="flex-1 w-full max-w-md mx-auto flex flex-col items-center text-center px-6 py-8">
-          <p className="text-[12px] font-extrabold tracking-[.1em] uppercase text-plum-dk mt-2">
+          <p className={`text-[12px] font-extrabold tracking-[.1em] uppercase mt-2 ${SUBTITLE_TEXT[team.color]}`}>
             {subtitle}
           </p>
           <h1 className="font-display text-[clamp(30px,9vw,38px)] font-bold text-txt mt-2.5 leading-tight">
@@ -107,7 +132,7 @@ export default function GamePage() {
               ? `Your turn to act, ${team.name}! Pass the phone — everyone else guesses.`
               : `Give the phone to a ${team.name.replace(/^(The|Team)\s+/i, "")} to act out. Everyone else — no peeking!`}
           </p>
-          <Button variant="plum" size="lg" className="w-full mt-4" onClick={handleReady}>
+          <Button variant={team.color} size="lg" className="w-full mt-4" onClick={handleReady}>
             We&apos;re Ready →
           </Button>
         </main>
@@ -143,7 +168,7 @@ export default function GamePage() {
   const sortedTeams = [...state.teams].sort((a, b) => b.score - a.score);
 
   return (
-    <div className={`min-h-dvh flex flex-col ${isPic ? "bg-sky" : "bg-sun"}`}>
+    <div className={`min-h-dvh flex flex-col ${PLAY_BG[team.color]}`}>
       <main className="flex-1 w-full max-w-md mx-auto flex flex-col px-5 py-4">
         {/* Header */}
         <div className="flex items-center justify-between gap-2">
