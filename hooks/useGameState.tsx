@@ -290,14 +290,14 @@ export function GameProvider({ children }: { children: ReactNode }) {
         s.settings.goalMode === "points" &&
         Math.max(...s.teams.map((t) => t.score)) >= s.settings.winTarget;
       const deckExhausted = s.settings.goalMode === "endless" && s.deckIndex >= s.deck.length;
-
-      if (reachedTarget || deckExhausted) {
-        return { ...s, screen: "gameover" };
-      }
+      const isLastTeam = s.currentTeamIndex >= s.teams.length - 1;
 
       if (s.settings.turnMode === "card") {
         // Card mode never shows a round summary — just keep rotating who
         // holds the phone until a win/deck-exhaustion ends the game.
+        if (reachedTarget || deckExhausted) {
+          return { ...s, screen: "gameover" };
+        }
         return {
           ...s,
           currentTeamIndex: (s.currentTeamIndex + 1) % s.teams.length,
@@ -305,7 +305,15 @@ export function GameProvider({ children }: { children: ReactNode }) {
         };
       }
 
-      if (s.currentTeamIndex < s.teams.length - 1) {
+      // In round mode, deck exhaustion only ends the game once the LAST
+      // team's round has finished — earlier teams just pass to the next
+      // team (who will also see deck-exhaustion messaging and pass along,
+      // until the final team triggers gameover).
+      if (reachedTarget || (deckExhausted && isLastTeam)) {
+        return { ...s, screen: "gameover" };
+      }
+
+      if (!isLastTeam) {
         return { ...s, currentTeamIndex: s.currentTeamIndex + 1, screen: "pass" };
       }
       return { ...s, screen: "roundend" };
