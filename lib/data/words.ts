@@ -1,5 +1,28 @@
 import { CategoryKey, WordCard } from "@/lib/game/types";
 
+// Verified Pexels photos for the "animals" category (see docs/content-curation/animals-images.json).
+// Keyed by exact word match; categories without entries here remain emoji-only.
+const ANIMAL_IMAGES: Record<string, string> = {
+  Elephant: "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Penguin: "https://images.pexels.com/photos/5952211/pexels-photo-5952211.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Kangaroo: "https://images.pexels.com/photos/25881827/pexels-photo-25881827.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Octopus: "https://images.pexels.com/photos/3046629/pexels-photo-3046629.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Giraffe: "https://images.pexels.com/photos/168497/pexels-photo-168497.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Monkey: "https://images.pexels.com/photos/1670977/pexels-photo-1670977.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Crocodile: "https://images.pexels.com/photos/5642192/pexels-photo-5642192.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Butterfly: "https://images.pexels.com/photos/2569145/pexels-photo-2569145.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Dolphin: "https://images.pexels.com/photos/7359034/pexels-photo-7359034.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Tiger: "https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Rabbit: "https://images.pexels.com/photos/2576780/pexels-photo-2576780.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Snake: "https://images.pexels.com/photos/9560352/pexels-photo-9560352.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Owl: "https://images.pexels.com/photos/1526404/pexels-photo-1526404.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Frog: "https://images.pexels.com/photos/4190864/pexels-photo-4190864.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Horse: "https://images.pexels.com/photos/635499/pexels-photo-635499.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Gorilla: "https://images.pexels.com/photos/913652/pexels-photo-913652.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Bear: "https://images.pexels.com/photos/530797/pexels-photo-530797.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Chicken: "https://images.pexels.com/photos/19062539/pexels-photo-19062539.jpeg?auto=compress&cs=tinysrgb&w=800",
+};
+
 const WORDS: Record<CategoryKey, [string, string][]> = {
   animals: [
     ["Elephant", "🐘"],
@@ -113,7 +136,10 @@ const WORDS: Record<CategoryKey, [string, string][]> = {
 };
 
 export const WORD_CARDS: WordCard[] = (Object.keys(WORDS) as CategoryKey[]).flatMap((category) =>
-  WORDS[category].map(([word, emoji]) => ({ word, category, emoji }))
+  WORDS[category].map(([word, emoji]) => {
+    const image = category === "animals" ? ANIMAL_IMAGES[word] : undefined;
+    return image ? { word, category, emoji, image } : { word, category, emoji };
+  })
 );
 
 export function getCardsForCategories(categories: CategoryKey[]): WordCard[] {
