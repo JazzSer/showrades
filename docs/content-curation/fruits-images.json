@@ -1,0 +1,134 @@
+{
+  "category": "fruits",
+  "generatedAt": "2026-06-14T00:00:00Z",
+  "items": [
+    {
+      "word": "Pineapple",
+      "imageUrl": "https://images.pexels.com/photos/947879/pexels-photo-947879.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/sliced-pineapple-fruit-947879/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Banana",
+      "imageUrl": "https://images.pexels.com/photos/2872755/pexels-photo-2872755.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/yellow-banana-fruit-2872755/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Watermelon",
+      "imageUrl": "https://images.pexels.com/photos/1313267/pexels-photo-1313267.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/sliced-watermelon-fruit-1313267/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Strawberry",
+      "imageUrl": "https://images.pexels.com/photos/1207918/pexels-photo-1207918.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/red-strawberries-1207918/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Grapes",
+      "imageUrl": "https://images.pexels.com/photos/23042/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/green-grapes-23042/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Cherry",
+      "imageUrl": "https://images.pexels.com/photos/2230738/pexels-photo-2230738.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/red-cherries-2230738/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Mango",
+      "imageUrl": "https://images.pexels.com/photos/918643/pexels-photo-918643.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/sliced-mango-fruit-918643/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Peach",
+      "imageUrl": "https://images.pexels.com/photos/1141795/pexels-photo-1141795.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-peach-fruit-1141795/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Lemon",
+      "imageUrl": "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/photo-of-sliced-kiwi-lemon-and-orange-fruits-1414130/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Coconut",
+      "imageUrl": "https://images.pexels.com/photos/1652299/pexels-photo-1652299.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/coconut-fruit-1652299/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Apple",
+      "imageUrl": "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/red-apple-fruit-102104/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Blueberry",
+      "imageUrl": "https://images.pexels.com/photos/1395958/pexels-photo-1395958.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/blueberries-in-bowl-1395958/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Kiwi",
+      "imageUrl": "https://images.pexels.com/photos/5876005/pexels-photo-5876005.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/sliced-of-kiwi-fruit-on-white-background-5876005/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Avocado",
+      "imageUrl": "https://images.pexels.com/photos/557659/pexels-photo-557659.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/avocado-fruit-on-brown-wooden-table-557659/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Orange",
+      "imageUrl": "https://images.pexels.com/photos/161559/background-bitter-breakfast-bright-161559.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/sliced-orange-fruit-161559/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Pear",
+      "imageUrl": "https://images.pexels.com/photos/11170935/pexels-photo-11170935.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/pear-fruits-on-brown-wooden-table-11170935/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    }
+  ]
+}

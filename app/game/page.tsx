@@ -20,8 +20,22 @@ export default function GamePage() {
   const router = useRouter();
   const { state, currentCard, onCorrect, onPass, endTurn, endGameEarly } = useGame();
   const timerOn = state.settings.roundLength > 0;
+  const [timeUp, setTimeUp] = useState(false);
   const countdown = useCountdown(state.settings.roundLength || 1, {
-    onExpire: () => endTurn(),
+    onExpire: () => {
+      if (state.settings.turnMode === "card") {
+        // Treat a card-mode timeout like a "Pass": advance the deck and
+        // give brief visible feedback before swapping who holds the phone.
+        onPass();
+        setTimeUp(true);
+        setTimeout(() => {
+          setTimeUp(false);
+          goToPass();
+        }, 1200);
+      } else {
+        goToPass();
+      }
+    },
   });
   const [playing, setPlaying] = useState(false);
   const [showEndSheet, setShowEndSheet] = useState(false);
@@ -29,9 +43,17 @@ export default function GamePage() {
   useEffect(() => {
     if (state.screen === "roundend") router.replace("/game/summary");
     else if (state.screen === "gameover") router.replace("/game/end");
-    else if (state.screen === "pass" && playing) setPlaying(false);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.screen, router]);
+
+  // Ends the current turn and returns to the pass/transition screen. We
+  // call setPlaying(false) here directly (rather than via an effect keyed
+  // on state.screen) because state.screen is "pass" both before and after
+  // a turn ends — the value doesn't change, so an effect dependent on it
+  // would never re-fire between consecutive turns.
+  const goToPass = () => {
+    endTurn();
+    setPlaying(false);
+  };
 
   const showPlay = playing || state.screen === "play";
 
@@ -40,10 +62,12 @@ export default function GamePage() {
     const sorted = [...state.teams].sort((a, b) => b.score - a.score);
     const leader = sorted[0];
     const allZero = state.teams.every((t) => t.score === 0);
-    const subtitle =
-      state.round === 1 && state.currentTeamIndex === 0 && allZero
-        ? `Round ${state.round} · Up next`
-        : `${leader.name} lead with ${leader.score}`;
+    const isCardMode = state.settings.turnMode === "card";
+    const subtitle = allZero
+      ? isCardMode
+        ? "Get ready!"
+        : `Round ${state.round} · Up next`
+      : `${leader.name} lead with ${leader.score}`;
 
     const handleReady = () => {
       if (timerOn) {
@@ -79,8 +103,9 @@ export default function GamePage() {
             <MimoMascot state="thinking" size={130} className="animate-bounce-spring" />
           </div>
           <p className="text-[15px] font-bold text-txt2 leading-snug max-w-[26ch]">
-            Give the phone to a {team.name.replace(/^(The|Team)\s+/i, "")} to act out. Everyone
-            else — no peeking!
+            {isCardMode
+              ? `Your turn to act, ${team.name}! Pass the phone — everyone else guesses.`
+              : `Give the phone to a ${team.name.replace(/^(The|Team)\s+/i, "")} to act out. Everyone else — no peeking!`}
           </p>
           <Button variant="plum" size="lg" className="w-full mt-4" onClick={handleReady}>
             We&apos;re Ready →
@@ -95,12 +120,19 @@ export default function GamePage() {
   const isPic = state.settings.mode === "picture";
   const category = card ? CATEGORIES[card.category] : null;
   const goalMode = state.settings.goalMode;
+  const isLastTeam = state.currentTeamIndex >= state.teams.length - 1;
+  // In round mode with an exhausted deck (goalMode "endless"), every team
+  // except the last sees a "pass to next team" prompt rather than the
+  // game-ending "Finish Game" screen — the game only ends after the last
+  // team's round.
+  const deckExhaustedNotLastTeam =
+    !card && state.settings.turnMode === "round" && goalMode === "endless" && !isLastTeam;
 
   const handleResolve = (action: () => void) => {
     action();
     if (state.settings.turnMode === "card") {
-      countdown.reset(state.settings.roundLength || 1);
-      endTurn();
+      if (timerOn) countdown.reset(state.settings.roundLength);
+      goToPass();
     }
   };
 
@@ -174,13 +206,27 @@ export default function GamePage() {
 
         {/* Card */}
         <div className="flex-1 flex items-center justify-center my-4 min-h-[220px]">
-          {card ? (
+          {timeUp ? (
+            <div className="w-full min-h-[220px] bg-coral rounded-[32px] [box-shadow:var(--sh2)] flex flex-col items-center justify-center text-center px-6 py-8 gap-1 animate-bounce-spring">
+              <span className="text-[40px]">⏰</span>
+              <p className="font-display text-[26px] font-bold text-white">Time&apos;s up!</p>
+              <p className="text-[13px] text-white/85 font-bold">Passing the phone…</p>
+            </div>
+          ) : card ? (
             isPic ? (
-              <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-sky-lt to-surface rounded-[22px]">
-                <div className="flex flex-col items-center justify-center gap-2.5 text-center">
-                  <div className="text-[clamp(140px,40vw,180px)] leading-none [filter:drop-shadow(0_8px_16px_oklch(20%_0_0/.15))]">
-                    {card.emoji}
-                  </div>
+              <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-sky-lt to-surface rounded-[22px] p-4">
+                <div className="flex flex-col items-center justify-center gap-2.5 text-center w-full">
+                  {card.image ? (
+                    <img
+                      src={card.image}
+                      alt={card.word}
+                      className="w-full max-h-[clamp(160px,42vw,220px)] object-cover rounded-[20px] [box-shadow:var(--sh2)]"
+                    />
+                  ) : (
+                    <div className="text-[clamp(140px,40vw,180px)] leading-none [filter:drop-shadow(0_8px_16px_oklch(20%_0_0/.15))]">
+                      {card.emoji}
+                    </div>
+                  )}
                   <p className="font-display text-[clamp(30px,9vw,38px)] font-bold text-txt tracking-[-.5px] leading-none">
                     {card.word}
                   </p>
@@ -196,6 +242,13 @@ export default function GamePage() {
                 </div>
               </div>
             )
+          ) : deckExhaustedNotLastTeam ? (
+            <div className="w-full min-h-[220px] bg-white rounded-[32px] [box-shadow:var(--sh2)] flex flex-col items-center justify-center text-center px-6 py-8 gap-1">
+              <p className="font-display text-[22px] font-semibold text-txt">Deck complete!</p>
+              <p className="text-[13px] text-txt2 font-bold">
+                {team.name} have played every card — pass the phone to the next team.
+              </p>
+            </div>
           ) : (
             <div className="w-full min-h-[220px] bg-white rounded-[32px] [box-shadow:var(--sh2)] flex flex-col items-center justify-center text-center px-6 py-8 gap-1">
               <p className="font-display text-[22px] font-semibold text-txt">Deck complete!</p>
@@ -206,11 +259,11 @@ export default function GamePage() {
           )}
         </div>
 
-        {card ? (
+        {timeUp ? null : card ? (
           <>
             {/* End-turn button: by-round with timer off */}
             {state.settings.turnMode === "round" && !timerOn && (
-              <Button variant="outline" className="w-full mb-3" onClick={() => endTurn()}>
+              <Button variant="outline" className="w-full mb-3" onClick={() => goToPass()}>
                 End Turn →
               </Button>
             )}
@@ -224,8 +277,12 @@ export default function GamePage() {
               </Button>
             </div>
           </>
+        ) : deckExhaustedNotLastTeam ? (
+          <Button variant="sun" size="lg" className="w-full" onClick={() => goToPass()}>
+            Pass to Next Team →
+          </Button>
         ) : (
-          <Button variant="sun" size="lg" className="w-full" onClick={() => endTurn()}>
+          <Button variant="sun" size="lg" className="w-full" onClick={() => goToPass()}>
             Finish Game →
           </Button>
         )}

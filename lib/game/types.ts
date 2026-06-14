@@ -13,13 +13,15 @@ export interface WordCard {
   word: string;
   category: CategoryKey;
   emoji: string;
+  /** Optional photo URL for Picture mode (currently only populated for the "animals" category). */
+  image?: string;
 }
 
-export type GameMode = "word" | "picture";
+export type GameMode = "picture" | "word";
 
-export type TurnMode = "round" | "card";
+export type TurnMode = "card" | "round";
 
-export type GoalMode = "points" | "endless";
+export type GoalMode = "endless" | "points";
 
 export interface Team {
   id: string;

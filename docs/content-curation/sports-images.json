@@ -1,0 +1,134 @@
+{
+  "category": "sports",
+  "generatedAt": "2026-06-14T00:00:00Z",
+  "items": [
+    {
+      "word": "Soccer",
+      "imageUrl": "https://images.pexels.com/photos/33618632/pexels-photo-33618632.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/children-playing-soccer-on-grass-field-outdoors-33618632/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Basketball",
+      "imageUrl": "https://images.pexels.com/photos/8337502/pexels-photo-8337502.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/kid-playing-basketball-on-the-court-8337502/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Swimming",
+      "imageUrl": "https://images.pexels.com/photos/12932198/pexels-photo-12932198.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/boy-wearing-cap-in-a-swimming-pool-12932198/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "Atlantic Ambience"
+    },
+    {
+      "word": "Tennis",
+      "imageUrl": "https://images.pexels.com/photos/8224452/pexels-photo-8224452.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/girl-playing-tennis-8224452/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "RDNE Stock project"
+    },
+    {
+      "word": "Boxing",
+      "imageUrl": "https://images.pexels.com/photos/4761658/pexels-photo-4761658.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/man-in-black-boxing-gloves-4761658/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "cottonbro studio"
+    },
+    {
+      "word": "Skiing",
+      "imageUrl": "https://images.pexels.com/photos/5923340/pexels-photo-5923340.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-person-skiing-on-snow-covered-mountain-5923340/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Surfing",
+      "imageUrl": "https://images.pexels.com/photos/1654498/pexels-photo-1654498.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/photo-of-person-surfing-1654498/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Bowling",
+      "imageUrl": "https://images.pexels.com/photos/7429509/pexels-photo-7429509.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-woman-holding-a-bowling-ball-7429509/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "Pavel Danilyuk"
+    },
+    {
+      "word": "Golf",
+      "imageUrl": "https://images.pexels.com/photos/6256827/pexels-photo-6256827.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-man-holding-a-golf-club-6256827/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "cottonbro studio"
+    },
+    {
+      "word": "Karate",
+      "imageUrl": "https://images.pexels.com/photos/15937433/pexels-photo-15937433.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-young-boy-in-a-red-belt-is-doing-a-kick-15937433/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Cycling",
+      "imageUrl": "https://images.pexels.com/photos/4715615/pexels-photo-4715615.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/little-boy-riding-bicycle-in-park-4715615/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Baseball",
+      "imageUrl": "https://images.pexels.com/photos/24703297/pexels-photo-24703297.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/child-baseball-player-during-game-24703297/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "Tim Mossholder"
+    },
+    {
+      "word": "Volleyball",
+      "imageUrl": "https://images.pexels.com/photos/6180393/pexels-photo-6180393.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-woman-playing-volleyball-6180393/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "Kampus Production"
+    },
+    {
+      "word": "Skateboarding",
+      "imageUrl": "https://images.pexels.com/photos/19008032/pexels-photo-19008032.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/kid-in-a-helmet-kneeling-by-his-skateboard-19008032/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "Paco Flaquer"
+    },
+    {
+      "word": "Archery",
+      "imageUrl": "https://images.pexels.com/photos/6655566/pexels-photo-6655566.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-girl-holding-an-archery-bow-6655566/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Ice Skating",
+      "imageUrl": "https://images.pexels.com/photos/6468935/pexels-photo-6468935.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-person-ice-skating-on-ice-rink-6468935/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    }
+  ]
+}
