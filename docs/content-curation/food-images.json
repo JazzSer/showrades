@@ -1,203 +1,131 @@
 {
   "category": "food",
-  "generatedAt": "2026-06-12T00:00:00Z",
+  "generatedAt": "2026-06-14T00:00:00Z",
   "items": [
     {
-      "word": "Banana",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/fresh-peeled-banana-on-white-surface-5945848/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Apple",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/red-apple-fruit-209439/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
       "word": "Pizza",
-      "imageUrl": null,
+      "imageUrl": "https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=800",
       "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-pizza-2619970/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
     },
     {
-      "word": "Ice Cream",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/cream-ice-cream-in-cone-1294943/",
+      "word": "Hamburger",
+      "imageUrl": "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/cooked-burger-1639557/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
     },
     {
       "word": "Spaghetti",
-      "imageUrl": null,
+      "imageUrl": "https://images.pexels.com/photos/17499766/pexels-photo-17499766.jpeg?auto=compress&cs=tinysrgb&w=800",
       "sourcePage": "https://www.pexels.com/photo/spaghetti-with-sauce-on-the-plate-17499766/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": "Luisa Bastidas"
     },
     {
-      "word": "Broccoli",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-broccoli-3872367/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Orange",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/orange-fruit-161559/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Sandwich",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/a-sandwich-on-a-plate-14415398/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Soup",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/bowl-of-soup-3559899/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Lemon",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-lemon-4051160/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Watermelon",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/selective-focus-photography-of-watermelon-slice-1184264/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Suzy Hazelwood"
-    },
-    {
-      "word": "Popcorn",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-popcorn-806880/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Carrot",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/a-person-holding-fresh-carrots-5377336/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Nataliya Vaitkevich"
-    },
-    {
-      "word": "Coconut",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/opened-coconut-1652001/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Taco",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/a-person-holding-a-taco-4958778/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "ROMAN ODINTSOV"
-    },
-    {
-      "word": "Honey",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/jar-of-honey-4480158/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Peas",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/food-eating-plant-harvest-40788",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Madison Inouye"
-    },
-    {
-      "word": "Cheese",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-cheese-4109946/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Milk",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/a-close-up-shot-of-milk-in-a-glass-cup-5336006/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Grapes",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/several-bunch-of-grapes-760281/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Donut",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/a-close-up-shot-of-a-delicious-donut-11975889/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "French Fries",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-french-fries-4109234/",
+      "word": "Ice Cream",
+      "imageUrl": "https://images.pexels.com/photos/1294943/pexels-photo-1294943.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/cream-ice-cream-in-cone-1294943/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
     },
     {
       "word": "Pancake",
-      "imageUrl": null,
+      "imageUrl": "https://images.pexels.com/photos/2280545/pexels-photo-2280545.jpeg?auto=compress&cs=tinysrgb&w=800",
       "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-stacked-pancakes-2280545/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
     },
     {
-      "word": "Strawberry",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/selective-focus-photography-of-strawberry-fruit-298696/",
+      "word": "Taco",
+      "imageUrl": "https://images.pexels.com/photos/4958778/pexels-photo-4958778.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-person-holding-a-taco-4958778/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": "ROMAN ODINTSOV"
+    },
+    {
+      "word": "Popcorn",
+      "imageUrl": "https://images.pexels.com/photos/806880/pexels-photo-806880.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-popcorn-806880/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
     },
     {
-      "word": "Cereal",
-      "imageUrl": null,
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-a-bowl-with-cereal-4858251/",
+      "word": "Sandwich",
+      "imageUrl": "https://images.pexels.com/photos/14415398/pexels-photo-14415398.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-sandwich-on-a-plate-14415398/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Donut",
+      "imageUrl": "https://images.pexels.com/photos/11975889/pexels-photo-11975889.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/a-close-up-shot-of-a-delicious-donut-11975889/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Hot Dog",
+      "imageUrl": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/hot-dog-with-toppings-1239291/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Sushi",
+      "imageUrl": "https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/sushi-rolls-on-black-plate-2098085/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Cupcake",
+      "imageUrl": "https://images.pexels.com/photos/264918/pexels-photo-264918.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/cupcake-with-sprinkles-on-top-264918/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "French Fries",
+      "imageUrl": "https://images.pexels.com/photos/4109234/pexels-photo-4109234.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-french-fries-4109234/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Pretzel",
+      "imageUrl": "https://images.pexels.com/photos/8169248/pexels-photo-8169248.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/close-up-of-a-pretzel-8169248/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Waffle",
+      "imageUrl": "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/waffle-with-strawberries-and-syrup-1126359/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Cookie",
+      "imageUrl": "https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/chocolate-chip-cookies-230325/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
