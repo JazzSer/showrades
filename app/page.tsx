@@ -5,13 +5,14 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/brand/Logo";
 import { MimoMascot } from "@/components/brand/MimoMascot";
+import { cx } from "@/lib/styles";
 
 export default function Home() {
   const router = useRouter();
 
   return (
     <div
-      className="min-h-dvh flex flex-col"
+      className={cx.pageRoot}
       style={{
         background: "var(--sun-lt)",
         backgroundImage:
@@ -20,6 +21,7 @@ export default function Home() {
       }}
     >
       <main className="flex-1 w-full max-w-md mx-auto flex flex-col items-center text-center px-6 py-4">
+        {/* How-to-play icon button — top-right */}
         <div className="w-full flex justify-end">
           <Link
             href="/how-to-play"
@@ -35,6 +37,7 @@ export default function Home() {
           </Link>
         </div>
 
+        {/* Brand mark */}
         <div className="mt-3">
           <Logo size="lg" />
         </div>
@@ -42,10 +45,12 @@ export default function Home() {
           Charades for the whole family.
         </p>
 
+        {/* Mascot */}
         <div className="flex-1 flex items-center justify-center min-h-[200px]">
           <MimoMascot state="happy" size={168} className="animate-bounce-spring" />
         </div>
 
+        {/* CTA */}
         <div className="w-full flex flex-col gap-3.5">
           <Button
             variant="sun"
