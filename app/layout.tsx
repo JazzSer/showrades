@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: "Showrades — Charades for the whole family",
   description:
     "The free, open-source web app that brings generations together for game night. Picture mode for kids, word mode for everyone.",
+  manifest: "/showrades/manifest.json",
 };
 
 export const viewport: Viewport = {
