@@ -8,39 +8,36 @@ import { Button, Timer } from "@/components/ui";
 import { MimoMascot } from "@/components/brand/MimoMascot";
 import { CATEGORIES } from "@/lib/data/categories";
 import type { CategoryColor } from "@/lib/game/types";
+import { cx, AVATAR_BG } from "@/lib/styles";
 
-const AVATAR_BG: Record<string, string> = {
-  sun: "bg-sun-lt",
-  mint: "bg-mint-lt",
-  sky: "bg-sky-lt",
-  coral: "bg-coral-lt",
-  plum: "bg-plum-lt",
-};
+// ─── Per-color class maps ─────────────────────────────────────────────────────
 
 // Pass-screen background + dot-pattern colour, matched to each team's colour.
 const PASS_BG: Record<CategoryColor, { bg: string; dot: string }> = {
-  sun: { bg: "var(--sun-lt)", dot: "oklch(84% .17 82 / .26)" },
-  mint: { bg: "var(--mint-lt)", dot: "oklch(79% .14 158 / .26)" },
-  sky: { bg: "var(--sky-lt)", dot: "oklch(70% .13 232 / .26)" },
-  coral: { bg: "var(--coral-lt)", dot: "oklch(68% .18 28 / .26)" },
-  plum: { bg: "var(--plum-lt)", dot: "oklch(73% .14 292 / .26)" },
+  sun:   { bg: "var(--sun-lt)",  dot: "oklch(84% .17 82 / .26)"  },
+  mint:  { bg: "var(--mint-lt)", dot: "oklch(79% .14 158 / .26)" },
+  sky:   { bg: "var(--sky-lt)",  dot: "oklch(70% .13 232 / .26)" },
+  coral: { bg: "var(--coral-lt)",dot: "oklch(68% .18 28 / .26)"  },
+  plum:  { bg: "var(--plum-lt)", dot: "oklch(73% .14 292 / .26)" },
 };
 
 const SUBTITLE_TEXT: Record<CategoryColor, string> = {
-  sun: "text-sun-dk",
-  mint: "text-mint-dk",
-  sky: "text-sky-dk",
+  sun:   "text-sun-dk",
+  mint:  "text-mint-dk",
+  sky:   "text-sky-dk",
   coral: "text-coral-dk",
-  plum: "text-plum-dk",
+  plum:  "text-plum-dk",
 };
 
 const PLAY_BG: Record<CategoryColor, string> = {
-  sun: "bg-sun",
-  mint: "bg-mint",
-  sky: "bg-sky",
+  sun:   "bg-sun",
+  mint:  "bg-mint",
+  sky:   "bg-sky",
   coral: "bg-coral",
-  plum: "bg-plum",
+  plum:  "bg-plum",
 };
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
 
 export default function GamePage() {
   const router = useRouter();
@@ -83,16 +80,15 @@ export default function GamePage() {
 
   const showPlay = playing || state.screen === "play";
 
+  // ── Pass / ready screen ───────────────────────────────────────────────────
   if (!showPlay) {
-    const team = state.teams[state.currentTeamIndex];
-    const sorted = [...state.teams].sort((a, b) => b.score - a.score);
-    const leader = sorted[0];
-    const allZero = state.teams.every((t) => t.score === 0);
+    const team     = state.teams[state.currentTeamIndex];
+    const sorted   = [...state.teams].sort((a, b) => b.score - a.score);
+    const leader   = sorted[0];
+    const allZero  = state.teams.every((t) => t.score === 0);
     const isCardMode = state.settings.turnMode === "card";
     const subtitle = allZero
-      ? isCardMode
-        ? "Get ready!"
-        : `Round ${state.round} · Up next`
+      ? isCardMode ? "Get ready!" : `Round ${state.round} · Up next`
       : `${leader.name} lead with ${leader.score}`;
 
     const handleReady = () => {
@@ -105,23 +101,21 @@ export default function GamePage() {
 
     return (
       <div
-        className="min-h-dvh flex flex-col"
+        className={cx.pageRoot}
         style={{
           background: PASS_BG[team.color].bg,
           backgroundImage: `radial-gradient(circle, ${PASS_BG[team.color].dot} 1.6px, transparent 1.6px)`,
           backgroundSize: "26px 26px",
         }}
       >
-        <main className="flex-1 w-full max-w-md mx-auto flex flex-col items-center text-center px-6 py-8">
+        <main className={cx.pageMainCentered}>
           <p className={`text-[12px] font-extrabold tracking-[.1em] uppercase mt-2 ${SUBTITLE_TEXT[team.color]}`}>
             {subtitle}
           </p>
           <h1 className="font-display text-[clamp(30px,9vw,38px)] font-bold text-txt mt-2.5 leading-tight">
             {team.name}
           </h1>
-          <div
-            className={`w-[68px] h-[68px] rounded-full flex items-center justify-center text-[36px] mt-4 bg-surface [box-shadow:var(--sh1)]`}
-          >
+          <div className="w-[68px] h-[68px] rounded-full bg-surface flex items-center justify-center text-[36px] mt-4 [box-shadow:var(--sh1)]">
             {team.emoji}
           </div>
           <div className="flex-1 flex items-center justify-center min-h-[160px]">
@@ -140,9 +134,10 @@ export default function GamePage() {
     );
   }
 
-  const team = state.teams[state.currentTeamIndex];
-  const card = currentCard();
-  const isPic = state.settings.mode === "picture";
+  // ── Play screen ───────────────────────────────────────────────────────────
+  const team     = state.teams[state.currentTeamIndex];
+  const card     = currentCard();
+  const isPic    = state.settings.mode === "picture";
   const category = card ? CATEGORIES[card.category] : null;
   const goalMode = state.settings.goalMode;
   const isLastTeam = state.currentTeamIndex >= state.teams.length - 1;
@@ -169,9 +164,11 @@ export default function GamePage() {
 
   return (
     <div className={`min-h-dvh flex flex-col ${PLAY_BG[team.color]}`}>
-      <main className="flex-1 w-full max-w-md mx-auto flex flex-col px-5 py-4">
-        {/* Header */}
+      <main className={cx.pageMain}>
+
+        {/* ── Header ── */}
         <div className="flex items-center justify-between gap-2">
+          {/* Team pill */}
           <div className="flex items-center gap-2 rounded-full bg-white/55 pl-[5px] pr-3.5 py-[5px]">
             <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-[17px] shrink-0">
               {team.emoji}
@@ -185,8 +182,10 @@ export default function GamePage() {
               </div>
             </div>
           </div>
+
+          {/* Mode badge + end button */}
           <div className="flex items-center gap-[7px] shrink-0">
-            <div className="text-[10px] font-extrabold uppercase tracking-[.05em] bg-white/55 rounded-full px-[11px] py-2 text-txt">
+            <div className="bg-white/55 rounded-full px-[11px] py-2 text-[10px] font-extrabold uppercase tracking-[.05em] text-txt">
               {isPic ? "🖼️ Picture" : "🔤 Word"}
             </div>
             <button
@@ -202,7 +201,7 @@ export default function GamePage() {
           </div>
         </div>
 
-        {/* Goal progress bar */}
+        {/* ── Goal progress bar ── */}
         <div className="flex items-center gap-2.5 mt-3.5 shrink-0">
           <div className="flex-1 h-[9px] rounded-full bg-white/45 overflow-hidden">
             <div
@@ -222,23 +221,25 @@ export default function GamePage() {
           </span>
         </div>
 
-        {/* Timer */}
-        {timerOn ? (
+        {/* ── Timer ── */}
+        {timerOn && (
           <div className="mx-auto mt-3.5">
             <Timer total={state.settings.roundLength} current={countdown.current} variant="onColor" />
           </div>
-        ) : null}
+        )}
 
-        {/* Card */}
+        {/* ── Card area ── */}
         <div className="flex-1 flex items-center justify-center my-4 min-h-[220px]">
           {timeUp ? (
+            // Time's-up feedback card
             <div className="w-full min-h-[220px] bg-coral rounded-[32px] [box-shadow:var(--sh2)] flex flex-col items-center justify-center text-center px-6 py-8 gap-1 animate-bounce-spring">
               <span className="text-[40px]">⏰</span>
               <p className="font-display text-[26px] font-bold text-white">Time&apos;s up!</p>
-              <p className="text-[13px] text-white/85 font-bold">Passing the phone…</p>
+              <p className="text-[13px] font-bold text-white/85">Passing the phone…</p>
             </div>
           ) : card ? (
             isPic ? (
+              // Picture card
               <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-sky-lt to-surface rounded-[22px] p-4">
                 <div className="flex flex-col items-center justify-center gap-2.5 text-center w-full">
                   {card.image ? (
@@ -258,6 +259,7 @@ export default function GamePage() {
                 </div>
               </div>
             ) : (
+              // Word card
               <div className="w-full min-h-[220px] bg-white rounded-[32px] [box-shadow:var(--sh2)] flex flex-col items-center justify-center text-center px-6 py-8">
                 <span className="text-[11px] font-extrabold tracking-[.08em] uppercase text-mint-dk bg-mint-lt px-3.5 py-1.5 rounded-full mb-[18px]">
                   {category ? `${category.emoji} ${category.name}` : ""}
@@ -268,22 +270,25 @@ export default function GamePage() {
               </div>
             )
           ) : deckExhaustedNotLastTeam ? (
+            // Deck exhausted — pass to next team
             <div className="w-full min-h-[220px] bg-white rounded-[32px] [box-shadow:var(--sh2)] flex flex-col items-center justify-center text-center px-6 py-8 gap-1">
               <p className="font-display text-[22px] font-semibold text-txt">Deck complete!</p>
-              <p className="text-[13px] text-txt2 font-bold">
+              <p className="text-[13px] font-bold text-txt2">
                 {team.name} have played every card — pass the phone to the next team.
               </p>
             </div>
           ) : (
+            // Deck exhausted — final team, end game
             <div className="w-full min-h-[220px] bg-white rounded-[32px] [box-shadow:var(--sh2)] flex flex-col items-center justify-center text-center px-6 py-8 gap-1">
               <p className="font-display text-[22px] font-semibold text-txt">Deck complete!</p>
-              <p className="text-[13px] text-txt2 font-bold">
+              <p className="text-[13px] font-bold text-txt2">
                 Every card has been played — time to see the final scores.
               </p>
             </div>
           )}
         </div>
 
+        {/* ── Action buttons ── */}
         {timeUp ? null : card ? (
           <>
             {/* End-turn button: by-round with timer off */}
@@ -292,7 +297,6 @@ export default function GamePage() {
                 End Turn →
               </Button>
             )}
-
             <div className="flex gap-3">
               <Button variant="coral" className="flex-1" onClick={() => handleResolve(onPass)}>
                 ✗ Pass
@@ -313,9 +317,9 @@ export default function GamePage() {
         )}
       </main>
 
-      {/* End-game-early confirm sheet */}
+      {/* ── End-game-early confirm sheet ── */}
       {showEndSheet && (
-        <div className="fixed inset-0 bg-[oklch(18%_0_0/.46)] flex items-end justify-center z-50">
+        <div className="fixed inset-0 z-50 flex items-end justify-center bg-[oklch(18%_0_0/.46)]">
           <div className="w-full max-w-md bg-surface rounded-t-[32px] px-5 pt-3.5 pb-[max(22px,env(safe-area-inset-bottom))] [box-shadow:0_-8px_32px_oklch(20%_0_0/.22)]">
             <div className="w-10 h-1.5 rounded-full bg-[var(--border-dk)] mx-auto mb-4" />
             <h3 className="font-display text-[23px] font-semibold text-center">
@@ -330,9 +334,7 @@ export default function GamePage() {
                   key={t.id}
                   className="flex items-center gap-2.5 bg-surf2 border border-[var(--border)] rounded-[14px] px-3.5 py-2.5"
                 >
-                  <div
-                    className={`w-8 h-8 rounded-full flex items-center justify-center text-[17px] shrink-0 ${AVATAR_BG[t.color]}`}
-                  >
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-[17px] shrink-0 ${AVATAR_BG[t.color]}`}>
                     {t.emoji}
                   </div>
                   <div className="font-display text-[15px] font-semibold">{t.name}</div>

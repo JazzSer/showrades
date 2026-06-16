@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MimoMascot } from "@/components/brand/MimoMascot";
+import { cx } from "@/lib/styles";
 
 const STEPS: { bg: string; emoji: string; title: string; desc: string }[] = [
   {
@@ -31,7 +32,7 @@ const STEPS: { bg: string; emoji: string; title: string; desc: string }[] = [
 export default function HowToPlayPage() {
   return (
     <div
-      className="min-h-dvh flex flex-col"
+      className={cx.pageRoot}
       style={{
         background: "var(--sky-lt)",
         backgroundImage:
@@ -39,19 +40,16 @@ export default function HowToPlayPage() {
         backgroundSize: "26px 26px",
       }}
     >
-      <main className="flex-1 w-full max-w-md mx-auto flex flex-col px-5 py-4">
+      <main className={cx.pageMain}>
+
+        {/* ── Header ── */}
         <div className="flex items-center justify-between mb-2">
-          <Link
-            href="/"
-            className="w-[42px] h-[42px] rounded-full bg-surface border border-[var(--border)] flex items-center justify-center text-txt2 [box-shadow:var(--sh1)]"
-          >
-            ←
-          </Link>
+          <Link href="/" className={cx.navPill}>←</Link>
           <h1 className="font-display text-[22px] font-semibold">How to Play</h1>
           <div className="w-[42px]" />
         </div>
 
-        {/* Hero */}
+        {/* ── Hero card ── */}
         <div className="flex items-center gap-3.5 bg-surface border border-[var(--border)] rounded-[22px] px-4 py-3.5 [box-shadow:var(--sh1)] mt-1.5">
           <div className="w-[62px] h-[62px] shrink-0 flex items-center justify-center">
             <MimoMascot state="happy" size={50} className="animate-bounce-spring" />
@@ -67,16 +65,14 @@ export default function HowToPlayPage() {
           </div>
         </div>
 
-        {/* Steps */}
+        {/* ── Steps ── */}
         <div className="flex flex-col gap-2.5 mt-2.5">
           {STEPS.map((step, i) => (
             <div
               key={step.title}
               className="flex gap-3.5 items-start bg-surface border border-[var(--border)] rounded-[22px] p-3.5 [box-shadow:var(--sh1)]"
             >
-              <div
-                className={`w-[34px] h-[34px] rounded-full flex items-center justify-center font-display font-bold text-[16px] text-txt shrink-0 ${step.bg}`}
-              >
+              <div className={`w-[34px] h-[34px] rounded-full flex items-center justify-center font-display font-bold text-[16px] text-txt shrink-0 ${step.bg}`}>
                 {i + 1}
               </div>
               <div className="flex-1 min-w-0">
@@ -90,7 +86,8 @@ export default function HowToPlayPage() {
           ))}
         </div>
 
-        <p className="text-[11px] font-extrabold tracking-[.09em] uppercase text-txt3 mt-4 mb-2 flex items-center gap-1.5">
+        {/* ── Two ways to play ── */}
+        <p className="text-[11px] font-extrabold tracking-[.09em] uppercase text-txt3 mt-4 mb-2">
           Two ways to play
         </p>
         <div className="grid grid-cols-2 gap-[11px]">
@@ -116,7 +113,8 @@ export default function HowToPlayPage() {
           </div>
         </div>
 
-        <div className="flex gap-2.5 items-start bg-surface border border-[var(--border)] rounded-[14px] px-3.5 py-3 mt-3 text-[13px] font-bold text-txt2 leading-snug">
+        {/* ── Info hints ── */}
+        <div className={`${cx.infoCard} mt-3`}>
           <span className="shrink-0 text-sun-dk mt-0.5">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
               <path d="m5 13 4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
@@ -128,7 +126,7 @@ export default function HowToPlayPage() {
           </span>
         </div>
 
-        <div className="flex gap-2.5 items-start bg-surface border border-[var(--border)] rounded-[14px] px-3.5 py-3 mt-2.5 text-[13px] font-bold text-txt2 leading-snug">
+        <div className={`${cx.infoCard} mt-2.5`}>
           <span className="shrink-0 text-sun-dk mt-0.5">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4">
               <path d="M8 21h8M12 17v4M6 4h12v5a6 6 0 0 1-12 0Z" strokeLinecap="round" strokeLinejoin="round" />
@@ -141,17 +139,18 @@ export default function HowToPlayPage() {
         </div>
       </main>
 
+      {/* ── Sticky CTA ── */}
       <div className="sticky bottom-0 w-full max-w-md mx-auto px-5 pt-3 pb-[max(15px,env(safe-area-inset-bottom))] bg-gradient-to-t from-[var(--sky-lt)] via-[var(--sky-lt)] to-transparent">
         <Link
           href="/setup"
           className={
-            "inline-flex items-center justify-center gap-2 font-body font-bold rounded-full " +
-            "leading-none whitespace-nowrap cursor-pointer border-none w-full " +
-            "transition-[transform,box-shadow] duration-200 " +
-            "active:translate-y-[3px] active:!shadow-none " +
+            "inline-flex items-center justify-center gap-2 w-full rounded-full " +
+            "font-body font-bold leading-none whitespace-nowrap cursor-pointer border-none " +
             "text-[22px] px-10 py-5 bg-sun text-txt " +
             "[box-shadow:0_5px_0_var(--sun-dk)] " +
-            "hover:-translate-y-0.5 hover:[box-shadow:0_7px_0_var(--sun-dk)]"
+            "transition-[transform,box-shadow] duration-200 " +
+            "hover:-translate-y-0.5 hover:[box-shadow:0_7px_0_var(--sun-dk)] " +
+            "active:translate-y-[3px] active:!shadow-none"
           }
         >
           Start a Game →
