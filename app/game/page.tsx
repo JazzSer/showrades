@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useGame } from "@/hooks/useGameState";
 import { useCountdown } from "@/hooks/useCountdown";
+import { useAudio } from "@/hooks/useAudio";
 import { Button, Timer } from "@/components/ui";
 import { MimoMascot } from "@/components/brand/MimoMascot";
 import { CATEGORIES } from "@/lib/data/categories";
@@ -42,10 +43,12 @@ const PLAY_BG: Record<CategoryColor, string> = {
 export default function GamePage() {
   const router = useRouter();
   const { state, currentCard, onCorrect, onPass, endTurn, endGameEarly } = useGame();
+  const { playSfx, setScene } = useAudio();
   const timerOn = state.settings.roundLength > 0;
   const [timeUp, setTimeUp] = useState(false);
   const countdown = useCountdown(state.settings.roundLength || 1, {
     onExpire: () => {
+      playSfx("timeup");
       if (state.settings.turnMode === "card") {
         // Treat a card-mode timeout like a "Pass": advance the deck and
         // give brief visible feedback before swapping who holds the phone.
@@ -67,6 +70,18 @@ export default function GamePage() {
     if (state.screen === "roundend") router.replace("/game/summary");
     else if (state.screen === "gameover") router.replace("/game/end");
   }, [state.screen, router]);
+
+  useEffect(() => {
+    setScene("game");
+    return () => setScene("none");
+  }, [setScene]);
+
+  useEffect(() => {
+    if (timerOn && countdown.isRunning && countdown.current > 0 && countdown.current <= 5) {
+      playSfx("tick");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countdown.current]);
 
   // Ends the current turn and returns to the pass/transition screen. We
   // call setPlaying(false) here directly (rather than via an effect keyed
@@ -148,7 +163,8 @@ export default function GamePage() {
   const deckExhaustedNotLastTeam =
     !card && state.settings.turnMode === "round" && goalMode === "endless" && !isLastTeam;
 
-  const handleResolve = (action: () => void) => {
+  const handleResolve = (action: () => void, sfx: "correct" | "pass") => {
+    playSfx(sfx);
     action();
     if (state.settings.turnMode === "card") {
       if (timerOn) countdown.reset(state.settings.roundLength);
@@ -298,10 +314,10 @@ export default function GamePage() {
               </Button>
             )}
             <div className="flex gap-3">
-              <Button variant="coral" className="flex-1" onClick={() => handleResolve(onPass)}>
+              <Button variant="coral" className="flex-1" onClick={() => handleResolve(onPass, "pass")}>
                 ✗ Pass
               </Button>
-              <Button variant="mint" className="flex-1" onClick={() => handleResolve(onCorrect)}>
+              <Button variant="mint" className="flex-1" onClick={() => handleResolve(onCorrect, "correct")}>
                 ✓ Got It
               </Button>
             </div>

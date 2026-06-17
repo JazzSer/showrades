@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useGame } from "@/hooks/useGameState";
+import { useAudio } from "@/hooks/useAudio";
 import { Button } from "@/components/ui";
 import { MimoMascot } from "@/components/brand/MimoMascot";
 import { cx, AVATAR_BG } from "@/lib/styles";
@@ -10,10 +11,14 @@ import { cx, AVATAR_BG } from "@/lib/styles";
 export default function SummaryPage() {
   const router = useRouter();
   const { state, nextRound, endGameEarly } = useGame();
+  const { playSfx } = useAudio();
 
   useEffect(() => {
     if (state.screen !== "roundend") router.replace("/game");
   }, [state.screen, router]);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { playSfx("roundend"); }, []);
 
   if (state.screen !== "roundend") return null;
 

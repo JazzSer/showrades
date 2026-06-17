@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useGame } from "@/hooks/useGameState";
+import { useAudio } from "@/hooks/useAudio";
 import { Button } from "@/components/ui";
 import { MimoMascot } from "@/components/brand/MimoMascot";
 import { cx, AVATAR_BG } from "@/lib/styles";
@@ -9,6 +11,10 @@ import { cx, AVATAR_BG } from "@/lib/styles";
 export default function GameEndPage() {
   const router = useRouter();
   const { state, resetGame } = useGame();
+  const { playSfx } = useAudio();
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { playSfx("roundend"); }, []);
 
   const sorted = [...state.teams].sort((a, b) => b.score - a.score);
   const winner = sorted[0];

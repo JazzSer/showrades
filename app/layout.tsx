@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fredoka, Nunito } from "next/font/google";
 import { GameProvider } from "@/hooks/useGameState";
+import { AudioProviderWrapper } from "@/components/AudioProviderWrapper";
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -34,7 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fredoka.variable} ${nunito.variable}`}>
       <body className="min-h-dvh flex flex-col antialiased">
-        <GameProvider>{children}</GameProvider>
+        <AudioProviderWrapper>
+          <GameProvider>{children}</GameProvider>
+        </AudioProviderWrapper>
       </body>
     </html>
   );
