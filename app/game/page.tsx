@@ -44,8 +44,20 @@ export default function GamePage() {
   const { state, currentCard, onCorrect, onPass, endTurn, endGameEarly } = useGame();
   const timerOn = state.settings.roundLength > 0;
   const [timeUp, setTimeUp] = useState(false);
+  const [mimoState, setMimoState] = useState<"thinking" | "excited" | "sad">("thinking");
+  const [mimoAnimKey, setMimoAnimKey] = useState(0);
+  const [playing, setPlaying] = useState(false);
+  const [showEndSheet, setShowEndSheet] = useState(false);
+
+  const flashMimo = (nextState: "excited" | "sad", durationMs: number) => {
+    setMimoState(nextState);
+    setMimoAnimKey((k) => k + 1);
+    setTimeout(() => setMimoState("thinking"), durationMs);
+  };
+
   const countdown = useCountdown(state.settings.roundLength || 1, {
     onExpire: () => {
+      flashMimo("sad", 1200);
       if (state.settings.turnMode === "card") {
         // Treat a card-mode timeout like a "Pass": advance the deck and
         // give brief visible feedback before swapping who holds the phone.
@@ -60,8 +72,6 @@ export default function GamePage() {
       }
     },
   });
-  const [playing, setPlaying] = useState(false);
-  const [showEndSheet, setShowEndSheet] = useState(false);
 
   useEffect(() => {
     if (state.screen === "roundend") router.replace("/game/summary");
@@ -119,7 +129,7 @@ export default function GamePage() {
             {team.emoji}
           </div>
           <div className="flex-1 flex items-center justify-center min-h-[160px]">
-            <MimoMascot state="thinking" size={130} className="animate-bounce-spring" />
+            <MimoMascot state="happy" size={130} className="animate-bounce-spring" />
           </div>
           <p className="text-[15px] font-bold text-txt2 leading-snug max-w-[26ch]">
             {isCardMode
@@ -148,8 +158,18 @@ export default function GamePage() {
   const deckExhaustedNotLastTeam =
     !card && state.settings.turnMode === "round" && goalMode === "endless" && !isLastTeam;
 
-  const handleResolve = (action: () => void) => {
-    action();
+  const handleCorrect = () => {
+    flashMimo("excited", 1000);
+    onCorrect();
+    if (state.settings.turnMode === "card") {
+      if (timerOn) countdown.reset(state.settings.roundLength);
+      goToPass();
+    }
+  };
+
+  const handlePass = () => {
+    flashMimo("sad", 800);
+    onPass();
     if (state.settings.turnMode === "card") {
       if (timerOn) countdown.reset(state.settings.roundLength);
       goToPass();
@@ -288,6 +308,22 @@ export default function GamePage() {
           )}
         </div>
 
+        {/* ── Mimo reaction ── */}
+        {!timeUp && card && (
+          <div className="flex justify-center mb-1">
+            <MimoMascot
+              key={mimoAnimKey}
+              state={mimoState}
+              size={72}
+              className={
+                mimoState === "excited" ? "animate-pop-in" :
+                mimoState === "sad" ? "animate-wiggle" :
+                ""
+              }
+            />
+          </div>
+        )}
+
         {/* ── Action buttons ── */}
         {timeUp ? null : card ? (
           <>
@@ -298,10 +334,10 @@ export default function GamePage() {
               </Button>
             )}
             <div className="flex gap-3">
-              <Button variant="coral" className="flex-1" onClick={() => handleResolve(onPass)}>
+              <Button variant="coral" className="flex-1" onClick={handlePass}>
                 ✗ Pass
               </Button>
-              <Button variant="mint" className="flex-1" onClick={() => handleResolve(onCorrect)}>
+              <Button variant="mint" className="flex-1" onClick={handleCorrect}>
                 ✓ Got It
               </Button>
             </div>
