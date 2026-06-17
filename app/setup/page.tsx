@@ -110,7 +110,7 @@ export default function SetupPage() {
         <div className="flex items-center justify-between mb-2">
           <Link href="/" className={cx.navPill}>←</Link>
           <h1 className="font-display text-[22px] font-semibold">Set Up</h1>
-          <div className="w-[42px]" />
+          <div className="w-[44px]" />
         </div>
 
         {/* ── Game Mode ── */}
@@ -156,7 +156,7 @@ export default function SetupPage() {
               <button
                 onClick={() => cycleTeamAvatar(team.id)}
                 title="Tap to change avatar"
-                className={`w-[38px] h-[38px] rounded-full flex items-center justify-center text-[19px] shrink-0 ${avatarBg[team.color]}`}
+                className={`w-[44px] h-[44px] rounded-full flex items-center justify-center text-[19px] shrink-0 ${avatarBg[team.color]}`}
               >
                 {team.emoji}
               </button>
@@ -175,9 +175,11 @@ export default function SetupPage() {
                 <button
                   onClick={() => removeTeam(team.id)}
                   title="Remove"
-                  className="w-7 h-7 rounded-full bg-surf2 flex items-center justify-center text-[14px] font-black text-txt3 shrink-0 hover:bg-coral-lt hover:text-coral-dk"
+                  className="w-[44px] h-[44px] rounded-full flex items-center justify-center shrink-0 hover:bg-coral-lt hover:text-coral-dk text-txt3"
                 >
-                  ✕
+                  <span className="w-7 h-7 rounded-full bg-surf2 flex items-center justify-center text-[14px] font-black pointer-events-none">
+                    ✕
+                  </span>
                 </button>
               )}
             </div>
@@ -258,7 +260,7 @@ export default function SetupPage() {
                   key={p}
                   onClick={() => setWinTarget(p)}
                   className={
-                    "flex-1 py-2.5 rounded-full border-2 font-display text-[15px] font-semibold text-center cursor-pointer " +
+                    "flex-1 min-h-[44px] rounded-full border-2 font-display text-[15px] font-semibold text-center cursor-pointer " +
                     (settings.winTarget === p
                       ? "bg-sun-lt border-sun-dk text-txt"
                       : "bg-surface border-[var(--border)] text-txt2")

@@ -46,7 +46,7 @@ export default function HowToPlayPage() {
         <div className="flex items-center justify-between mb-2">
           <Link href="/" className={cx.navPill}>←</Link>
           <h1 className="font-display text-[22px] font-semibold">How to Play</h1>
-          <div className="w-[42px]" />
+          <div className="w-[44px]" />
         </div>
 
         {/* ── Hero card ── */}

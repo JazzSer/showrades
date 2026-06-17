@@ -191,7 +191,7 @@ export default function GamePage() {
             <button
               onClick={() => setShowEndSheet(true)}
               title="End game early"
-              className="flex items-center gap-[5px] bg-surface rounded-full pl-2.5 pr-[13px] py-2 font-bold text-[12px] text-coral-dk [box-shadow:var(--sh1)] active:scale-95"
+              className="flex items-center gap-[5px] bg-surface rounded-full pl-2.5 pr-[13px] min-h-[44px] font-bold text-[12px] text-coral-dk [box-shadow:var(--sh1)] active:scale-95"
             >
               <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor">
                 <rect x="5" y="5" width="14" height="14" rx="2.5" />

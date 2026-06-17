@@ -38,16 +38,17 @@ export const cx = {
   tabPillRow: "flex gap-1.5 bg-surf2 border border-[var(--border)] rounded-full p-1",
 
   // Active / inactive tab item inside tabPillRow.
+  // py-[15px] ensures minimum 44px touch target height (14px text + 2×15px padding).
   tabPillItemBase:
-    "flex-1 font-display font-extrabold text-[14px] py-2.5 rounded-full transition-colors",
+    "flex-1 font-display font-extrabold text-[14px] py-[15px] rounded-full transition-colors",
   tabPillItemActive:   "bg-sun text-txt [box-shadow:var(--sh1)]",
   tabPillItemInactive: "bg-transparent text-txt2",
 
   // ─── Back / icon nav button ───────────────────────────────────────────────
-  // 42 × 42 circular ghost button used as a back-nav pill.
+  // 44 × 44 circular ghost button used as a back-nav pill (WCAG 2.1 minimum).
   // Appears in: app/setup/page.tsx, app/how-to-play/page.tsx
   navPill:
-    "w-[42px] h-[42px] rounded-full bg-surface border border-[var(--border)] flex items-center justify-center text-txt2 [box-shadow:var(--sh1)]",
+    "w-[44px] h-[44px] rounded-full bg-surface border border-[var(--border)] flex items-center justify-center text-txt2 [box-shadow:var(--sh1)]",
 
   // ─── Info / hint card ────────────────────────────────────────────────────
   // Horizontal card with a leading icon and a body text paragraph.
