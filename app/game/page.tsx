@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useGame } from "@/hooks/useGameState";
 import { useCountdown } from "@/hooks/useCountdown";
+import { useAudio } from "@/hooks/useAudio";
 import { Button, Timer } from "@/components/ui";
 import { MimoMascot } from "@/components/brand/MimoMascot";
 import { CATEGORIES } from "@/lib/data/categories";
@@ -42,6 +43,7 @@ const PLAY_BG: Record<CategoryColor, string> = {
 export default function GamePage() {
   const router = useRouter();
   const { state, currentCard, onCorrect, onPass, endTurn, endGameEarly } = useGame();
+  const { playSfx, setScene } = useAudio();
   const timerOn = state.settings.roundLength > 0;
   const [timeUp, setTimeUp] = useState(false);
   const [mimoState, setMimoState] = useState<"thinking" | "excited" | "sad">("thinking");
@@ -58,6 +60,7 @@ export default function GamePage() {
   const countdown = useCountdown(state.settings.roundLength || 1, {
     onExpire: () => {
       flashMimo("sad", 1200);
+      playSfx("timeup");
       if (state.settings.turnMode === "card") {
         // Treat a card-mode timeout like a "Pass": advance the deck and
         // give brief visible feedback before swapping who holds the phone.
@@ -77,6 +80,18 @@ export default function GamePage() {
     if (state.screen === "roundend") router.replace("/game/summary");
     else if (state.screen === "gameover") router.replace("/game/end");
   }, [state.screen, router]);
+
+  useEffect(() => {
+    setScene("game");
+    return () => setScene("none");
+  }, [setScene]);
+
+  useEffect(() => {
+    if (timerOn && countdown.isRunning && countdown.current > 0 && countdown.current <= 5) {
+      playSfx("tick");
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countdown.current]);
 
   // Ends the current turn and returns to the pass/transition screen. We
   // call setPlaying(false) here directly (rather than via an effect keyed
@@ -160,6 +175,7 @@ export default function GamePage() {
 
   const handleCorrect = () => {
     flashMimo("excited", 1000);
+    playSfx("correct");
     onCorrect();
     if (state.settings.turnMode === "card") {
       if (timerOn) countdown.reset(state.settings.roundLength);
@@ -169,6 +185,7 @@ export default function GamePage() {
 
   const handlePass = () => {
     flashMimo("sad", 800);
+    playSfx("pass");
     onPass();
     if (state.settings.turnMode === "card") {
       if (timerOn) countdown.reset(state.settings.roundLength);
@@ -259,13 +276,14 @@ export default function GamePage() {
             </div>
           ) : card ? (
             isPic ? (
-              // Picture card
+              // Picture card — word text is intentionally omitted here;
+              // it lives behind the Secret Clue tap-to-reveal below.
               <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-sky-lt to-surface rounded-[22px] p-4">
                 <div className="flex flex-col items-center justify-center gap-2.5 text-center w-full">
                   {card.image ? (
                     <img
                       src={card.image}
-                      alt={card.word}
+                      alt=""
                       className="w-full max-h-[clamp(160px,42vw,220px)] object-cover rounded-[20px] [box-shadow:var(--sh2)]"
                     />
                   ) : (
@@ -273,9 +291,6 @@ export default function GamePage() {
                       {card.emoji}
                     </div>
                   )}
-                  <p className="font-display text-[clamp(30px,9vw,38px)] font-bold text-txt tracking-[-.5px] leading-none">
-                    {card.word}
-                  </p>
                 </div>
               </div>
             ) : (
