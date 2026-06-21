@@ -59,12 +59,16 @@ const AudioCtx = createContext<AudioContextValue>({
 });
 
 export function AudioProvider({ children }: { children: React.ReactNode }) {
-  const [muted, setMuted] = useState(() => {
-    const stored = localStorage.getItem(MUTE_KEY);
-    return stored === "true";
-  });
+  const [muted, setMuted] = useState(false);
   const bgmRef = useRef<HTMLAudioElement | null>(null);
   const sceneRef = useRef<AudioScene>("none");
+
+  useEffect(() => {
+    // Hydration-safe load: SSR/initial render defaults to unmuted, then we
+    // sync from localStorage once mounted on the client.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setMuted(localStorage.getItem(MUTE_KEY) === "true");
+  }, []);
 
   const toggleMute = useCallback(() => {
     setMuted((prev) => {
