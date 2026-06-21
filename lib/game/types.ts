@@ -13,6 +13,8 @@ export interface WordCard {
   word: string;
   category: CategoryKey;
   emoji: string;
+  /** Optional photo URL for Picture mode (currently only populated for the "animals" category). */
+  image?: string;
 }
 
 export type GameMode = "picture" | "word";

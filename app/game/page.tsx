@@ -279,9 +279,17 @@ export default function GamePage() {
               // Picture card with word below for spelling exposure
               <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-sky-lt to-surface rounded-[22px] p-4">
                 <div className="flex flex-col items-center justify-center gap-2.5 text-center w-full">
-                  <div className="text-[clamp(140px,40vw,180px)] leading-none [filter:drop-shadow(0_8px_16px_oklch(20%_0_0/.15))]">
-                    {card.emoji}
-                  </div>
+                  {card.image ? (
+                    <img
+                      src={card.image}
+                      alt=""
+                      className="w-full max-h-[clamp(160px,42vw,220px)] object-cover rounded-[20px] [box-shadow:var(--sh2)]"
+                    />
+                  ) : (
+                    <div className="text-[clamp(140px,40vw,180px)] leading-none [filter:drop-shadow(0_8px_16px_oklch(20%_0_0/.15))]">
+                      {card.emoji}
+                    </div>
+                  )}
                   <div className="font-display text-[28px] font-bold leading-tight text-txt mt-3">
                     {card.word}
                   </div>

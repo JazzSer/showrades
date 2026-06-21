@@ -1,5 +1,134 @@
 import { CategoryKey, WordCard } from "@/lib/game/types";
 
+// Verified Pexels photos for the "animals" category (see docs/content-curation/animals-images.json).
+// Keyed by exact word match; categories without entries here remain emoji-only.
+const ANIMAL_IMAGES: Record<string, string> = {
+  Elephant: "https://images.pexels.com/photos/3739327/pexels-photo-3739327.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Penguin: "https://images.pexels.com/photos/5952211/pexels-photo-5952211.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Kangaroo: "https://images.pexels.com/photos/25881827/pexels-photo-25881827.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Octopus: "https://images.pexels.com/photos/3046629/pexels-photo-3046629.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Giraffe: "https://images.pexels.com/photos/168497/pexels-photo-168497.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Monkey: "https://images.pexels.com/photos/28849376/pexels-photo-28849376.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Crocodile: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2nV2HCmaqGuPyZJpO1fsu55eeBCnW7w-OzmE6MBy1RQ&s=10?auto=compress&cs=tinysrgb&w=800",
+  Butterfly: "https://images.pexels.com/photos/10959293/pexels-photo-10959293.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Dolphin: "https://images.pexels.com/photos/35797193/pexels-photo-35797193.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Tiger: "https://images.pexels.com/photos/27000621/pexels-photo-27000621.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Rabbit: "https://images.pexels.com/photos/2576780/pexels-photo-2576780.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Snake: "https://images.pexels.com/photos/5169383/pexels-photo-5169383.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Owl: "https://images.pexels.com/photos/1526404/pexels-photo-1526404.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Frog: "https://images.pexels.com/photos/9105295/pexels-photo-9105295.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Horse: "https://images.pexels.com/photos/635499/pexels-photo-635499.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Gorilla: "https://images.pexels.com/photos/913652/pexels-photo-913652.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Bear: "https://images.pexels.com/photos/530797/pexels-photo-530797.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Chicken: "https://images.pexels.com/photos/18749480/pexels-photo-18749480.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Dog: "https://images.pexels.com/photos/1458926/pexels-photo-1458926.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Cat: "https://images.pexels.com/photos/5263844/pexels-photo-5263844.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Duck: "https://images.pexels.com/photos/27565478/pexels-photo-27565478.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Cow: "https://images.pexels.com/photos/27896629/pexels-photo-27896629.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Goat: "https://images.pexels.com/photos/33300005/pexels-photo-33300005.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Clownfish: "https://images.pexels.com/photos/19613773/pexels-photo-19613773.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Wolf: "https://images.pexels.com/photos/30004291/pexels-photo-30004291.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Pig: "https://images.pexels.com/photos/37073013/pexels-photo-37073013.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Lion: "https://images.pexels.com/photos/32196370/pexels-photo-32196370.jpeg?auto=compress&cs=tinysrgb&w=800"
+
+};
+
+// Verified Pexels photos for the "food" category (see docs/content-curation/food-images.json).
+const FOOD_IMAGES: Record<string, string> = {
+  Pizza: "https://images.pexels.com/photos/2619970/pexels-photo-2619970.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Hamburger: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Spaghetti: "https://images.pexels.com/photos/17499766/pexels-photo-17499766.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "Ice Cream": "https://images.pexels.com/photos/1294943/pexels-photo-1294943.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Pancake: "https://images.pexels.com/photos/2280545/pexels-photo-2280545.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Taco: "https://images.pexels.com/photos/4958778/pexels-photo-4958778.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Popcorn: "https://images.pexels.com/photos/806880/pexels-photo-806880.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Sandwich: "https://images.pexels.com/photos/28681955/pexels-photo-28681955.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Donut: "https://images.pexels.com/photos/11975889/pexels-photo-11975889.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "Hot Dog": "https://images.pexels.com/photos/1239291/pexels-photo-1239291.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Sushi: "https://images.pexels.com/photos/2098085/pexels-photo-2098085.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Cupcake: "https://images.pexels.com/photos/264918/pexels-photo-264918.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "French Fries": "https://images.pexels.com/photos/4109234/pexels-photo-4109234.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Pretzel: "https://images.pexels.com/photos/8169248/pexels-photo-8169248.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Waffle: "https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Cookie: "https://images.pexels.com/photos/230325/pexels-photo-230325.jpeg?auto=compress&cs=tinysrgb&w=800",
+};
+
+// Verified Pexels photos for the "fruits" category (see docs/content-curation/fruits-images.json).
+const FRUIT_IMAGES: Record<string, string> = {
+  Pineapple: "https://images.pexels.com/photos/947879/pexels-photo-947879.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Banana: "https://images.pexels.com/photos/2872755/pexels-photo-2872755.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Watermelon: "https://images.pexels.com/photos/1313267/pexels-photo-1313267.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Strawberry: "https://images.pexels.com/photos/1207918/pexels-photo-1207918.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Grapes: "https://images.pexels.com/photos/23042/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800",
+  Cherry: "https://images.pexels.com/photos/2230738/pexels-photo-2230738.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Mango: "https://images.pexels.com/photos/918643/pexels-photo-918643.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Peach: "https://images.pexels.com/photos/1141795/pexels-photo-1141795.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Lemon: "https://images.pexels.com/photos/1414130/pexels-photo-1414130.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Coconut: "https://images.pexels.com/photos/1652299/pexels-photo-1652299.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Apple: "https://images.pexels.com/photos/102104/pexels-photo-102104.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Blueberry: "https://images.pexels.com/photos/1395958/pexels-photo-1395958.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Kiwi: "https://images.pexels.com/photos/5876005/pexels-photo-5876005.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Avocado: "https://images.pexels.com/photos/557659/pexels-photo-557659.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Orange: "https://images.pexels.com/photos/161559/background-bitter-breakfast-bright-161559.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Pear: "https://images.pexels.com/photos/11170935/pexels-photo-11170935.jpeg?auto=compress&cs=tinysrgb&w=800",
+};
+
+// Verified Pexels photos for the "jobs" category (see docs/content-curation/jobs-images.json).
+const JOB_IMAGES: Record<string, string> = {
+  Firefighter: "https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Doctor: "https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Teacher: "https://images.pexels.com/photos/8923253/pexels-photo-8923253.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Astronaut: "https://images.pexels.com/photos/2152/sky-earth-space-working.jpg?auto=compress&cs=tinysrgb&w=800",
+  Chef: "https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Pilot: "https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "Police Officer": "https://images.pexels.com/photos/8434791/pexels-photo-8434791.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Farmer: "https://images.pexels.com/photos/2284166/pexels-photo-2284166.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Dentist: "https://images.pexels.com/photos/19976560/pexels-photo-19976560.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Artist: "https://images.pexels.com/photos/8036838/pexels-photo-8036838.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Magician: "https://images.pexels.com/photos/6311589/pexels-photo-6311589.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Lifeguard: "https://images.pexels.com/photos/28965021/pexels-photo-28965021.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Singer: "https://images.pexels.com/photos/167636/pexels-photo-167636.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Mechanic: "https://images.pexels.com/photos/4480505/pexels-photo-4480505.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Scientist: "https://images.pexels.com/photos/3993212/pexels-photo-3993212.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "Construction Worker": "https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=800",
+};
+
+// Verified Pexels photos for the "veggies" category (see docs/content-curation/veggies-images.json).
+const VEGGIE_IMAGES: Record<string, string> = {
+  Carrot: "https://images.pexels.com/photos/143133/pexels-photo-143133.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Broccoli: "https://images.pexels.com/photos/47347/broccoli-vegetable-food-healthy-47347.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Potato: "https://images.pexels.com/photos/144248/potatoes-vegetables-erdfrucht-bio-144248.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Corn: "https://images.pexels.com/photos/16732706/pexels-photo-16732706.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Pumpkin: "https://images.pexels.com/photos/18967728/pexels-photo-18967728.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Mushroom: "https://images.pexels.com/photos/1643394/pexels-photo-1643394.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Tomato: "https://images.pexels.com/photos/533280/pexels-photo-533280.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Pea: "https://images.pexels.com/photos/255469/pexels-photo-255469.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Cucumber: "https://images.pexels.com/photos/2329440/pexels-photo-2329440.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Lettuce: "https://images.pexels.com/photos/1352247/pexels-photo-1352247.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Garlic: "https://images.pexels.com/photos/928251/pexels-photo-928251.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Eggplant: "https://images.pexels.com/photos/321551/pexels-photo-321551.jpeg?auto=compress&cs=tinysrgb&w=800",
+};
+
+// Verified Pexels photos for the "sports" category (see docs/content-curation/sports-images.json).
+const SPORT_IMAGES: Record<string, string> = {
+  Soccer: "https://images.pexels.com/photos/33618632/pexels-photo-33618632.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Basketball: "https://images.pexels.com/photos/8337502/pexels-photo-8337502.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Swimming: "https://images.pexels.com/photos/12932198/pexels-photo-12932198.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Tennis: "https://images.pexels.com/photos/8224452/pexels-photo-8224452.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Boxing: "https://images.pexels.com/photos/4761658/pexels-photo-4761658.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Skiing: "https://images.pexels.com/photos/5923340/pexels-photo-5923340.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Surfing: "https://images.pexels.com/photos/1654498/pexels-photo-1654498.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Bowling: "https://images.pexels.com/photos/7429509/pexels-photo-7429509.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Golf: "https://images.pexels.com/photos/6256827/pexels-photo-6256827.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Karate: "https://images.pexels.com/photos/15937433/pexels-photo-15937433.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Cycling: "https://images.pexels.com/photos/4715615/pexels-photo-4715615.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Baseball: "https://images.pexels.com/photos/24703297/pexels-photo-24703297.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Volleyball: "https://images.pexels.com/photos/6180393/pexels-photo-6180393.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Skateboarding: "https://images.pexels.com/photos/19008032/pexels-photo-19008032.jpeg?auto=compress&cs=tinysrgb&w=800",
+  Archery: "https://images.pexels.com/photos/6655566/pexels-photo-6655566.jpeg?auto=compress&cs=tinysrgb&w=800",
+  "Ice Skating": "https://images.pexels.com/photos/6468935/pexels-photo-6468935.jpeg?auto=compress&cs=tinysrgb&w=800",
+};
+
 const WORDS: Record<CategoryKey, [string, string][]> = {
   animals: [
     ["Elephant", "🐘"],
@@ -112,8 +241,20 @@ const WORDS: Record<CategoryKey, [string, string][]> = {
   ],
 };
 
+const IMAGE_MAPS: Partial<Record<CategoryKey, Record<string, string>>> = {
+  animals: ANIMAL_IMAGES,
+  food: FOOD_IMAGES,
+  fruits: FRUIT_IMAGES,
+  jobs: JOB_IMAGES,
+  veggies: VEGGIE_IMAGES,
+  sports: SPORT_IMAGES,
+};
+
 export const WORD_CARDS: WordCard[] = (Object.keys(WORDS) as CategoryKey[]).flatMap((category) =>
-  WORDS[category].map(([word, emoji]) => ({ word, category, emoji }))
+  WORDS[category].map(([word, emoji]) => {
+    const image = IMAGE_MAPS[category]?.[word];
+    return image ? { word, category, emoji, image } : { word, category, emoji };
+  })
 );
 
 export function getCardsForCategories(categories: CategoryKey[]): WordCard[] {
