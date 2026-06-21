@@ -23,11 +23,11 @@ export type SfxName =
 export type AudioScene = "menu" | "game" | "none";
 
 const SFX_FILES: Record<SfxName, string> = {
-  correct:  `${BASE}/sounds/game/mixkit-positive-notification-951.wav`,
-  pass:     `${BASE}/sounds/game/mixkit-wrong-answer-fail-notification-946.wav`,
-  timeup:   `${BASE}/sounds/game/mixkit-negative-answer-lose-2032.wav`,
-  tick:     `${BASE}/sounds/game/mixkit-simple-game-countdown-921.wav`,
-  roundend: `${BASE}/sounds/game/mixkit-simple-countdown-922.wav`,
+  correct:  `${BASE}/sounds/game/correct.wav`,
+  pass:     `${BASE}/sounds/game/wrong.wav`,
+  timeup:   `${BASE}/sounds/game/timer-tick-2.wav`, // TODO: source proper time-up sound
+  tick:     `${BASE}/sounds/game/timer-tick.wav`,
+  roundend: `${BASE}/sounds/game/wrong.wav`, // TODO: source proper round-end/winner sound
   cardflip: `${BASE}/sounds/ui/card-flip.wav`,
   click:    `${BASE}/sounds/ui/click.wav`,
 };
