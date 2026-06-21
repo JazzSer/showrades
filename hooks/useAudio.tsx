@@ -59,16 +59,12 @@ const AudioCtx = createContext<AudioContextValue>({
 });
 
 export function AudioProvider({ children }: { children: React.ReactNode }) {
-  const [muted, setMuted] = useState(false);
+  const [muted, setMuted] = useState(() => {
+    const stored = localStorage.getItem(MUTE_KEY);
+    return stored === "true";
+  });
   const bgmRef = useRef<HTMLAudioElement | null>(null);
   const sceneRef = useRef<AudioScene>("none");
-
-  // Hydrate mute state from localStorage after mount
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => {
-    const stored = localStorage.getItem(MUTE_KEY);
-    if (stored === "true") setMuted(true);
-  }, []);
 
   const toggleMute = useCallback(() => {
     setMuted((prev) => {

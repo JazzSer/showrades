@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useGame } from "@/hooks/useGameState";
 import { useCountdown } from "@/hooks/useCountdown";
@@ -280,11 +281,14 @@ export default function GamePage() {
               <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-sky-lt to-surface rounded-[22px] p-4">
                 <div className="flex flex-col items-center justify-center gap-2.5 text-center w-full">
                   {card.image ? (
-                    <img
-                      src={card.image}
-                      alt=""
-                      className="w-full max-h-[clamp(160px,42vw,220px)] object-cover rounded-[20px] [box-shadow:var(--sh2)]"
-                    />
+                    <div className="w-full max-h-[clamp(160px,42vw,220px)] relative rounded-[20px] overflow-hidden [box-shadow:var(--sh2)]">
+                      <Image
+                        src={card.image}
+                        alt=""
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                   ) : (
                     <div className="text-[clamp(140px,40vw,180px)] leading-none [filter:drop-shadow(0_8px_16px_oklch(20%_0_0/.15))]">
                       {card.emoji}
