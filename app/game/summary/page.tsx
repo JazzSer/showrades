@@ -3,36 +3,34 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useGame } from "@/hooks/useGameState";
+import { useAudio } from "@/hooks/useAudio";
 import { Button } from "@/components/ui";
 import { MimoMascot } from "@/components/brand/MimoMascot";
-
-const AVATAR_BG: Record<string, string> = {
-  sun: "bg-sun-lt",
-  mint: "bg-mint-lt",
-  sky: "bg-sky-lt",
-  coral: "bg-coral-lt",
-  plum: "bg-plum-lt",
-};
+import { cx, AVATAR_BG } from "@/lib/styles";
 
 export default function SummaryPage() {
   const router = useRouter();
   const { state, nextRound, endGameEarly } = useGame();
+  const { playSfx } = useAudio();
 
   useEffect(() => {
     if (state.screen !== "roundend") router.replace("/game");
   }, [state.screen, router]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  useEffect(() => { playSfx("roundend"); }, []);
+
   if (state.screen !== "roundend") return null;
 
-  const sorted = [...state.teams].sort((a, b) => b.score - a.score);
-  const leader = sorted[0];
-  const tie = sorted.length > 1 && sorted[1].score === leader.score;
+  const sorted   = [...state.teams].sort((a, b) => b.score - a.score);
+  const leader   = sorted[0];
+  const tie      = sorted.length > 1 && sorted[1].score === leader.score;
   const { goalMode, winTarget } = state.settings;
   const cardsRemaining = Math.max(0, state.deck.length - state.deckIndex);
 
   return (
     <div
-      className="min-h-dvh flex flex-col"
+      className={cx.pageRoot}
       style={{
         background: "var(--mint-lt)",
         backgroundImage:
@@ -40,7 +38,7 @@ export default function SummaryPage() {
         backgroundSize: "26px 26px",
       }}
     >
-      <main className="flex-1 w-full max-w-md mx-auto flex flex-col items-center text-center px-6 py-8">
+      <main className={cx.pageMainCentered}>
         <p className="text-[12px] font-extrabold tracking-[.08em] uppercase text-mint-dk mt-2">
           Round {state.round} complete
         </p>
@@ -50,30 +48,28 @@ export default function SummaryPage() {
         <div className="my-1">
           <MimoMascot state="excited" size={108} className="animate-bounce-spring" />
         </div>
+
+        {/* ── Leaderboard ── */}
         <div className="w-full flex flex-col gap-2.5 mt-1.5">
           {sorted.map((team, i) => (
             <div
               key={team.id}
               className={
-                "flex items-center gap-3 bg-surface rounded-[22px] px-4 py-3 border-2 text-left " +
-                (team.id === leader.id
-                  ? "border-mint [box-shadow:var(--sh2),0_0_0_3px_var(--mint-lt)]"
-                  : "border-[var(--border)] [box-shadow:var(--sh1)]")
+                `${cx.scoreRowBase} ` +
+                (team.id === leader.id ? cx.scoreRowLeader : cx.scoreRowOther)
               }
             >
-              <span className="font-display text-[17px] font-bold text-txt3 w-4 shrink-0">
+              <span className="w-4 shrink-0 font-display text-[17px] font-bold text-txt3">
                 {i + 1}
               </span>
-              <div
-                className={`w-11 h-11 rounded-full flex items-center justify-center text-[21px] shrink-0 ${AVATAR_BG[team.color]}`}
-              >
+              <div className={`w-11 h-11 rounded-full flex items-center justify-center text-[21px] shrink-0 ${AVATAR_BG[team.color]}`}>
                 {team.emoji}
               </div>
               <div className="flex-1 min-w-0">
                 <div className="font-display text-[17px] font-semibold text-txt truncate">
                   {team.name}
                 </div>
-                <div className="text-[11px] text-txt3 font-bold mt-0.5">
+                <div className="text-[11px] font-bold text-txt3 mt-0.5">
                   {team.roundGain > 0 ? `+${team.roundGain} this round` : "—"}
                 </div>
               </div>
@@ -84,12 +80,11 @@ export default function SummaryPage() {
           ))}
         </div>
 
+        {/* ── Progress hint ── */}
         <p className="text-[13px] font-bold text-txt3 mt-3.5">
           {goalMode === "points" ? (
             tie ? (
-              <>
-                First to <b className="text-txt2">{winTarget} pts</b> wins
-              </>
+              <>First to <b className="text-txt2">{winTarget} pts</b> wins</>
             ) : (
               <>
                 First to <b className="text-txt2">{winTarget} pts</b> ·{" "}
@@ -105,6 +100,7 @@ export default function SummaryPage() {
           )}
         </p>
 
+        {/* ── Actions ── */}
         <div className="w-full flex flex-col gap-3 mt-auto pt-6">
           <Button
             variant="sky"

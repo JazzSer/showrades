@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Showrades · Set Up</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="showrades.css">
+<style>
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 26px 0 4px;
+  }
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1.5px;
+    background: var(--border);
+    border-radius: 99px;
+  }
+  .section-divider-label {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+    color: var(--txt3);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+<div class="screen setup" data-screen-label="Set Up">
+  <div class="safetop"></div>
+  <div class="topbar" style="padding:6px clamp(16px,5vw,24px) 8px">
+    <a class="iconbtn" href="01-home.html" title="Back" aria-label="Back">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <div class="scr-title">Set Up</div>
+    <div class="spacer44"></div>
+  </div>
+
+  <div class="scr-body" style="padding-top:2px">
+
+    <!-- ── GAME MODE ── -->
+    <p class="field-lab" style="margin-top:6px">Game Mode</p>
+    <div class="mode-grid">
+      <div class="modecard on" data-mode><span class="tick">✓</span><span class="emo">🖼️</span><span class="mn">Picture</span><span class="ma">Under 7</span></div>
+      <div class="modecard" data-mode><span class="tick">✓</span><span class="emo">🔤</span><span class="mn">Word</span><span class="ma">8 &amp; up</span></div>
+    </div>
+
+    <!-- ── TEAMS ── -->
+    <p class="field-lab">Teams <span class="opt">· 2–5</span></p>
+    <div class="team-input">
+      <div class="av" style="background:var(--sun-lt)">🦁</div>
+      <div style="flex:1"><div class="tlab">Team A</div><input class="tval" value="The Lions" readonly></div>
+      <button class="edit" aria-label="Edit team A"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="team-input">
+      <div class="av" style="background:var(--sky-lt)">🐬</div>
+      <div style="flex:1"><div class="tlab">Team B</div><input class="tval" value="The Dolphins" readonly></div>
+      <button class="edit" aria-label="Edit team B"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <button class="addteam">+ Add a team</button>
+
+    <!-- ── TURN STYLE ── -->
+    <p class="field-lab">Turn Style</p>
+    <div class="seg" data-seg="turn">
+      <button class="on s-sun">By round</button>
+      <button>By card</button>
+    </div>
+
+    <!-- ── WIN GOAL ── -->
+    <p class="field-lab">Win Goal</p>
+    <div class="seg" data-seg="goal">
+      <button class="on s-sun" data-goal="points">Points target</button>
+      <button data-goal="endless">Endless</button>
+    </div>
+
+    <div data-panel="points">
+      <p class="field-lab">First team to reach</p>
+      <div class="stepper">
+        <button class="sbtn" data-step="-1" aria-label="Fewer points">−</button>
+        <div class="sval">
+          <span class="num" data-target>15</span>
+          <span class="unit">correct to win</span>
+        </div>
+        <button class="sbtn" data-step="1" aria-label="More points">+</button>
+      </div>
+      <div class="preset-row">
+        <button class="chip" data-preset="10">10</button>
+        <button class="chip on" data-preset="15">15</button>
+        <button class="chip" data-preset="20">20</button>
+        <button class="chip" data-preset="25">25</button>
+      </div>
+      <div class="note">
+        <span class="ni"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg></span>
+        <span>About <b>20–30 min</b> for 15 points. The game ends the moment a team hits the target.</span>
+      </div>
+    </div>
+
+    <div data-panel="endless" class="hide">
+      <div class="endless-card">
+        <div class="ec-emo">♾️</div>
+        <div class="ec-t">Play the whole deck</div>
+        <div class="ec-d">No target — keep going until every card in your chosen categories has been played. Highest score wins.</div>
+      </div>
+      <div class="note">
+        <span class="ni"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01" stroke-linecap="round"/></svg></span>
+        <span>Stop sooner with <b>End game</b> any time during play — current scores decide the winner.</span>
+      </div>
+    </div>
+
+    <!-- ── SECTION DIVIDER ── -->
+    <div class="section-divider">
+      <span class="section-divider-label">Categories</span>
+    </div>
+
+    <!-- ── CATEGORIES ── -->
+    <div class="cat-grid" style="margin-top:4px">
+      <div class="catcard on-mint"  data-cat data-cards="8"  data-color="mint" ><span class="tick">✓</span><span class="emo">🐾</span><span class="cn">Animals</span> <span class="cc">8 cards</span></div>
+      <div class="catcard on-sun"   data-cat data-cards="7"  data-color="sun"  ><span class="tick">✓</span><span class="emo">🍎</span><span class="cn">Food</span>    <span class="cc">7 cards</span></div>
+      <div class="catcard on-coral" data-cat data-cards="6"  data-color="coral"><span class="tick">✓</span><span class="emo">🚗</span><span class="cn">Vehicles</span><span class="cc">6 cards</span></div>
+      <div class="catcard on-plum"  data-cat data-cards="6"  data-color="plum" ><span class="tick">✓</span><span class="emo">🪑</span><span class="cn">Objects</span> <span class="cc">6 cards</span></div>
+      <div class="catcard"          data-cat data-cards="5"  data-color="sky"  ><span class="tick">✓</span><span class="emo">🌳</span><span class="cn">Nature</span>  <span class="cc">5 cards</span></div>
+      <div class="catcard"          data-cat data-cards="7"  data-color="mint" ><span class="tick">✓</span><span class="emo">⚽</span><span class="cn">Sports</span>  <span class="cc">7 cards</span></div>
+    </div>
+
+    <div class="cardcount">
+      <span><b data-catcount>4</b> categories selected</span>
+      <span><b data-deck>27</b> cards in deck</span>
+    </div>
+
+    <!-- ── ROUND TIMER ── -->
+    <p class="field-lab">Round Timer <span class="opt">· optional</span></p>
+    <div class="seg" data-seg="timer">
+      <button>Off</button>
+      <button class="on s-sun">30s</button>
+      <button>60s</button>
+      <button>90s</button>
+    </div>
+
+    <!-- breathing room above sticky footer -->
+    <div style="height:16px"></div>
+
+  </div><!-- /.scr-body -->
+
+  <div class="scr-foot">
+    <a class="btn btn-sun btn-lg" href="04-handoff.html">Start Round →</a>
+  </div>
+</div>
+
+<script>
+  const $ = (s, r=document) => r.querySelector(s);
+  const $$ = (s, r=document) => [...r.querySelectorAll(s)];
+
+  // segmented controls
+  $$('.seg').forEach(seg => {
+    seg.addEventListener('click', e => {
+      const btn = e.target.closest('button'); if (!btn) return;
+      seg.querySelectorAll('button').forEach(b => b.classList.remove('on','s-sun'));
+      btn.classList.add('on','s-sun');
+      if (seg.dataset.seg === 'goal') {
+        const endless = btn.dataset.goal === 'endless';
+        $('[data-panel="points"]').classList.toggle('hide', endless);
+        $('[data-panel="endless"]').classList.toggle('hide', !endless);
+      }
+    });
+  });
+
+  // mode cards (single-select)
+  $$('[data-mode]').forEach(card => card.addEventListener('click', () => {
+    $$('[data-mode]').forEach(c => c.classList.remove('on'));
+    card.classList.add('on');
+  }));
+
+  // win-goal stepper + presets
+  const targetEl = $('[data-target]');
+  const setTarget = n => {
+    n = Math.max(5, Math.min(50, n));
+    targetEl.textContent = n;
+    $$('.chip').forEach(c => c.classList.toggle('on', +c.dataset.preset === n));
+  };
+  $$('[data-step]').forEach(b => b.addEventListener('click', () => setTarget(+targetEl.textContent + +b.dataset.step)));
+  $$('.chip').forEach(c => c.addEventListener('click', () => setTarget(+c.dataset.preset)));
+
+  // categories toggle + recount
+  const colorMap = {mint:'on-mint', sun:'on-sun', coral:'on-coral', plum:'on-plum', sky:'on-sky'};
+  function recount() {
+    const on = $$('[data-cat]').filter(c => /on-/.test(c.className));
+    $('[data-catcount]').textContent = on.length;
+    $('[data-deck]').textContent = on.reduce((s, c) => s + (+c.dataset.cards), 0);
+  }
+  $$('[data-cat]').forEach(card => card.addEventListener('click', () => {
+    card.classList.toggle(colorMap[card.dataset.color]);
+    recount();
+  }));
+</script>
+</body>
+</html>

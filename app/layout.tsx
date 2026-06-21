@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Fredoka, Nunito } from "next/font/google";
 import { GameProvider } from "@/hooks/useGameState";
+import { AudioProviderWrapper } from "@/components/AudioProviderWrapper";
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
   title: "Showrades — Charades for the whole family",
   description:
     "The free, open-source web app that brings generations together for game night. Picture mode for kids, word mode for everyone.",
+  manifest: "/showrades/manifest.json",
 };
 
 export const viewport: Viewport = {
@@ -33,7 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fredoka.variable} ${nunito.variable}`}>
       <body className="min-h-dvh flex flex-col antialiased">
-        <GameProvider>{children}</GameProvider>
+        <AudioProviderWrapper>
+          <GameProvider>{children}</GameProvider>
+        </AudioProviderWrapper>
       </body>
     </html>
   );

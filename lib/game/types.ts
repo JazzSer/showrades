@@ -15,11 +15,11 @@ export interface WordCard {
   emoji: string;
 }
 
-export type GameMode = "word" | "picture";
+export type GameMode = "picture" | "word";
 
-export type TurnMode = "round" | "card";
+export type TurnMode = "card" | "round";
 
-export type GoalMode = "points" | "endless";
+export type GoalMode = "endless" | "points";
 
 export interface Team {
   id: string;
