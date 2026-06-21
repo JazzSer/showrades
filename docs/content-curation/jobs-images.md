@@ -12,7 +12,7 @@ sized for a game card (w=800).
 | :--- | :--- | :--- | :--- |
 | Firefighter | https://images.pexels.com/photos/672532/pexels-photo-672532.jpeg?auto=compress&cs=tinysrgb&w=800 | https://www.pexels.com/photo/firefighters-in-action-672532/ | Pexels License |
 | Doctor | https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=800 | https://www.pexels.com/photo/a-doctor-with-a-stethoscope-4173251/ | Pexels License |
-| Teacher | https://images.pexels.com/photos/8466776/pexels-photo-8466776.jpeg?auto=compress&cs=tinysrgb&w=800 | https://www.pexels.com/photo/a-teacher-helping-a-student-8466776/ | Pexels License |
+| Teacher | https://images.pexels.com/photos/8923253/pexels-photo-8923253.jpeg?auto=compress&cs=tinysrgb&w=800 | https://www.pexels.com/photo/8923253/ | Pexels License ⭐ updated |
 | Astronaut | https://images.pexels.com/photos/2152/sky-earth-space-working.jpg?auto=compress&cs=tinysrgb&w=800 | https://www.pexels.com/photo/astronaut-on-spaceship-2152/ | Pexels License |
 | Chef | https://images.pexels.com/photos/887827/pexels-photo-887827.jpeg?auto=compress&cs=tinysrgb&w=800 | https://www.pexels.com/photo/man-wearing-white-chef-uniform-887827/ | Pexels License |
 | Pilot | https://images.pexels.com/photos/2026324/pexels-photo-2026324.jpeg?auto=compress&cs=tinysrgb&w=800 | https://www.pexels.com/photo/pilot-in-cockpit-2026324/ | Pexels License |

@@ -128,7 +128,7 @@ export default function GamePage() {
       <div
         className={cx.pageRoot}
         style={{
-          background: PASS_BG[team.color].bg,
+          backgroundColor: PASS_BG[team.color].bg,
           backgroundImage: `radial-gradient(circle, ${PASS_BG[team.color].dot} 1.6px, transparent 1.6px)`,
           backgroundSize: "26px 26px",
         }}
@@ -276,8 +276,7 @@ export default function GamePage() {
             </div>
           ) : card ? (
             isPic ? (
-              // Picture card — word text is intentionally omitted here;
-              // it lives behind the Secret Clue tap-to-reveal below.
+              // Picture card with word below for spelling exposure
               <div className="w-full h-full min-h-[220px] flex items-center justify-center bg-gradient-to-br from-sky-lt to-surface rounded-[22px] p-4">
                 <div className="flex flex-col items-center justify-center gap-2.5 text-center w-full">
                   {card.image ? (
@@ -291,6 +290,9 @@ export default function GamePage() {
                       {card.emoji}
                     </div>
                   )}
+                  <div className="font-display text-[28px] font-bold leading-tight text-txt mt-3">
+                    {card.word}
+                  </div>
                 </div>
               </div>
             ) : (

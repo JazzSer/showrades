@@ -1,11 +1,11 @@
 {
   "category": "animals",
-  "generatedAt": "2026-06-14T00:00:00Z",
+  "generatedAt": "2026-06-21T00:00:00Z",
   "items": [
     {
       "word": "Elephant",
-      "imageUrl": "https://images.pexels.com/photos/247431/pexels-photo-247431.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/view-of-elephant-in-water-247431/",
+      "imageUrl": "https://images.pexels.com/photos/3739327/pexels-photo-3739327.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/3739327/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -44,40 +44,40 @@
     },
     {
       "word": "Monkey",
-      "imageUrl": "https://images.pexels.com/photos/1670977/pexels-photo-1670977.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/short-fur-black-and-gray-primate-1670977/",
+      "imageUrl": "https://images.pexels.com/photos/28849376/pexels-photo-28849376.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/28849376/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
     },
     {
       "word": "Crocodile",
-      "imageUrl": "https://images.pexels.com/photos/5642192/pexels-photo-5642192.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/crocodile-looking-out-from-calm-water-5642192/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": "Sami Anas"
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2nV2HCmaqGuPyZJpO1fsu55eeBCnW7w-OzmE6MBy1RQ&s=10?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.google.com/search?q=crocodile",
+      "source": "Google Images (⚠️ NOT IDEAL - needs Pexels replacement)",
+      "license": "Unknown - needs verification",
+      "attribution": null
     },
     {
       "word": "Butterfly",
-      "imageUrl": "https://images.pexels.com/photos/2569145/pexels-photo-2569145.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/close-up-photo-of-butterfly-2569145/",
+      "imageUrl": "https://images.pexels.com/photos/10959293/pexels-photo-10959293.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/10959293/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
     },
     {
       "word": "Dolphin",
-      "imageUrl": "https://images.pexels.com/photos/7359034/pexels-photo-7359034.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/a-dolphin-in-the-sea-7359034/",
+      "imageUrl": "https://images.pexels.com/photos/35797193/pexels-photo-35797193.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/35797193/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
     },
     {
       "word": "Tiger",
-      "imageUrl": "https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/tiger-lying-on-ground-792381/",
+      "imageUrl": "https://images.pexels.com/photos/27000621/pexels-photo-27000621.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/27000621/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -92,8 +92,8 @@
     },
     {
       "word": "Snake",
-      "imageUrl": "https://images.pexels.com/photos/9560352/pexels-photo-9560352.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/close-up-shot-of-a-snake-9560352/",
+      "imageUrl": "https://images.pexels.com/photos/5169383/pexels-photo-5169383.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/5169383/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -108,8 +108,8 @@
     },
     {
       "word": "Frog",
-      "imageUrl": "https://images.pexels.com/photos/4190864/pexels-photo-4190864.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/frog-floating-on-transparent-pond-water-4190864/",
+      "imageUrl": "https://images.pexels.com/photos/9105295/pexels-photo-9105295.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/9105295/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -140,8 +140,80 @@
     },
     {
       "word": "Chicken",
-      "imageUrl": "https://images.pexels.com/photos/19062539/pexels-photo-19062539.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/close-up-of-a-derbyshire-redcap-chicken-19062539/",
+      "imageUrl": "https://images.pexels.com/photos/18749480/pexels-photo-18749480.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/close-up-of-a-derbyshire-redcap-chicken-18749480/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Dog",
+      "imageUrl": "https://images.pexels.com/photos/1458926/pexels-photo-1458926.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/1458926/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Cat",
+      "imageUrl": "https://images.pexels.com/photos/5263844/pexels-photo-5263844.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/5263844/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Duck",
+      "imageUrl": "https://images.pexels.com/photos/27565478/pexels-photo-27565478.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/27565478/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Cow",
+      "imageUrl": "https://images.pexels.com/photos/27896629/pexels-photo-27896629.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/27896629/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Goat",
+      "imageUrl": "https://images.pexels.com/photos/33300005/pexels-photo-33300005.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/33300005/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Clownfish",
+      "imageUrl": "https://images.pexels.com/photos/19613773/pexels-photo-19613773.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/19613773/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Wolf",
+      "imageUrl": "https://images.pexels.com/photos/30004291/pexels-photo-30004291.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/30004291/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Pig",
+      "imageUrl": "https://images.pexels.com/photos/37073013/pexels-photo-37073013.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/37073013/",
+      "source": "Pexels",
+      "license": "Pexels License (free to use, no attribution required)",
+      "attribution": null
+    },
+    {
+      "word": "Lion",
+      "imageUrl": "https://images.pexels.com/photos/32196370/pexels-photo-32196370.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/32196370/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null

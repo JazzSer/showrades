@@ -1,6 +1,6 @@
 {
   "category": "veggies",
-  "generatedAt": "2026-06-14T00:00:00Z",
+  "generatedAt": "2026-06-21T00:00:00Z",
   "items": [
     {
       "word": "Carrot",
@@ -28,8 +28,8 @@
     },
     {
       "word": "Corn",
-      "imageUrl": "https://images.pexels.com/photos/2252584/pexels-photo-2252584.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/yellow-corn-on-brown-wooden-surface-2252584/",
+      "imageUrl": "https://images.pexels.com/photos/16732706/pexels-photo-16732706.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "sourcePage": "https://www.pexels.com/photo/16732706/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -46,22 +46,6 @@
       "word": "Mushroom",
       "imageUrl": "https://images.pexels.com/photos/1643394/pexels-photo-1643394.jpeg?auto=compress&cs=tinysrgb&w=800",
       "sourcePage": "https://www.pexels.com/photo/macro-photo-of-mushroom-1643394/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Onion",
-      "imageUrl": "https://images.pexels.com/photos/175415/pexels-photo-175415.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/onion-vegetable-food-healthy-175415/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Pepper",
-      "imageUrl": "https://images.pexels.com/photos/128536/pexels-photo-128536.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/three-assorted-color-bell-peppers-128536/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
@@ -110,14 +94,6 @@
       "word": "Eggplant",
       "imageUrl": "https://images.pexels.com/photos/321551/pexels-photo-321551.jpeg?auto=compress&cs=tinysrgb&w=800",
       "sourcePage": "https://www.pexels.com/photo/eggplants-on-display-321551/",
-      "source": "Pexels",
-      "license": "Pexels License (free to use, no attribution required)",
-      "attribution": null
-    },
-    {
-      "word": "Sweet Potato",
-      "imageUrl": "https://images.pexels.com/photos/2294471/pexels-photo-2294471.jpeg?auto=compress&cs=tinysrgb&w=800",
-      "sourcePage": "https://www.pexels.com/photo/sweet-potatoes-on-brown-wooden-surface-2294471/",
       "source": "Pexels",
       "license": "Pexels License (free to use, no attribution required)",
       "attribution": null
