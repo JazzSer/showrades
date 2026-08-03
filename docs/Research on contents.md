@@ -1,6 +1,6 @@
 # **Conceptual Architecture and Educational Database for the Showrades Mobile Platform**
 
-> **Status note (2026-06-12):** This is research/reference material, not a locked spec. The launch build uses a locked 6-category set (Animals, Food, Fruits, Jobs, Veggies, Sports — see `2. Backlog & Status.md`). The 8-category database and "Secret Clue" / "Educational Twist" concepts below are the basis for the **sneaky-educational expansion direction** described in `1. Vision & Goals.md` §5 — to be added **on top of** the current 6 categories, not as a replacement. Treat the per-item content below as worked examples to refine from, not final copy.
+> **Status note (2026-08-03):** This is research/reference material, not a locked spec. The launch build uses a locked 4-category set (Animals, Food, Jobs, Sports — see `2. Backlog & Status.md`; Fruits and Veggies were merged into Food on 2026-08-03). The 8-category database and "Secret Clue" / "Educational Twist" concepts below are the basis for the **sneaky-educational expansion direction** described in `1. Vision & Goals.md` §5 — to be added **on top of** the current 4 categories, not as a replacement. Treat the per-item content below as worked examples to refine from, not final copy.
 
 ## **Developmental Milestones and Kinesthetic Learning Foundations**
 
