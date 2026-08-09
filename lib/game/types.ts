@@ -1,4 +1,4 @@
-export type CategoryKey = "animals" | "food" | "jobs" | "sports";
+export type CategoryKey = "animals" | "food" | "jobs" | "sports" | "vehicles" | "everyday" | "nature";
 
 export type CategoryColor = "sun" | "mint" | "sky" | "coral" | "plum";
 

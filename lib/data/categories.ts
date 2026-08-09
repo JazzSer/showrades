@@ -5,4 +5,7 @@ export const CATEGORIES: Record<CategoryKey, Category> = {
   food: { key: "food", name: "Food", emoji: "🍎", color: "sun" },
   jobs: { key: "jobs", name: "Jobs", emoji: "🧑‍⚕️", color: "sky" },
   sports: { key: "sports", name: "Sports", emoji: "⚽", color: "coral" },
+  vehicles: { key: "vehicles", name: "Vehicles", emoji: "🚗", color: "plum" },
+  everyday: { key: "everyday", name: "Everyday Stuff", emoji: "🎒", color: "sky" },
+  nature: { key: "nature", name: "Nature", emoji: "🌳", color: "mint" },
 };
