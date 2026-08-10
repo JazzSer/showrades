@@ -48,7 +48,7 @@ function defaultState(): GameState {
       turnMode: "round",
       goalMode: "points",
       winTarget: WIN_TARGET,
-      categories: ["animals", "food", "fruits"],
+      categories: ["animals", "food"],
       roundLength: 60,
     },
     teams: [
